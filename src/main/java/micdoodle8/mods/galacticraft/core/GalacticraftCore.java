@@ -121,7 +121,6 @@ import micdoodle8.mods.galacticraft.core.util.CreativeTabGC;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.core.util.GCLog;
 import micdoodle8.mods.galacticraft.core.util.ThreadRequirementMissing;
-import micdoodle8.mods.galacticraft.core.util.ThreadVersionCheck;
 import micdoodle8.mods.galacticraft.core.util.WorldUtil;
 import micdoodle8.mods.galacticraft.core.world.ChunkLoadingCallback;
 import micdoodle8.mods.galacticraft.core.world.gen.BiomeGenBaseMoon;
@@ -546,7 +545,6 @@ public class GalacticraftCore
             ThreadRequirementMissing.beginCheck(FMLCommonHandler.instance().getEffectiveSide());
         }
 
-        ThreadVersionCheck.startCheck();
         TickHandlerServer.restart();
         BlockVec3.chunkCacheDim = Integer.MAX_VALUE;       
     }

@@ -26,19 +26,24 @@ apply plugin: 'idea'
 
 sourceSets.main {
     java {
-        srcDirs = ['src/main/java', 'dependencies/main/java']
+        srcDirs = ['src/main/java']
     }
     resources {
-        srcDirs = ['src/main/resources', 'dependencies/main/resources']
+        srcDirs = ['src/main/resources']
     }
 }
-	
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
 version = "${mcVersion}-${versionMajor}.${versionMinor}.${versionRev}-GTNH" // Set the version number
 group= "micdoodle8.mods.galacticraft"
 archivesBaseName = "GalacticraftCore"
 	
 minecraft {
-    version = "1.7.10-10.13.4.1448-1.7.10" // Forge version
+    version = "1.7.10-10.13.4.1614-1.7.10" // Forge version
     runDir = "run" // This is where forge will download Minecraft assets
 }
 
@@ -110,19 +115,7 @@ dependencies {
     compileOnly "net.industrial-craft:industrialcraft-2:2.2.790-experimental:dev"
 }
 					
-// Keep a list of core files/directories for easy jar packing
-def apiFiles = ['micdoodle8/mods/galacticraft/api/**']
-					
-// Keep a list of core files/directories for easy jar packing
-ext.coreFiles = ['micdoodle8/mods/galacticraft/api/**',
-					'micdoodle8/mods/galacticraft/core/**',
-					'tconstruct/**',
-					'assets/minecraft/**',
-					'assets/galacticraftmoon/**',
-					'assets/galacticraftcore/**',
-					'**/dependenciesGC.info']
-					
-// Keep a list of planets addon files/directories for easy jar packing
+// Planets addon files/directories 
 def planetsFiles = ['micdoodle8/mods/galacticraft/planets/**',
 					'assets/galacticraftmars/**',
 					'assets/galacticraftasteroids/**']
@@ -132,10 +125,11 @@ jar {
 }
 
 task planetJar(type: Jar) {
-	from sourceSets.main.output
+    from sourceSets.main.output
 	baseName = "Galacticraft-Planets"
 	include planetsFiles
 }
+
 
 task devJar(type: Jar) {
 	from sourceSets.main.output
@@ -159,8 +153,13 @@ task apiJar(type: Jar) {
 	baseName = "Galacticraft"
     classifier = 'api'
     
-    include apiFiles
+    include ['micdoodle8/mods/galacticraft/api/**']
 }
+
+reobf {
+    reobf(planetJar { })
+}
+
 
 // Tell the artifact system about our extra jars
 artifacts {

@@ -73,7 +73,6 @@ public class TickHandlerClient
 {
     public static int airRemaining;
     public static int airRemaining2;
-    public static boolean checkedVersion = true;
     private static boolean lastInvKeyPressed;
     private static long tickCount;
     public static boolean spaceRaceGuiScheduled = false;
@@ -383,13 +382,7 @@ public class TickHandlerClient
                 player.openGui(GalacticraftCore.instance, GuiIdsCore.SPACE_RACE_START, player.worldObj, (int) player.posX, (int) player.posY, (int) player.posZ);
                 TickHandlerClient.spaceRaceGuiScheduled = false;
             }
-
-            if (world != null && TickHandlerClient.checkedVersion)
-            {
-                ThreadVersionCheck.startCheck();
-                TickHandlerClient.checkedVersion = false;
-            }
-
+            
             if (player != null && player.ridingEntity != null && player.ridingEntity instanceof EntitySpaceshipBase)
             {
                 EntitySpaceshipBase rocket = (EntitySpaceshipBase) player.ridingEntity;

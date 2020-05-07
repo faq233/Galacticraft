@@ -153,13 +153,12 @@ task apiJar(type: Jar) {
 	baseName = "Galacticraft"
     classifier = 'api'
     
-    include ['micdoodle8/mods/galacticraft/api/**']
+    include(['micdoodle8/mods/galacticraft/api/**'])
 }
 
-reobf {
-    reobf(planetJar { })
+reobf { 
+    reobf(planetJar) 
 }
-
 
 // Tell the artifact system about our extra jars
 artifacts {

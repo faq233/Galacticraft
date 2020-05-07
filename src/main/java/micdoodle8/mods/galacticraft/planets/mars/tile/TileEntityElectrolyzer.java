@@ -1,9 +1,6 @@
 package micdoodle8.mods.galacticraft.planets.mars.tile;
 
 import cpw.mods.fml.relauncher.Side;
-import mekanism.api.gas.Gas;
-import mekanism.api.gas.GasStack;
-import mekanism.api.gas.IGasHandler;
 import micdoodle8.mods.galacticraft.api.tile.IDisableableMachine;
 import micdoodle8.mods.galacticraft.api.transmission.NetworkType;
 import micdoodle8.mods.galacticraft.api.transmission.grid.IHydrogenNetwork;
@@ -422,82 +419,6 @@ public class TileEntityElectrolyzer extends TileBaseElectricBlockWithInventory i
         return this.blockMetadata & 3;
     }
 
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public int receiveGas(ForgeDirection side, GasStack stack, boolean doTransfer)
-    {
-        return 0;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public int receiveGas(ForgeDirection side, GasStack stack)
-    {
-        return 0;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public GasStack drawGas(ForgeDirection from, int amount, boolean doTransfer)
-    {
-        int metaside = this.getBlockMetadata() + 2;
-        int side = from.ordinal();
-    	if (metaside == (side ^ 1) && this.liquidTank2.getFluid() != null)
-        {
-    		int amountH = Math.min(8, this.liquidTank2.getFluidAmount());
-    		amountH = this.liquidTank2.drain(amountH, doTransfer).amount;
-    		return new GasStack((Gas) EnergyConfigHandler.gasHydrogen, amountH);
-        }
-        else if (7 - (metaside ^ (metaside > 3 ? 0 : 1)) == (side ^ 1)  && this.liquidTank.getFluid() != null)
-        {
-    		int amountO = Math.min(8, this.liquidTank.getFluidAmount());
-    		amountO = this.liquidTank.drain(amountO, doTransfer).amount;
-    		return new GasStack((Gas) EnergyConfigHandler.gasOxygen, amountO);
-        }
-        return null;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public GasStack drawGas(ForgeDirection from, int amount)
-    {
-    	return this.drawGas(from, amount, true);
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public boolean canReceiveGas(ForgeDirection side, Gas type)
-    {
-    	return false;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public boolean canDrawGas(ForgeDirection from, Gas type)
-    {
-        int metaside = this.getBlockMetadata() + 2;
-        int side = from.ordinal();
-    	if (metaside == (side ^ 1))
-        {
-    		return type.getName().equals("hydrogen");
-    	}
-        else if (7 - (metaside ^ (metaside > 3 ? 0 : 1)) == (side ^ 1))
-        {
-        	return type.getName().equals("oxygen");
-        }
-        return false;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.ITubeConnection", modID = "Mekanism")
-    public boolean canTubeConnect(ForgeDirection from)
-    {
-        int metaside = this.getBlockMetadata() + 2;
-        int side = from.ordinal();
-    	if (metaside == (side ^ 1))
-        {
-    		return true;
-    	}
-        else if (7 - (metaside ^ (metaside > 3 ? 0 : 1)) == (side ^ 1))
-        {
-        	return true;
-        }
-        return false;
-    }
-
 	@Override
 	public void setOxygenStored(float amount)
 	{
@@ -564,23 +485,6 @@ public class TileEntityElectrolyzer extends TileBaseElectricBlockWithInventory i
                     return true;
                 }
             }
-            else if (EnergyConfigHandler.isMekanismLoaded())
-            {
-                //TODO Oxygen item handling - internal tank (IGasItem)
-                //int acceptedOxygen = GasTransmission.addGas(itemStack, type, amount);
-                //this.provideOxygen(acceptedOxygen, true);
-
-                if (outputTile instanceof IGasHandler && ((IGasHandler) outputTile).canReceiveGas(outputDirection.getOpposite(), (Gas) EnergyConfigHandler.gasOxygen))
-                {
-                    GasStack toSend = new GasStack((Gas) EnergyConfigHandler.gasOxygen, (int) Math.floor(Math.min(this.getOxygenStored(), provide)));
-                    int acceptedOxygen = 0;
-                    try {
-                    	acceptedOxygen = ((IGasHandler) outputTile).receiveGas(outputDirection.getOpposite(), toSend);
-                    } catch (Exception e) { }
-                    this.provideOxygen(acceptedOxygen, true);
-                    return true;
-                }
-            }
         }
 
         return false;
@@ -617,23 +521,6 @@ public class TileEntityElectrolyzer extends TileBaseElectricBlockWithInventory i
                     float toSend = Math.min(this.getHydrogenStored(), provide);
                     float acceptedHydrogen = ((TileEntityMethaneSynthesizer) outputTile).receiveHydrogen(outputDirection.getOpposite(), toSend, true);
                     this.provideHydrogen((int) acceptedHydrogen, true);
-                    return true;
-                }
-            }
-            else if (EnergyConfigHandler.isMekanismLoaded())
-            {
-                //TODO Gas item handling - internal tank (IGasItem)
-                //int acceptedHydrogen = GasTransmission.addGas(itemStack, type, amount);
-                //this.provideHydrogen(acceptedHydrogen, true);
-
-                if (outputTile instanceof IGasHandler && ((IGasHandler) outputTile).canReceiveGas(outputDirection.getOpposite(), (Gas) EnergyConfigHandler.gasHydrogen))
-                {
-                    GasStack toSend = new GasStack((Gas) EnergyConfigHandler.gasHydrogen, (int) Math.floor(Math.min(this.getHydrogenStored(), provide)));
-                    int acceptedHydrogen = 0;
-                    try {
-                    	acceptedHydrogen = ((IGasHandler) outputTile).receiveGas(outputDirection.getOpposite(), toSend);
-                    } catch (Exception e) { }
-                    this.provideHydrogen(acceptedHydrogen, true);
                     return true;
                 }
             }

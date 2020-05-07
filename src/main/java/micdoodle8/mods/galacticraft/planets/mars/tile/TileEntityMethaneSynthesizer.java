@@ -1,8 +1,6 @@
 package micdoodle8.mods.galacticraft.planets.mars.tile;
 
 import cpw.mods.fml.relauncher.Side;
-import mekanism.api.gas.Gas;
-import mekanism.api.gas.GasStack;
 import micdoodle8.mods.galacticraft.api.prefab.world.gen.WorldProviderSpace;
 import micdoodle8.mods.galacticraft.api.tile.IDisableableMachine;
 import micdoodle8.mods.galacticraft.api.transmission.NetworkType;
@@ -474,57 +472,7 @@ public class TileEntityMethaneSynthesizer extends TileBaseElectricBlockWithInven
         return this.blockMetadata & 3;
     }
 
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public int receiveGas(ForgeDirection side, GasStack stack, boolean doTransfer)
-    {
-    	if (!stack.getGas().getName().equals("hydrogen")) return 0;  
-    	int used = 0;
-        //System.out.println("Giving gas amount "+stack.amount);
-        if (this.gasTank.getFluidAmount() < this.gasTank.getCapacity())
-        {
-            used = this.gasTank.fill(FluidRegistry.getFluidStack("hydrogen", stack.amount), doTransfer);
-        }
-        return used;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public int receiveGas(ForgeDirection side, GasStack stack)
-    {
-        return this.receiveGas(side, stack, true);
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public GasStack drawGas(ForgeDirection side, int amount, boolean doTransfer)
-    {
-        return null;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public GasStack drawGas(ForgeDirection side, int amount)
-    {
-        return null;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public boolean canReceiveGas(ForgeDirection side, Gas type)
-    {
-        //System.out.println("Testing receipt of gas "+type.getName());
-        return type.getName().equals("hydrogen") && side.equals(ForgeDirection.getOrientation(this.getBlockMetadata() + 2));
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.IGasHandler", modID = "Mekanism")
-    public boolean canDrawGas(ForgeDirection side, Gas type)
-    {
-        return false;
-    }
-
-    @RuntimeInterface(clazz = "mekanism.api.gas.ITubeConnection", modID = "Mekanism")
-    public boolean canTubeConnect(ForgeDirection side)
-    {
-        return side.equals(ForgeDirection.getOrientation(this.getBlockMetadata() + 2));
-    }
-
-    @Override
+     @Override
     public boolean canConnect(ForgeDirection direction, NetworkType type)
     {
         if (direction == null || direction.equals(ForgeDirection.UNKNOWN) || type == NetworkType.OXYGEN)

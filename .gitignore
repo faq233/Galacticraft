@@ -199,3 +199,5 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+temporary/

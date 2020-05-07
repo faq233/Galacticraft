@@ -96,7 +96,6 @@ import micdoodle8.mods.galacticraft.core.entities.player.PlayerClient;
 import micdoodle8.mods.galacticraft.core.inventory.InventoryExtended;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple;
-import micdoodle8.mods.galacticraft.core.recipe.craftguide.CraftGuideIntegration;
 import micdoodle8.mods.galacticraft.core.tick.KeyHandlerClient;
 import micdoodle8.mods.galacticraft.core.tick.TickHandlerClient;
 import micdoodle8.mods.galacticraft.core.tile.*;
@@ -272,9 +271,7 @@ public class ClientProxyCore extends CommonProxyCore
         MinecraftForge.EVENT_BUS.register(new TabRegistry());
         //ClientProxyCore.playerList = GLAllocation.generateDisplayLists(1);
         
-        if (Loader.isModLoaded("craftguide"))
-        	CraftGuideIntegration.register();
-        
+       
         try {
 			Field ftc = Minecraft.getMinecraft().getClass().getDeclaredField(VersionUtil.getNameDynamic(VersionUtil.KEY_FIELD_MUSICTICKER));
 			ftc.setAccessible(true);

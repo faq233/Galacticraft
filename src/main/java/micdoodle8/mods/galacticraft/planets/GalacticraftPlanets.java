@@ -22,7 +22,6 @@ import micdoodle8.mods.galacticraft.planets.asteroids.ConfigManagerAsteroids;
 import micdoodle8.mods.galacticraft.planets.asteroids.world.gen.BiomeGenBaseAsteroids;
 import micdoodle8.mods.galacticraft.planets.mars.ConfigManagerMars;
 import micdoodle8.mods.galacticraft.planets.mars.MarsModule;
-import micdoodle8.mods.galacticraft.planets.mars.entities.MFRSpawnHandlerSlimeling;
 import micdoodle8.mods.galacticraft.planets.mars.world.gen.BiomeGenBaseMars;
 import net.minecraft.block.Block;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -34,7 +33,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import powercrystals.minefactoryreloaded.api.FactoryRegistry;
 
 @Mod(modid = Constants.MOD_ID_PLANETS, name = GalacticraftPlanets.NAME, version = Constants.LOCALMAJVERSION + "." + Constants.LOCALMINVERSION + "." + Constants.LOCALBUILDVERSION, acceptedMinecraftVersions = "[1.7.2],[1.7.10]", useMetadata = true, dependencies = "required-after:" + Constants.MOD_ID_CORE + ";", guiFactory = "micdoodle8.mods.galacticraft.planets.ConfigGuiFactoryPlanets")
 public class GalacticraftPlanets
@@ -89,15 +87,7 @@ public class GalacticraftPlanets
     @EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        GalacticraftPlanets.proxy.postInit(event);
-        try {
-        	if (Loader.isModLoaded("MineFactoryReloaded"))
-        		FactoryRegistry.sendMessage("registerSpawnHandler", new MFRSpawnHandlerSlimeling());
-        } catch (Exception e)
-        {
-        	GCLog.severe("Error when attempting to register Slimeling auto-spawnhandler in MFR");
-        	GCLog.exception(e);
-        }
+        // Nothing here
     }
 
     @EventHandler

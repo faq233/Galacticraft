@@ -90,7 +90,7 @@ public class ShortRangeTelepadHandler extends WorldSavedData
 
     public static void addShortRangeTelepad(TileEntityShortRangeTelepad telepad)
     {
-        if (!telepad.getWorld().isRemote)
+        if (!telepad.getWorldObj().isRemote)
         {
         	if (telepad.addressValid)
             {
@@ -107,7 +107,7 @@ public class ShortRangeTelepadHandler extends WorldSavedData
 
     public static void removeShortRangeTeleporter(TileEntityShortRangeTelepad telepad)
     {
-        if (!telepad.getWorld().isRemote)
+        if (!telepad.getWorldObj().isRemote)
         {
             if (telepad.addressValid)
             {

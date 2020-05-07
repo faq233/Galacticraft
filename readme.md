@@ -1,14 +1,17 @@
-Galacticraft
-============
+Galacticraft - GTNH
+===================
 
-An advanced space exploration mod for Minecraft.
+An advanced space exploration mod for Minecraft.  Forked and maintained by the GTNH team (with permission).
+
+NOTE
+====
+
+This mod has been forked (with permission) and is being maintained by the GTNH team.  
+
+Please direct all support requests to the GTNH team at -  https://github.com/GTNewHorizons/GT-New-Horizons-Modpack
 
 Building
 =======
-
-To setup a development environment and build the mod, you must first download and extract the appropriate Minecraft Forge source archive.
-
-Next, download or clone this repo and the MicdoodleCore repo, and place them in the same folder as Forge, merging folders if asked. Make sure your copies of Forge, Galacticraft, and MicdoodleCore are all for the same Minecraft version.
 
 Run the command `gradlew setupDecompWorkspace`
 
@@ -16,11 +19,13 @@ Run the appropriate command to create the project for the Java IDE you want to u
 
 Make your changes to the code, if any.
 
-Run the command `gradlew build packCoreJar packPlanetsJar PackMicCoreJar` and fetch your built jar files from build/libs/
+Run the command `gradlew build` and fetch your built jar files from build/libs/
 
 Repeat the previous two steps as needed.
  
 License
 =======
 
-License can be found here: https://github.com/micdoodle8/Galacticraft/blob/master/LICENSE.txt
+License can be found in: LICENSE.txt & LICENSE-GTNH.txt
+
+

@@ -1,16 +1,10 @@
 package micdoodle8.mods.galacticraft.core.energy;
 
-import buildcraft.api.mj.MjAPI;
-import buildcraft.api.power.IPowerEmitter;
-import buildcraft.api.power.IPowerReceptor;
-import buildcraft.api.power.PowerHandler.PowerReceiver;
 import cofh.api.energy.IEnergyConnection;
 import cofh.api.energy.IEnergyHandler;
 import cofh.api.energy.IEnergyProvider;
 import cofh.api.energy.IEnergyReceiver;
 import ic2.api.energy.tile.*;
-import mekanism.api.energy.ICableOutputter;
-import mekanism.api.energy.IStrictEnergyAcceptor;
 import micdoodle8.mods.galacticraft.api.transmission.NetworkType;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IConductor;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IConnector;
@@ -83,27 +77,6 @@ public class EnergyUtil
                 continue;
             }
             
-            if (isMekLoaded && (tileEntity instanceof IStrictEnergyAcceptor || tileEntity instanceof ICableOutputter))
-            {
-                //Do not connect GC wires directly to Mek Universal Cables
-                try {
-                    if (clazzMekCable != null && clazzMekCable.isInstance(tileEntity))
-                    {
-                        continue;
-                    }
-                } catch (Exception e) { e.printStackTrace(); }
-
-                if (tileEntity instanceof IStrictEnergyAcceptor && ((IStrictEnergyAcceptor) tileEntity).canReceiveEnergy(direction.getOpposite()))
-                {
-                    adjacentConnections[direction.ordinal()] = tileEntity;
-                }
-                else if (tileEntity instanceof ICableOutputter && ((ICableOutputter) tileEntity).canOutputTo(direction.getOpposite()))
-                {
-                    adjacentConnections[direction.ordinal()] = tileEntity;
-                }
-                continue;
-            }
-            
             if (isBCReallyLoaded)
             {
                 //Do not connect GC wires directly to BC pipes of any type 
@@ -161,23 +134,6 @@ public class EnergyUtil
                 continue;
             }
             
-            if (isBCLoaded)
-            {
-                //Compatibility for pre-RF versions of Buildcraft: these may still be installed alongside Galacticraft, who knows?
-            	
-            	//BC6 API
-                if (isBC6Loaded && MjAPI.getMjBattery(tileEntity, MjAPI.DEFAULT_POWER_FRAMEWORK, direction.getOpposite()) != null)
-                {
-                    adjacentConnections[direction.ordinal()] = tileEntity;
-                    continue;
-                }
-
-                //Legacy BC API
-                if (tileEntity instanceof IPowerReceptor && ((IPowerReceptor) tileEntity).getPowerReceiver(direction.getOpposite()) != null)
-                {
-                    adjacentConnections[direction.ordinal()] = tileEntity;
-                }
-            }
         }
 
         return adjacentConnections;
@@ -212,20 +168,6 @@ public class EnergyUtil
             if (tileEntity instanceof IElectrical)
             {
                 if (((IElectrical) tileEntity).canConnect(sideFrom, NetworkType.POWER))
-                {
-                    acceptors.add(tileEntity);
-                    directions.add(sideFrom);
-                }
-                continue;
-            }
-            
-            if (isMekLoaded && tileEntity instanceof IStrictEnergyAcceptor)
-            {
-                if (clazzMekCable != null && clazzMekCable.isInstance(tileEntity))
-                {
-                    continue;
-                }
-                if (((IStrictEnergyAcceptor) tileEntity).canReceiveEnergy(sideFrom))
                 {
                     acceptors.add(tileEntity);
                     directions.add(sideFrom);
@@ -271,39 +213,13 @@ public class EnergyUtil
             	continue;
             }
             
-            if (isBC6Loaded && MjAPI.getMjBattery(tileEntity, MjAPI.DEFAULT_POWER_FRAMEWORK, sideFrom) != null)
-            {
-            	acceptors.add(tileEntity);
-            	directions.add(sideFrom);
-            }
-            else if (isBCLoaded && tileEntity instanceof IPowerReceptor)
-            {
-            	if (((IPowerReceptor) tileEntity).getPowerReceiver(sideFrom) != null && (!(tileEntity instanceof IPowerEmitter) || !((IPowerEmitter)tileEntity).canEmitPowerFrom(sideFrom)))
-            	{
-            		acceptors.add(tileEntity);
-            		directions.add(sideFrom);
-            	}
-            }
         }
         return;
     }
     
     public static float otherModsEnergyTransfer(TileEntity tileAdj, ForgeDirection inputAdj, float toSend, boolean simulate)
     {
-    	if (isMekLoaded && !EnergyConfigHandler.disableMekanismOutput && tileAdj instanceof IStrictEnergyAcceptor)
-        {
-            IStrictEnergyAcceptor tileMek = (IStrictEnergyAcceptor) tileAdj;
-            if (tileMek.canReceiveEnergy(inputAdj))
-            {
-            	float transferredMek;
-            	if (simulate)
-            		transferredMek = tileMek.canReceiveEnergy(inputAdj) ? (float) (tileMek.getMaxEnergy() - tileMek.getEnergy()) : 0F;
-            	else
-            		transferredMek = (float) tileMek.transferEnergyToAcceptor(inputAdj, toSend * EnergyConfigHandler.TO_MEKANISM_RATIO);
-                return transferredMek / EnergyConfigHandler.TO_MEKANISM_RATIO;
-            }
-        }
-        else if (isIC2Loaded && !EnergyConfigHandler.disableIC2Output && tileAdj instanceof IEnergySink)
+    	if (isIC2Loaded && !EnergyConfigHandler.disableIC2Output && tileAdj instanceof IEnergySink)
         {
             double demanded = 0;
         	try
@@ -359,34 +275,6 @@ public class EnergyUtil
 //        	GCLog.debug("Beam/storage offering RF2 up to " + toSend + " into pipe, it accepted " + sent);
         	return sent;
         }
-        else if (isBC6Loaded && !EnergyConfigHandler.disableBuildCraftOutput && MjAPI.getMjBattery(tileAdj, MjAPI.DEFAULT_POWER_FRAMEWORK, inputAdj) != null)
-        //New BC API
-        {
-            double toSendBC = Math.min(toSend * EnergyConfigHandler.TO_BC_RATIO, MjAPI.getMjBattery(tileAdj, MjAPI.DEFAULT_POWER_FRAMEWORK, inputAdj).getEnergyRequested());
-            if (simulate)
-            {
-                return (float) toSendBC / EnergyConfigHandler.TO_BC_RATIO;
-            }
-            float sent = (float) MjAPI.getMjBattery(tileAdj, MjAPI.DEFAULT_POWER_FRAMEWORK, inputAdj).addEnergy(toSendBC) / EnergyConfigHandler.TO_BC_RATIO;
-//            GCLog.debug("Beam/storage offering BC up to " + toSend + " into pipe, it accepted " + sent);
-            return sent;
-        }
-        else if (isBCLoaded && !EnergyConfigHandler.disableBuildCraftOutput && tileAdj instanceof IPowerReceptor)
-        //Legacy BC API
-        {
-            PowerReceiver receiver = ((IPowerReceptor) tileAdj).getPowerReceiver(inputAdj);
-            if (receiver != null)
-            {
-                double toSendBC = Math.min(toSend * EnergyConfigHandler.TO_BC_RATIO, Math.min(receiver.powerRequest(), receiver.getMaxEnergyReceived()));
-                if (simulate)
-                {
-                    return (float) toSendBC / EnergyConfigHandler.TO_BC_RATIO;
-                }
-                float rec = (float) receiver.receiveEnergy(buildcraft.api.power.PowerHandler.Type.PIPE, toSendBC, inputAdj); 
-                return rec / EnergyConfigHandler.TO_BC_RATIO;
-            }
-        }
-        
         return 0F;
     }
 
@@ -453,27 +341,13 @@ public class EnergyUtil
         if (tileAdj instanceof TileBaseConductor || tileAdj instanceof EnergyStorageTile)
         	return false;  //Do not try using other mods' methods to connect to GC's own tiles
         
-		if (isMekLoaded && tileAdj instanceof IStrictEnergyAcceptor)
-        {
-            return ((IStrictEnergyAcceptor) tileAdj).canReceiveEnergy(inputAdj);
-        }
-        else if (isIC2Loaded && tileAdj instanceof IEnergyAcceptor)
+		if (isIC2Loaded && tileAdj instanceof IEnergyAcceptor)
         {
             return ((IEnergyAcceptor) tileAdj).acceptsEnergyFrom(null, inputAdj);
         }
         else if (isRF1Loaded && tileAdj instanceof IEnergyHandler || isRF2Loaded && tileAdj instanceof IEnergyReceiver)
         {
         	return ((IEnergyConnection)tileAdj).canConnectEnergy(inputAdj);
-        }
-        else if (isBC6Loaded && MjAPI.getMjBattery(tileAdj, MjAPI.DEFAULT_POWER_FRAMEWORK, inputAdj) != null)
-        //New BC API
-        {
-            return true;
-        }
-        else if (isBCLoaded && tileAdj instanceof IPowerReceptor)
-        //Legacy BC API
-        {
-            return ((IPowerReceptor) tileAdj).getPowerReceiver(inputAdj) != null;
         }
 		
 		return false;

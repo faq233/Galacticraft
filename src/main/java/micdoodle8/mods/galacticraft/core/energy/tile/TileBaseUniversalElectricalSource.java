@@ -1,7 +1,5 @@
 package micdoodle8.mods.galacticraft.core.energy.tile;
 
-import mekanism.api.energy.EnergizedItemManager;
-import mekanism.api.energy.IEnergizedItem;
 import micdoodle8.mods.galacticraft.api.item.ElectricItemHelper;
 import micdoodle8.mods.galacticraft.api.item.IItemElectric;
 import micdoodle8.mods.galacticraft.api.transmission.grid.IElectricityNetwork;
@@ -120,10 +118,6 @@ public class TileBaseUniversalElectricalSource extends TileBaseUniversalElectric
             else if (EnergyConfigHandler.isRFAPILoaded() && item instanceof IEnergyContainerItem)
             {
                 this.storage.extractEnergyGC(((IEnergyContainerItem)item).receiveEnergy(itemStack, (int) (energyToCharge * EnergyConfigHandler.TO_RF_RATIO), false) / EnergyConfigHandler.TO_RF_RATIO, false);
-            }
-            else if (EnergyConfigHandler.isMekanismLoaded() && item instanceof IEnergizedItem && ((IEnergizedItem) item).canReceive(itemStack))
-            {
-                this.storage.extractEnergyGC((float) EnergizedItemManager.charge(itemStack, energyToCharge * EnergyConfigHandler.TO_MEKANISM_RATIO) / EnergyConfigHandler.TO_MEKANISM_RATIO, false);
             }
             else if (EnergyConfigHandler.isIndustrialCraft2Loaded())
             {

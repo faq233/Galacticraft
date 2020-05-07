@@ -1,9 +1,6 @@
 package micdoodle8.mods.galacticraft.core.oxygen;
 
 import cpw.mods.fml.common.FMLLog;
-import mekanism.api.gas.Gas;
-import mekanism.api.gas.GasStack;
-import mekanism.api.gas.IGasHandler;
 import micdoodle8.mods.galacticraft.api.transmission.NetworkType;
 import micdoodle8.mods.galacticraft.api.transmission.grid.IOxygenNetwork;
 import micdoodle8.mods.galacticraft.api.transmission.grid.Pathfinder;
@@ -66,30 +63,6 @@ public class OxygenNetwork implements IOxygenNetwork
 	                                        }
 	                                    }
                                     }
-                                }
-                            }
-                        }
-                        else if (EnergyConfigHandler.isMekanismLoaded() && tileEntity instanceof IGasHandler)
-                        {
-                            IGasHandler gasHandler = (IGasHandler) tileEntity;
-
-                            for (ForgeDirection direction : ForgeDirection.VALID_DIRECTIONS)
-                            {
-                                if (gasHandler.canReceiveGas(direction, (Gas) EnergyConfigHandler.gasOxygen))
-                                {
-                                	TileEntity tile = new BlockVec3(tileEntity).getTileEntityOnSide(tileEntity.getWorldObj(), direction);
-
-                                	if (this.getTransmitters().contains(tile))
-                                	{
-                                		int oxygenToSend = (int) Math.floor(totalOxygen / this.oxygenTiles.size());
-
-                                		if (oxygenToSend > 0)
-                                		{
-                                			try {
-                                				remainingUsableOxygen -= gasHandler.receiveGas(direction, (new GasStack((Gas) EnergyConfigHandler.gasOxygen, oxygenToSend)));
-                                			} catch (Exception e) { }
-                                		}
-                                	}
                                 }
                             }
                         }

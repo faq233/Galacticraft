@@ -1198,7 +1198,12 @@ public class WorldUtil
                             {
                                 if (playerStats.rocketItem != null)
                                 {
-                                    playerStats.rocketStacks[stack] = new ItemStack(playerStats.rocketItem, 1, playerStats.rocketType);
+                                    ItemStack rocket = new ItemStack(playerStats.rocketItem, 1, playerStats.rocketType);
+                                    NBTTagCompound nbt = new NBTTagCompound();
+                                    nbt.setInteger("RocketFuel",playerStats.fuelLevel);
+                                    rocket.setTagCompound(nbt);
+                                    playerStats.fuelLevel = 0;
+                                    playerStats.rocketStacks[stack] = rocket;
                                 }
                             }
                             else if (stack == playerStats.rocketStacks.length - 2)

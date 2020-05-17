@@ -25,10 +25,13 @@ public class RocketFuelRecipe
 
     public static boolean isValidFuel(FluidStack fluid)
     {
-        for(RocketFuel fuel : fuelList)
+        if (fluid != null)
         {
-            if (fuel.isFluidEqual(fluid))
-                return true;
+            for(RocketFuel fuel : fuelList)
+            {
+                if (fuel.isFluidEqual(fluid))
+                    return true;
+            }
         }
         return false;
     }

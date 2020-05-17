@@ -122,7 +122,7 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
 
     public int fuelToDrain()
     {
-        return (int)(this.getFuelTankCapacity() * ConfigManagerCore.rocketFuelFactor * 0.25);
+        return (int)(this.getFuelTankCapacity() * ConfigManagerCore.rocketFuelFactor * 0.5);
     }
 
     private void initiatePlanetsPreGen(int cx, int cz)

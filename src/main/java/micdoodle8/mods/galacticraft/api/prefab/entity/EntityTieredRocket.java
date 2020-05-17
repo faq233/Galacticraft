@@ -99,10 +99,6 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
     {
         if (!this.worldObj.isRemote && this.launchCooldown <= 0)
         {
-            if (this.destinationFrequency != -1) {
-                this.timeUntilLaunch = 100;
-                this.fuelTank.drain(fuelToDrain(), true);
-            }
             this.initiatePlanetsPreGen(this.chunkCoordX, this.chunkCoordZ);
             this.ignite();
         }
@@ -118,11 +114,6 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
             return true;
         }
         return this.fuelTank.getFluidAmount() > 0;
-    }
-
-    public int fuelToDrain()
-    {
-        return (int)(this.getFuelTankCapacity() * ConfigManagerCore.rocketFuelFactor * 0.5);
     }
 
     private void initiatePlanetsPreGen(int cx, int cz)

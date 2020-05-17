@@ -874,7 +874,7 @@ public class PacketSimple extends Packet implements IPacket
             if (!player.worldObj.isRemote && !player.isDead && player.ridingEntity != null && !player.ridingEntity.isDead && player.ridingEntity instanceof EntityTieredRocket)
             {
                 final EntityTieredRocket ship = (EntityTieredRocket) player.ridingEntity;
-
+                ship.setFrequency();
                 if (!ship.landing)
                 {
                     if (ship.hasValidFuel())

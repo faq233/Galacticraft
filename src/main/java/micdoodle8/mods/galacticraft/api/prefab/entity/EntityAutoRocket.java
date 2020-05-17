@@ -150,7 +150,7 @@ public abstract class EntityAutoRocket extends EntitySpaceshipBase implements IL
 
     public boolean setFrequency()
     {
-        if (!GalacticraftCore.isPlanetsLoaded || controllerClass == null)
+         if (!GalacticraftCore.isPlanetsLoaded || controllerClass == null)
         {
             return false;
         }
@@ -485,7 +485,7 @@ public abstract class EntityAutoRocket extends EntitySpaceshipBase implements IL
 
     public boolean igniteWithResult()
     {
-        if (this.setFrequency())
+        if (this.destinationFrequency != -1)
         {
             super.ignite();
             this.activeLaunchController = null;
@@ -798,7 +798,7 @@ public abstract class EntityAutoRocket extends EntitySpaceshipBase implements IL
 
     public boolean hasValidFuel()
     {
-        return this.fuelTank.getFluidAmount() > 0;
+        return false;
     }
 
     public void cancelLaunch()
@@ -1023,8 +1023,8 @@ public abstract class EntityAutoRocket extends EntitySpaceshipBase implements IL
 	            {
 	                this.updateControllerSettings(pad);
 	            }
+                this.landing = false;
 	    	}
-	        this.landing = false;
         }
     }
 

@@ -123,7 +123,7 @@ public class EntityTier1Rocket extends EntityTieredRocket
 					this.stopRocketSound();
             }
         }
-        else if (!this.hasValidFuel() && this.getLaunched() && !this.worldObj.isRemote)
+        else if (!this.worldObj.isRemote && this.getLaunched() && !this.hasValidFuel())
         {
             if (Math.abs(Math.sin(this.timeSinceLaunch / 1000)) / 10 != 0.0)
             {

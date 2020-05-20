@@ -99,8 +99,12 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
     {
         if (!this.worldObj.isRemote && this.launchCooldown <= 0)
         {
-            this.initiatePlanetsPreGen(this.chunkCoordX, this.chunkCoordZ);
-            this.ignite();
+            if (this.launchPhase != EnumLaunchPhase.IGNITED.ordinal())
+            {
+                this.setFrequency();
+                this.initiatePlanetsPreGen(this.chunkCoordX, this.chunkCoordZ);
+                this.ignite();
+            }
         }
     }
 
@@ -547,7 +551,7 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
         if (this.targetVec != null)
         {
             int fromSky = 800;
-            if (this.destinationFrequency != 1){
+            if (this.destinationFrequency != -1){
                 fromSky = 0;
             }
             this.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + fromSky, this.targetVec.z + 0.5F);

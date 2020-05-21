@@ -73,12 +73,19 @@ public class RecipeManagerGC
             RocketFuelRecipe.addFuel("fluid.rocketfuelmixd",4);
 
         }
+        //cetena
+        RocketFuelRecipe.addFuel("nitrofuel",1);
+        RocketFuelRecipe.addFuel("plasma.zinc",8);
+        RocketFuelRecipe.addFuel("highoctanegasoline",5);
+        //eio rocket fuel
+        RocketFuelRecipe.addFuel("rocket_fuel",5);
+
 
         Object meteoricIronIngot = ConfigManagerCore.recipesRequireGCAdvancedMetals ? GCItems.meteoricIronIngot : "ingotMeteoricIron";
     	Object meteoricIronPlate = ConfigManagerCore.recipesRequireGCAdvancedMetals ? new ItemStack(GCItems.meteoricIronIngot, 1, 1) : "compressedMeteoricIron";
     	Object deshIngot = GalacticraftCore.isPlanetsLoaded ? (ConfigManagerCore.recipesRequireGCAdvancedMetals ? new ItemStack(MarsItems.marsItemBasic, 1, 2) : "ingotDesh") : GCItems.heavyPlatingTier1;
 
-        //RocketFuelRecipe.addFuel(GalacticraftCore.fluidFuel,1);
+        RocketFuelRecipe.addFuel(GalacticraftCore.fluidFuel,1);
     	FurnaceRecipes.smelting().func_151394_a(new ItemStack(GCBlocks.basicBlock, 1, 5), new ItemStack(GCItems.basicItem, 1, 3), 0.5F);
         FurnaceRecipes.smelting().func_151394_a(new ItemStack(GCBlocks.basicBlock, 1, 6), new ItemStack(GCItems.basicItem, 1, 4), 0.5F);
         FurnaceRecipes.smelting().func_151394_a(new ItemStack(GCBlocks.basicBlock, 1, 7), new ItemStack(GCItems.basicItem, 1, 5), 0.5F);

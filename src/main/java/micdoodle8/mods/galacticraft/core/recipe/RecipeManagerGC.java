@@ -73,12 +73,8 @@ public class RecipeManagerGC
             RocketFuelRecipe.addFuel("fluid.rocketfuelmixd",4);
 
         }
-        //cetena
-        RocketFuelRecipe.addFuel("nitrofuel",1);
-        RocketFuelRecipe.addFuel("plasma.nitrogen",8);
-        RocketFuelRecipe.addFuel("highoctanegasoline",5);
         //eio rocket fuel
-        RocketFuelRecipe.addFuel("rocket_fuel",5);
+        RocketFuelRecipe.addFuel("rocket_fuel",8);
 
 
         Object meteoricIronIngot = ConfigManagerCore.recipesRequireGCAdvancedMetals ? GCItems.meteoricIronIngot : "ingotMeteoricIron";

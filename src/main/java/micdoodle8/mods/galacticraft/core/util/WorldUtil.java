@@ -1255,7 +1255,11 @@ public class WorldUtil
         {
             if (dimChange) FMLCommonHandler.instance().firePlayerChangedDimensionEvent((EntityPlayerMP) entity, oldDimID, dimID);
             //Spawn in a lander if appropriate
-            type.onSpaceDimensionChanged(worldNew, (EntityPlayerMP) entity, ridingRocket != null);
+            if (!(ridingRocket != null))
+            {
+                type.onSpaceDimensionChanged(worldNew, (EntityPlayerMP) entity, ridingRocket != null);
+            }
+
         }
 
         return entity;

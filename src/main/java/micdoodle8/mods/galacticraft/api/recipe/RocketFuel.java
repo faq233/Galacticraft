@@ -22,4 +22,8 @@ public class RocketFuel
     {
         return fluid.getFluidID() == fluidId;
     }
+    public boolean isFluidEqual(Fluid fluid)
+    {
+        return fluid.getID() == fluidId;
+    }
 }

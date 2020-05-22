@@ -1,7 +1,6 @@
 package micdoodle8.mods.galacticraft.api.recipe;
 
 import java.util.ArrayList;
-import java.util.List;
 import micdoodle8.mods.galacticraft.api.recipe.RocketFuel;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -21,6 +20,25 @@ public class RocketFuelRecipe
     public static void addFuel(String name,int MaxTier)
     {
         addFuel(FluidRegistry.getFluid(name),MaxTier);
+    }
+
+    public static  void removeFuel(String fluidName)
+    {
+        removeFuel(FluidRegistry.getFluid(fluidName));
+    }
+
+    public static  void removeFuel(Fluid fluid)
+    {
+        if (fluid != null)
+        {
+            for(int i = 0;i<fuelList.size();i++)
+            {
+                if (fuelList.get(i).isFluidEqual(fluid))
+                {
+                    fuelList.remove(i);
+                }
+            }
+        }
     }
 
     public static boolean isValidFuel(FluidStack fluid)

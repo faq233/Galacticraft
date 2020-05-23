@@ -877,21 +877,11 @@ public class PacketSimple extends Packet implements IPacket
 
                 if (!ship.landing)
                 {
-                    if (ship.hasValidFuel())
-                    {
-                        ItemStack stack2 = stats.extendedInventory.getStackInSlot(4);
 
-                        if (stack2 != null && stack2.getItem() instanceof ItemParaChute || stats.launchAttempts > 0)
-                        {
-                            ship.igniteCheckingCooldown();
-                            stats.launchAttempts = 0;
-                        }
-                        else if (stats.chatCooldown == 0 && stats.launchAttempts == 0)
-                        {
-                            player.addChatMessage(new ChatComponentText(GCCoreUtil.translate("gui.rocket.warning.noparachute")));
-                            stats.chatCooldown = 250;
-                            stats.launchAttempts = 1;
-                        }
+                    if (ship.hasValidFuel())
+                    {   
+                        ship.igniteCheckingCooldown();
+                        stats.launchAttempts = 0;
                     }
                     else if (stats.chatCooldown == 0)
                     {

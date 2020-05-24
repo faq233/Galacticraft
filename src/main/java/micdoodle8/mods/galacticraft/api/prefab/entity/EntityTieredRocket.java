@@ -99,10 +99,25 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
     {
         if (!this.worldObj.isRemote && this.launchCooldown <= 0)
         {
-            this.initiatePlanetsPreGen(this.chunkCoordX, this.chunkCoordZ);
-
-            this.ignite();
+            if (this.launchPhase != EnumLaunchPhase.IGNITED.ordinal())
+            {
+                this.setFrequency();
+                this.initiatePlanetsPreGen(this.chunkCoordX, this.chunkCoordZ);
+                this.ignite();
+            }
         }
+    }
+
+    @Override
+    public boolean hasValidFuel()
+    {
+        if (this.destinationFrequency != -1)
+        {
+            if (this.fuelTank.getFluidAmount() < fuelToDrain())
+                return false;
+            return true;
+        }
+        return this.fuelTank.getFluidAmount() > 0;
     }
 
     private void initiatePlanetsPreGen(int cx, int cz)
@@ -256,12 +271,20 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
             this.riddenByEntity.posX += rumbleAmount;
             this.riddenByEntity.posZ += rumbleAmount;
         }
+        boolean isIgnited = this.launchPhase == EnumLaunchPhase.IGNITED.ordinal();
+        boolean isLaunched = this.launchPhase == EnumLaunchPhase.LAUNCHED.ordinal();
 
-        if (this.launchPhase == EnumLaunchPhase.IGNITED.ordinal() || this.launchPhase == EnumLaunchPhase.LAUNCHED.ordinal())
+        if (isIgnited || isLaunched)
         {
             this.performHurtAnimation();
-
             this.rumble = (float) this.rand.nextInt(3) - 3;
+
+            if (this.destinationFrequency != -1
+                    && this.landing == false
+                    && isLaunched)
+            {
+                onReachAtmosphere();
+            }
         }
 
         if (!this.worldObj.isRemote)
@@ -359,7 +382,11 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
                     		    Entity e = WorldUtil.transferEntityToDimension(this, this.targetDimension, (WorldServer)targetDim.worldObj, false, null);
                     		    if(e instanceof EntityAutoRocket)
                     		    {
-                    		        e.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + 800, this.targetVec.z + 0.5f);
+                                    int fromSky = 800;
+                                    if (this.destinationFrequency != 1){
+                                        fromSky = 0;
+                                    }
+                    		        e.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + fromSky, this.targetVec.z + 0.5f);
                     		        ((EntityAutoRocket)e).landing = true;
                     		        ((EntityAutoRocket)e).setWaitForPlayer(false);
                     		    }
@@ -377,7 +404,11 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
                 else
                 {
                 	//Same dimension controlled rocket flight
-                	this.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + 800, this.targetVec.z + 0.5F);
+                    int fromSky = 800;
+                    if (this.destinationFrequency != 1){
+                        fromSky = 0;
+                    }
+                	this.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + fromSky, this.targetVec.z + 0.5F);
                     //Stop any lateral motion, otherwise it will update to an incorrect x,z position first tick after spawning above target
                     this.motionX = this.motionZ = 0.0D;
                     //Small upward motion initially, to keep clear of own flame trail from launch
@@ -424,6 +455,7 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
     @Override
     protected boolean shouldCancelExplosion()
     {
+
         return this.hasValidFuel() && Math.abs(this.lastLastMotionY) < 4;
     }
 
@@ -518,7 +550,11 @@ public abstract class EntityTieredRocket extends EntityAutoRocket implements IRo
     {
         if (this.targetVec != null)
         {
-            this.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + 800, this.targetVec.z + 0.5F);
+            int fromSky = 800;
+            if (this.destinationFrequency != -1){
+                fromSky = 0;
+            }
+            this.setPosition(this.targetVec.x + 0.5F, this.targetVec.y + fromSky, this.targetVec.z + 0.5F);
             this.landing = true;
             this.setWaitForPlayer(true);
             this.motionX = this.motionY = this.motionZ = 0.0D;

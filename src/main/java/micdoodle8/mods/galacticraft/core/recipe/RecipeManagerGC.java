@@ -1,8 +1,10 @@
 package micdoodle8.mods.galacticraft.core.recipe;
 
+import cpw.mods.fml.common.Loader;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.CircuitFabricatorRecipes;
 import micdoodle8.mods.galacticraft.api.recipe.CompressorRecipes;
+import micdoodle8.mods.galacticraft.api.recipe.RocketFuelRecipe;
 import micdoodle8.mods.galacticraft.api.recipe.SpaceStationRecipe;
 import micdoodle8.mods.galacticraft.api.world.SpaceStationType;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -22,6 +24,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
@@ -61,10 +64,24 @@ public class RecipeManagerGC
     @SuppressWarnings("unchecked")
     private static void addUniversalRecipes()
     {
-    	Object meteoricIronIngot = ConfigManagerCore.recipesRequireGCAdvancedMetals ? GCItems.meteoricIronIngot : "ingotMeteoricIron";
+
+        if (Loader.isModLoaded("miscutils"))
+        {
+            RocketFuelRecipe.addFuel("fluid.rocketfuelmixa",8);
+            RocketFuelRecipe.addFuel("fluid.rocketfuelmixb",2);
+            RocketFuelRecipe.addFuel("fluid.rocketfuelmixc",6);
+            RocketFuelRecipe.addFuel("fluid.rocketfuelmixd",4);
+
+        }
+        //eio rocket fuel
+        RocketFuelRecipe.addFuel("rocket_fuel",8);
+
+
+        Object meteoricIronIngot = ConfigManagerCore.recipesRequireGCAdvancedMetals ? GCItems.meteoricIronIngot : "ingotMeteoricIron";
     	Object meteoricIronPlate = ConfigManagerCore.recipesRequireGCAdvancedMetals ? new ItemStack(GCItems.meteoricIronIngot, 1, 1) : "compressedMeteoricIron";
     	Object deshIngot = GalacticraftCore.isPlanetsLoaded ? (ConfigManagerCore.recipesRequireGCAdvancedMetals ? new ItemStack(MarsItems.marsItemBasic, 1, 2) : "ingotDesh") : GCItems.heavyPlatingTier1;
-    	
+
+        RocketFuelRecipe.addFuel(GalacticraftCore.fluidFuel,1);
     	FurnaceRecipes.smelting().func_151394_a(new ItemStack(GCBlocks.basicBlock, 1, 5), new ItemStack(GCItems.basicItem, 1, 3), 0.5F);
         FurnaceRecipes.smelting().func_151394_a(new ItemStack(GCBlocks.basicBlock, 1, 6), new ItemStack(GCItems.basicItem, 1, 4), 0.5F);
         FurnaceRecipes.smelting().func_151394_a(new ItemStack(GCBlocks.basicBlock, 1, 7), new ItemStack(GCItems.basicItem, 1, 5), 0.5F);

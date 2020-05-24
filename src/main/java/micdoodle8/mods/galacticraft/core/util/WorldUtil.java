@@ -1198,7 +1198,12 @@ public class WorldUtil
                             {
                                 if (playerStats.rocketItem != null)
                                 {
-                                    playerStats.rocketStacks[stack] = new ItemStack(playerStats.rocketItem, 1, playerStats.rocketType);
+                                    ItemStack rocket = new ItemStack(playerStats.rocketItem, 1, playerStats.rocketType);
+                                    NBTTagCompound nbt = new NBTTagCompound();
+                                    nbt.setInteger("RocketFuel",playerStats.fuelLevel);
+                                    rocket.setTagCompound(nbt);
+                                    playerStats.fuelLevel = 0;
+                                    playerStats.rocketStacks[stack] = rocket;
                                 }
                             }
                             else if (stack == playerStats.rocketStacks.length - 2)
@@ -1250,7 +1255,11 @@ public class WorldUtil
         {
             if (dimChange) FMLCommonHandler.instance().firePlayerChangedDimensionEvent((EntityPlayerMP) entity, oldDimID, dimID);
             //Spawn in a lander if appropriate
-            type.onSpaceDimensionChanged(worldNew, (EntityPlayerMP) entity, ridingRocket != null);
+            if (ridingRocket == null)
+            {
+                type.onSpaceDimensionChanged(worldNew, (EntityPlayerMP) entity, ridingRocket != null);
+            }
+
         }
 
         return entity;

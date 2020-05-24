@@ -86,13 +86,23 @@ public abstract class EntityLanderBase extends EntityAdvancedMotion implements I
 
         GCPlayerStats stats = GCPlayerStats.get(player);
         this.containedItems = new ItemStack[stats.rocketStacks.length + 1];
-        this.fuelTank.setFluid(new FluidStack(GalacticraftCore.fluidFuel, stats.fuelLevel));
-
+//        this.fuelTank.setFluid(new FluidStack(GalacticraftCore.fluidFuel, stats.fuelLevel));
+//        ItemStack rocket = new ItemStack(stats.rocketItem, 1, stats.rocketType);
         for (int i = 0; i < stats.rocketStacks.length; i++)
         {
             if (stats.rocketStacks[i] != null)
             {
-                this.containedItems[i] = stats.rocketStacks[i].copy();
+                ItemStack item = stats.rocketStacks[i].copy();
+//                if (item.isItemEqual(rocket))
+//                {
+//                    NBTTagCompound nbt = new NBTTagCompound();
+//                    nbt.setInteger("RocketFuel",stats.fuelLevel);
+//                    rocket.setTagCompound(nbt);
+//                    item = rocket;
+//                }
+                this.containedItems[i] = item;
+
+
             }
             else
             {

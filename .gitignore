@@ -202,3 +202,5 @@ pip-log.txt
 .DS_Store
 
 temporary/
+out/
+*.txt

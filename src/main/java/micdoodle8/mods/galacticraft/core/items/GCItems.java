@@ -18,6 +18,7 @@ public class GCItems
     public static Item oxTankLight;
     public static Item oxTankMedium;
     public static Item oxTankHeavy;
+    public static Item oxTankUltraHeavy;
     public static Item oxMask;
     public static Item rocketTier1;
     public static Item sensorGlasses;
@@ -75,6 +76,7 @@ public class GCItems
         GCItems.oxTankLight = new ItemOxygenTank(1, "oxygenTankLightFull");
         GCItems.oxTankMedium = new ItemOxygenTank(2, "oxygenTankMedFull");
         GCItems.oxTankHeavy = new ItemOxygenTank(3, "oxygenTankHeavyFull");
+        GCItems.oxTankUltraHeavy = new ItemOxygenTank(4, "oxygenTankUltraHeavyFull");
         GCItems.oxMask = new ItemOxygenMask("oxygenMask");
         GCItems.rocketTier1 = new ItemTier1Rocket("spaceship");
         GCItems.sensorGlasses = new ItemSensorGlasses("sensorGlasses");
@@ -126,9 +128,11 @@ public class GCItems
         GCCoreUtil.registerGalacticraftItem("oxygenTankLightFull", GCItems.oxTankLight);
         GCCoreUtil.registerGalacticraftItem("oxygenTankMediumFull", GCItems.oxTankMedium);
         GCCoreUtil.registerGalacticraftItem("oxygenTankHeavyFull", GCItems.oxTankHeavy);
+        GCCoreUtil.registerGalacticraftItem("oxygenTankUltraHeavyFull", GCItems.oxTankUltraHeavy);
         GCCoreUtil.registerGalacticraftItem("oxygenTankLightEmpty", GCItems.oxTankLight, 90);
         GCCoreUtil.registerGalacticraftItem("oxygenTankMediumEmpty", GCItems.oxTankMedium, 180);
         GCCoreUtil.registerGalacticraftItem("oxygenTankHeavyEmpty", GCItems.oxTankHeavy, 270);
+        GCCoreUtil.registerGalacticraftItem("oxygenTankUltraHeavyEmpty", GCItems.oxTankUltraHeavy, 360);
         GCCoreUtil.registerGalacticraftItem("oxygenMask", GCItems.oxMask);
         GCCoreUtil.registerGalacticraftItem("rocketTier1", GCItems.rocketTier1, 0);
         GCCoreUtil.registerGalacticraftItem("rocketTier1_18cargo", GCItems.rocketTier1, 1);
@@ -264,6 +268,7 @@ public class GCItems
         GCItems.registerItem(GCItems.oxTankLight);
         GCItems.registerItem(GCItems.oxTankMedium);
         GCItems.registerItem(GCItems.oxTankHeavy);
+        GCItems.registerItem(GCItems.oxTankUltraHeavy);
         GCItems.registerItem(GCItems.sensorLens);
         GCItems.registerItem(GCItems.sensorGlasses);
         GCItems.registerItem(GCItems.steelPickaxe);

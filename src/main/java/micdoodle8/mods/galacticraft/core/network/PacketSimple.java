@@ -432,7 +432,7 @@ public class PacketSimple extends Packet implements IPacket
                     gearData.setLeftTank(3);
                     break;
                 case ADDLEFTVIOLETTANK:
-                    gearData.setRightTank(4);
+                    gearData.setLeftTank(4);
                     break;
                 case ADDRIGHTGREENTANK:
                     gearData.setRightTank(0);

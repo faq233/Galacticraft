@@ -256,9 +256,13 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTREDTANK);
                 }
-                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankUltraHeavy)
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankSuperHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTBLUETANK);
+                }
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankUltraHeavy)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTVIOLETTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -281,9 +285,13 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTREDTANK);
                 }
-                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankUltraHeavy)
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankSuperHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTBLUETANK);
+                }
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankUltraHeavy)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTVIOLETTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -319,9 +327,13 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTREDTANK);
                 }
-                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankUltraHeavy)
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankSuperHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTBLUETANK);
+                }
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankUltraHeavy)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTVIOLETTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -344,9 +356,13 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTREDTANK);
                 }
-                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankUltraHeavy)
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankSuperHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTBLUETANK);
+                }
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankUltraHeavy)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTVIOLETTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -1046,11 +1062,13 @@ public class GCPlayerHandler
         REMOVEMASK,
         ADDGEAR,
         REMOVEGEAR,
+        ADDLEFTVIOLETTANK,
         ADDLEFTBLUETANK,
         ADDLEFTREDTANK,
         ADDLEFTORANGETANK,
         ADDLEFTGREENTANK,
         REMOVE_LEFT_TANK,
+        ADDRIGHTVIOLETTANK,
         ADDRIGHTBLUETANK,
         ADDRIGHTREDTANK,
         ADDRIGHTORANGETANK,

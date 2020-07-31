@@ -68,11 +68,11 @@ public class ModelRotationRendererGC extends ModelRotationRenderer
             case 8: // Right Red
                 return ModelPlayerBaseGC.currentGearData.getRightTank() == 2;
             case 9: // Left Blue
-                return ModelPlayerBaseGC.currentGearData.getRightTank() == 3;
+                return ModelPlayerBaseGC.currentGearData.getLeftTank() == 3;
             case 10: // Right Blue
                 return ModelPlayerBaseGC.currentGearData.getRightTank() == 3;
             case 11: // Left Voilet
-                return ModelPlayerBaseGC.currentGearData.getRightTank() == 4;
+                return ModelPlayerBaseGC.currentGearData.getLeftTank() == 4;
             case 12: // Right Violet
                 return ModelPlayerBaseGC.currentGearData.getRightTank() == 4;
             case 13:

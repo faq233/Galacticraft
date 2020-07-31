@@ -67,7 +67,11 @@ public class ModelRotationRendererGC extends ModelRotationRenderer
                 return ModelPlayerBaseGC.currentGearData.getLeftTank() == 2;
             case 8: // Right Red
                 return ModelPlayerBaseGC.currentGearData.getRightTank() == 2;
-            case 9:
+            case 9: // Left Blue
+                return ModelPlayerBaseGC.currentGearData.getRightTank() == 2;
+            case 10: // Right Blue
+                return ModelPlayerBaseGC.currentGearData.getRightTank() == 2;
+            case 11:
                 return ModelPlayerBaseGC.currentGearData.getFrequencyModule() > -1;
             }
         }
@@ -93,7 +97,7 @@ public class ModelRotationRendererGC extends ModelRotationRenderer
             case 1:
                 FMLClientHandler.instance().getClient().renderEngine.bindTexture(ModelPlayerBaseGC.currentGearData.getParachute());
                 break;
-            case 9:
+            case 11:
                 FMLClientHandler.instance().getClient().renderEngine.bindTexture(ModelPlayerGC.frequencyModuleTexture);
                 break;
             default:
@@ -101,7 +105,7 @@ public class ModelRotationRendererGC extends ModelRotationRenderer
                 break;
             }
 
-            if (type != 9)
+            if (type != 11)
             {
             	super.doRender(f, useParentTransformations);               	
             }

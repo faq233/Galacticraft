@@ -93,7 +93,7 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
 	            {
 	        	//Helmet and Frequency Module are head modules
 	            case 0:
-	            case 10:
+	            case 11:
 	                return (ModelRenderer)modelRotationGCSmartMovingInit.newInstance(player, texOffsetX, texOffsetY, SmartRender.getPlayerBase(this.modelPlayer).getHead(), type);
 	            //Oxygen gear etc are body
 	            default:
@@ -466,7 +466,7 @@ public class ModelPlayerBaseGC extends ModelPlayerBase
 
             if (wearingGear)
             {
-            	for (int i = 0; i < 9; i++)
+            	for (int i = 0; i < 7; i++)
             	{
             		for (int k = 0; k < 2; k++)
             		{

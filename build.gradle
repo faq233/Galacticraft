@@ -139,7 +139,7 @@ jar {
 task devJar(type: Jar) {
 	from sourceSets.main.output
 	classifier = 'dev'
-    exclude planetsFiles
+    //exclude planetsFiles
 }
 
 task apiJar(type: Jar) {

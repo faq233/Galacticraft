@@ -89,6 +89,7 @@ import net.minecraftforge.event.world.ChunkEvent.Load;
 import net.minecraftforge.event.world.WorldEvent.Save;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class EventHandlerGC
 {

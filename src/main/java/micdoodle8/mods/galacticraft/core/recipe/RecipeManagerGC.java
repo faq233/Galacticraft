@@ -97,7 +97,8 @@ public class RecipeManagerGC
 
         RecipeUtil.addRecipe(new ItemStack(GCItems.rocketEngine, 1, 1), new Object[] { "ZYZ", "ZWZ", "XVX", 'V', GCItems.oxygenVent, 'W', new ItemStack(GCItems.fuelCanister, 1, 1), 'X', GCItems.heavyPlatingTier1, 'Y', new ItemStack(Blocks.wool, 1, 4), 'Z', meteoricIronPlate });
 
-        HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
+        //Handled by GalaxySpace
+        /*HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
         input.put(1, new ItemStack(GCItems.partNoseCone));
         input.put(2, new ItemStack(GCItems.heavyPlatingTier1));
         input.put(3, new ItemStack(GCItems.heavyPlatingTier1));
@@ -223,7 +224,7 @@ public class RecipeManagerGC
         input2.put(17, new ItemStack(GCItems.partBuggy, 1, 2));
         input2.put(18, new ItemStack(GCItems.partBuggy, 1, 2));
         input2.put(19, new ItemStack(GCItems.partBuggy, 1, 2));
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 3), input2);
+        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 3), input2);*/
 
         aluminumIngots.addAll(OreDictionary.getOres("ingotAluminum"));
     	ArrayList<ItemStack> addedList = new ArrayList<ItemStack>();
@@ -371,7 +372,8 @@ public class RecipeManagerGC
 
         RecipeUtil.addRecipe(new ItemStack(GCBlocks.oxygenCollector, 1), new Object[] { "WWW", "YXZ", "UVU", 'U', "compressedAluminum", 'V', GCItems.oxygenConcentrator, 'W', "compressedSteel", 'X', new ItemStack(GCItems.canister, 1, 0), 'Y', GCItems.oxygenFan, 'Z', GCItems.oxygenVent });
 
-        RecipeUtil.addRecipe(new ItemStack(GCBlocks.nasaWorkbench, 1), new Object[] { "XZX", "UWU", "YVY", 'U', Blocks.lever, 'V', Blocks.redstone_torch, 'W', "waferAdvanced", 'X', "compressedSteel", 'Y', "compressedSteel", 'Z', Blocks.crafting_table });
+        //Handled by Galaxy Space
+        //RecipeUtil.addRecipe(new ItemStack(GCBlocks.nasaWorkbench, 1), new Object[] { "XZX", "UWU", "YVY", 'U', Blocks.lever, 'V', Blocks.redstone_torch, 'W', "waferAdvanced", 'X', "compressedSteel", 'Y', "compressedSteel", 'Z', Blocks.crafting_table });
 
         //RecipeUtil.addRecipe(new ItemStack(GCItems.oxTankHeavy, 1, GCItems.oxTankHeavy.getMaxDamage()), new Object[] { "ZZZ", "XXX", "YYY", 'X', new ItemStack(GCItems.canister, 1, 0), 'Y', "compressedSteel", 'Z', new ItemStack(Blocks.wool, 1, 14) });
 

@@ -161,7 +161,8 @@ public class AsteroidsModule implements IPlanetsModule
         GalaxyRegistry.registerPlanet(AsteroidsModule.planetAsteroids);
         GalacticraftRegistry.registerTeleportType(WorldProviderAsteroids.class, new TeleportTypeAsteroids());
 
-        HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
+        //Handled by Galaxy Space
+        /*HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
         input.put(1, new ItemStack(AsteroidsItems.heavyNoseCone));
         input.put(2, new ItemStack(AsteroidsItems.basicItem, 1, 0));
         input.put(3, new ItemStack(AsteroidsItems.basicItem, 1, 0));
@@ -242,7 +243,7 @@ public class AsteroidsModule implements IPlanetsModule
         input.put(8, new ItemStack(Blocks.chest));
         input.put(13, new ItemStack(AsteroidsItems.basicItem, 1, 8));
         input.put(14, new ItemStack(GCItems.flagPole));
-        GalacticraftRegistry.addAstroMinerRecipe(new NasaWorkbenchRecipe(new ItemStack(AsteroidsItems.astroMiner, 1, 0), input));
+        GalacticraftRegistry.addAstroMinerRecipe(new NasaWorkbenchRecipe(new ItemStack(AsteroidsItems.astroMiner, 1, 0), input));*/
     }
 
     @Override

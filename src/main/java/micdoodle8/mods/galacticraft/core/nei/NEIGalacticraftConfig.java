@@ -51,10 +51,11 @@ public class NEIGalacticraftConfig implements IConfigureNEI
             }
         }
 
-        API.registerRecipeHandler(new RocketT1RecipeHandler());
+        //Handled by GalaxySpace
+        /*API.registerRecipeHandler(new RocketT1RecipeHandler());
         API.registerUsageHandler(new RocketT1RecipeHandler());
         API.registerRecipeHandler(new BuggyRecipeHandler());
-        API.registerUsageHandler(new BuggyRecipeHandler());
+        API.registerUsageHandler(new BuggyRecipeHandler());*/
         API.registerRecipeHandler(new RefineryRecipeHandler());
         API.registerUsageHandler(new RefineryRecipeHandler());
         API.registerRecipeHandler(new CircuitFabricatorRecipeHandler());
@@ -134,8 +135,9 @@ public class NEIGalacticraftConfig implements IConfigureNEI
     {
         this.registerRefineryRecipe(new PositionedStack(new ItemStack(GCItems.oilCanister, 1, 1), 2, 3), new PositionedStack(new ItemStack(GCItems.fuelCanister, 1, 1), 148, 3));
 
-        this.addRocketRecipes();
-        this.addBuggyRecipes();
+        //Handled by GalaxySpace
+        /*this.addRocketRecipes();
+        this.addBuggyRecipes();*/
         this.addCircuitFabricatorRecipes();
         this.addIngotCompressorRecipes();
     }

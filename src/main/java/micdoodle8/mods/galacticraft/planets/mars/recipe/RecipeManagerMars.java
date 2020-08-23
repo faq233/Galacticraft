@@ -104,7 +104,8 @@ public class RecipeManagerMars
         FurnaceRecipes.smelting().func_151394_a(new ItemStack(MarsBlocks.marsBlock, 1, 2), new ItemStack(MarsItems.marsItemBasic, 1, 2), 0.2F);
         FurnaceRecipes.smelting().func_151394_a(new ItemStack(MarsBlocks.marsBlock, 1, 3), new ItemStack(Items.iron_ingot), 0.2F);
 
-        // Schematic
+        //Handled by Galaxy Space
+        /*// Schematic
         HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
         input.put(1, new ItemStack(GCItems.partNoseCone));
         input.put(2, new ItemStack(MarsItems.marsItemBasic, 1, 3));
@@ -228,7 +229,7 @@ public class RecipeManagerMars
         input2.put(14, new ItemStack(Blocks.chest));
         input2.put(15, new ItemStack(Blocks.chest));
         input2.put(16, new ItemStack(Blocks.chest));
-        MarsUtil.adCargoRocketRecipe(new ItemStack(MarsItems.spaceship, 1, 13), input2);
+        MarsUtil.adCargoRocketRecipe(new ItemStack(MarsItems.spaceship, 1, 13), input2);*/
 
         RecipeUtil.addRecipe(new ItemStack(MarsBlocks.machine, 1, BlockMachineMars.LAUNCH_CONTROLLER_METADATA), new Object[] { "ZVZ", "YXY", "ZWZ", 'V', new ItemStack(GCItems.basicItem, 1, 19), 'W', new ItemStack(GCBlocks.aluminumWire, 1, 0), 'X', new ItemStack(GCItems.basicItem, 1, 14), 'Y', deshPlate, 'Z', deshIngot });
     }

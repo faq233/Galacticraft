@@ -140,8 +140,9 @@ public class AsteroidsModule implements IPlanetsModule
     public void init(FMLInitializationEvent event)
     {
         this.registerMicroBlocks();
-    	SchematicRegistry.registerSchematicRecipe(new SchematicTier3Rocket());
-    	SchematicRegistry.registerSchematicRecipe(new SchematicAstroMiner());
+    	//Handled by GalaxySpace
+        /*SchematicRegistry.registerSchematicRecipe(new SchematicTier3Rocket());
+    	SchematicRegistry.registerSchematicRecipe(new SchematicAstroMiner());*/
 
         GalacticraftCore.packetPipeline.addDiscriminator(7, PacketSimpleAsteroids.class);
 

@@ -292,9 +292,10 @@ public class GalacticraftCore
         ForgeChunkManager.setForcedChunkLoadingCallback(GalacticraftCore.instance, new ChunkLoadingCallback());
         FMLCommonHandler.instance().bus().register(new ConnectionEvents());
 
-        SchematicRegistry.registerSchematicRecipe(new SchematicRocketT1());
+        //Handled by GalaxySpace
+        /*SchematicRegistry.registerSchematicRecipe(new SchematicRocketT1());
         SchematicRegistry.registerSchematicRecipe(new SchematicMoonBuggy());
-        SchematicRegistry.registerSchematicRecipe(new SchematicAdd());
+        SchematicRegistry.registerSchematicRecipe(new SchematicAdd());*/
         ChunkPowerHandler.initiate();
         EnergyConfigHandler.initGas();
 

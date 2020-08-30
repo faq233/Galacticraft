@@ -29,10 +29,11 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
     public void loadConfig()
     {
         this.registerRecipes();
-        API.registerRecipeHandler(new RocketT2RecipeHandler());
+        //Handled by GalaxySpace
+        /*API.registerRecipeHandler(new RocketT2RecipeHandler());
         API.registerUsageHandler(new RocketT2RecipeHandler());
         API.registerRecipeHandler(new CargoRocketRecipeHandler());
-        API.registerUsageHandler(new CargoRocketRecipeHandler());
+        API.registerUsageHandler(new CargoRocketRecipeHandler());*/
         API.registerRecipeHandler(new GasLiquefierRecipeHandler());
         API.registerUsageHandler(new GasLiquefierRecipeHandler());
         API.registerRecipeHandler(new MethaneSynthesizerRecipeHandler());
@@ -94,7 +95,8 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
 
     public void registerRecipes()
     {
-        final int changeY = 15;
+        //Handled by GalaxySpace
+        /*final int changeY = 15;
 
         ArrayList<PositionedStack> input1 = new ArrayList<PositionedStack>();
 
@@ -197,7 +199,7 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
         input2.add(new PositionedStack(new ItemStack(Blocks.chest), 90, -7 + changeY));
         input2.add(new PositionedStack(new ItemStack(Blocks.chest), 90 + 26, -7 + changeY));
         input2.add(new PositionedStack(new ItemStack(Blocks.chest), 90 + 52, -7 + changeY));
-        this.registerCargoBenchRecipe(input2, new PositionedStack(new ItemStack(MarsItems.spaceship, 1, 13), 139, 77 + changeY));
+        this.registerCargoBenchRecipe(input2, new PositionedStack(new ItemStack(MarsItems.spaceship, 1, 13), 139, 77 + changeY));*/
 
         this.registerLiquefierRecipe(new PositionedStack(new ItemStack(AsteroidsItems.methaneCanister, 1, 1), 2, 3), new PositionedStack(new ItemStack(GCItems.fuelCanister, 1, 1), 127, 3));
         this.registerLiquefierRecipe(new PositionedStack(new ItemStack(AsteroidsItems.atmosphericValve, 1, 0), 2, 3), new PositionedStack(new ItemStack(AsteroidsItems.canisterLN2, 1, 1), 127, 3));

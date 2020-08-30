@@ -119,9 +119,8 @@ public class MarsModule implements IPlanetsModule
     public void init(FMLInitializationEvent event)
     {
         this.registerMicroBlocks();
-        //Handled by GalaxySpace
-    	/*SchematicRegistry.registerSchematicRecipe(new SchematicTier2Rocket());
-        SchematicRegistry.registerSchematicRecipe(new SchematicCargoRocket());*/
+    	SchematicRegistry.registerSchematicRecipe(new SchematicTier2Rocket());
+        SchematicRegistry.registerSchematicRecipe(new SchematicCargoRocket());
 
         GalacticraftCore.packetPipeline.addDiscriminator(6, PacketSimpleMars.class);
 

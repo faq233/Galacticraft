@@ -3,6 +3,11 @@ def versionMajor = 3
 def versionMinor = 0
 def versionRev = "16-GTNH"
 
+def gsversion = "1.2.0-pre1-GTNH"
+def gsjenkinsbuild = 22
+def gtversion = "5.09.33.52"
+def gtjenkinsbuild = 673
+
 buildscript {
     repositories {
         mavenCentral()
@@ -17,11 +22,13 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath "de.undercouch:gradle-download-task:3.1.2"
     }
 }
 
 apply plugin: 'forge' // Add forge dependency
 apply plugin: 'idea'
+import de.undercouch.gradle.tasks.download.Download
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -104,6 +111,49 @@ dependencies {
 
     compileOnly "net.industrial-craft:industrialcraft-2:2.2.790-experimental:dev"
 }
+
+task getIronChest(type: Download) {
+    onlyIf {
+        !file("libs/Ironchest-6.0.62-(742).jar").exists()
+    }
+    src "https://data-hole.ddns.net/index.php/s/TrSToYip87CbisN/download"
+    dest file("libs/Ironchest-6.0.62-(742).jar")
+    mustRunAfter "deobfBinJar"
+    mustRunAfter "repackMinecraft"
+}
+
+task getGalaxySpace(type: Download, dependsOn: "getIronChest") {
+    onlyIf {
+        !file("libs/GalaxySpace-${gsversion}-(${gsjenkinsbuild}).jar").exists()
+    }
+    src "http://jenkins.usrv.eu:8080/job/Galaxy-Space/${gsjenkinsbuild}/artifact/build/libs/GalaxySpace-${gsversion}.jar"
+    dest file("libs/GalaxySpace-${gsversion}-(${gsjenkinsbuild}).jar")
+    mustRunAfter "deobfBinJar"
+    mustRunAfter "repackMinecraft"
+    delete fileTree("$projectDir/libs/") {
+        include "GalaxySpace-*.jar"
+        exclude "GalaxySpace-${gsversion}-(${gsjenkinsbuild}).jar"
+    }
+}
+
+task getGregTech(type: Download, dependsOn: "getGalaxySpace") {
+    onlyIf {
+        !file("libs/Gregtech-${gtversion}-(${gtjenkinsbuild}).jar").exists()
+    }
+    src "http://jenkins.usrv.eu:8080/job/Gregtech-5-Unofficial/${gtjenkinsbuild}/artifact/build/libs/gregtech-${gtversion}-dev.jar"
+    dest file("libs/Gregtech-${gtversion}-(${gtjenkinsbuild}).jar")
+    mustRunAfter "deobfBinJar"
+    mustRunAfter "repackMinecraft"
+    delete fileTree("$projectDir/libs/") {
+        include "Gregtech-*.jar"
+        exclude "Gregtech-${gtversion}-(${gtjenkinsbuild}).jar"
+    }
+}
+
+tasks.setupCIWorkspace.dependsOn getGregTech
+tasks.setupDevWorkspace.dependsOn getGregTech
+tasks.setupDecompWorkspace.dependsOn getGregTech
+tasks.compileJava.dependsOn getGregTech
 
 processResources
 {

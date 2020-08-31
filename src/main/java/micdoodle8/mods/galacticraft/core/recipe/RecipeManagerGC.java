@@ -1,6 +1,10 @@
 package micdoodle8.mods.galacticraft.core.recipe;
 
 import cpw.mods.fml.common.Loader;
+import galaxyspace.core.register.GSItems;
+import gregtech.api.enums.Materials;
+import gregtech.api.enums.OrePrefixes;
+import gregtech.api.util.GT_OreDictUnificator;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.CircuitFabricatorRecipes;
 import micdoodle8.mods.galacticraft.api.recipe.CompressorRecipes;
@@ -98,8 +102,8 @@ public class RecipeManagerGC
         RecipeUtil.addRecipe(new ItemStack(GCItems.rocketEngine, 1, 1), new Object[] { "ZYZ", "ZWZ", "XVX", 'V', GCItems.oxygenVent, 'W', new ItemStack(GCItems.fuelCanister, 1, 1), 'X', GCItems.heavyPlatingTier1, 'Y', new ItemStack(Blocks.wool, 1, 4), 'Z', meteoricIronPlate });
 
         //Handled by GalaxySpace
-        /*HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
-        input.put(1, new ItemStack(GCItems.partNoseCone));
+        HashMap<Integer, ItemStack> input = new HashMap<Integer, ItemStack>();
+        /*input.put(1, new ItemStack(GCItems.partNoseCone));
         input.put(2, new ItemStack(GCItems.heavyPlatingTier1));
         input.put(3, new ItemStack(GCItems.heavyPlatingTier1));
         input.put(4, new ItemStack(GCItems.heavyPlatingTier1));
@@ -158,33 +162,33 @@ public class RecipeManagerGC
         input2.put(15, new ItemStack(Blocks.chest));
         input2.put(16, new ItemStack(Blocks.chest));
         input2.put(17, new ItemStack(Blocks.chest));
-        RecipeUtil.addRocketBenchRecipe(new ItemStack(GCItems.rocketTier1, 1, 3), input2);
+        RecipeUtil.addRocketBenchRecipe(new ItemStack(GCItems.rocketTier1, 1, 3), input2);*/
 
         //
 
         input = new HashMap<Integer, ItemStack>();
-        input.put(1, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(2, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(3, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(4, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(5, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(6, new ItemStack(GCItems.partBuggy, 1, 1));
-        input.put(7, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(8, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(9, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(10, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(11, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(12, new ItemStack(GCItems.heavyPlatingTier1));
-        input.put(13, new ItemStack(GCItems.partBuggy));
-        input.put(14, new ItemStack(GCItems.partBuggy));
-        input.put(15, new ItemStack(GCItems.partBuggy));
-        input.put(16, new ItemStack(GCItems.partBuggy));
-        input.put(17, null);
-        input.put(18, null);
-        input.put(19, null);
+
+        input.put(1, new ItemStack(GCItems.basicItem, 1, 19));
+        input.put(2, new ItemStack(GCItems.partBuggy, 1, 1));
+        input.put(3, new ItemStack(GSItems.ControlComputer, 1, 100));
+        for(int i = 4; i <= 7; i++) {
+            input.put(i, new ItemStack(GCItems.partBuggy));
+        }
+        for(int i = 8; i <= 11; i++) {
+            input.put(i, GT_OreDictUnificator.get(OrePrefixes.stick, Materials.StainlessSteel, 1));
+        }
+        for(int i = 12; i <= 16; i++) {
+            input.put(i, new ItemStack(GCItems.meteoricIronIngot, 1, 1));
+        }
+        for(int i = 17; i <= 24; i++) {
+            input.put(i, GT_OreDictUnificator.get(OrePrefixes.screw, Materials.StainlessSteel, 1));
+        }
+        for(int i = 25; i <= 34; i++) {
+            input.put(i, new ItemStack(GCItems.heavyPlatingTier1));
+        }
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 0), input);
 
-        input2 = new HashMap<Integer, ItemStack>(input);
+        /*input2 = new HashMap<Integer, ItemStack>(input);
         input2.put(17, new ItemStack(GCItems.partBuggy, 1, 2));
         input2.put(18, null);
         input2.put(19, null);

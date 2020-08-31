@@ -16,14 +16,14 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiSchematicAstroMiner extends GuiContainer implements ISchematicResultPage
 {
-    public static final ResourceLocation schematicTexture = new ResourceLocation(AsteroidsModule.ASSET_PREFIX, "textures/gui/schematic_astro_miner.png");
+    public static final ResourceLocation schematicTexture = new ResourceLocation("galaxyspace", "textures/gui/schematic_rocket_GS1_Miner.png");
 
     private int pageIndex;
 
     public GuiSchematicAstroMiner(InventoryPlayer par1InventoryPlayer, int x, int y, int z)
     {
         super(new ContainerSchematicAstroMiner(par1InventoryPlayer, x, y, z));
-        this.ySize = 221;
+        this.ySize = 203;
     }
 
     @SuppressWarnings("unchecked")
@@ -56,8 +56,8 @@ public class GuiSchematicAstroMiner extends GuiContainer implements ISchematicRe
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRendererObj.drawString(AsteroidsItems.astroMiner.getItemStackDisplayName(new ItemStack(AsteroidsItems.astroMiner, 1, 0)), 7, -20 + 27 + 25, 4210752);
-        this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 8, 220 - 104 + 2 + 27 - 16, 4210752);
+        this.fontRendererObj.drawString(AsteroidsItems.astroMiner.getItemStackDisplayName(new ItemStack(AsteroidsItems.astroMiner, 1, 0)), 7, 7 + 25, 0x404040);
+        this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 14, 111, 0x404040);
     }
 
     @Override

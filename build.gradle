@@ -3,8 +3,8 @@ def versionMajor = 3
 def versionMinor = 0
 def versionRev = "16-GTNH"
 
-def gsversion = "1.1.5c-GTNH"
-def gsjenkinsbuild = 21
+def gsversion = "1.2.0-pre1-GTNH"
+def gsjenkinsbuild = 22
 def gtversion = "5.09.33.52"
 def gtjenkinsbuild = 673
 

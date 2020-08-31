@@ -19,66 +19,49 @@ public class ContainerSchematicCargoRocket extends Container
     public IInventory craftResult = new InventoryCraftResult();
     private final World worldObj;
 
-    public ContainerSchematicCargoRocket(InventoryPlayer par1InventoryPlayer, int x, int y, int z)
+    public ContainerSchematicCargoRocket(InventoryPlayer inventory, int x, int y, int z)
     {
-        int change = 27;
-        this.worldObj = par1InventoryPlayer.player.worldObj;
-        this.addSlotToContainer(new SlotRocketBenchResult(par1InventoryPlayer.player, this.craftMatrix, this.craftResult, 0, 142, 69 + change));
-        int var6;
-        int var7;
+        this.worldObj = inventory.player.worldObj;
 
-        // Cone
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 1, 48, -9 + change, x, y, z, par1InventoryPlayer.player));
+        //OUT
+        addSlotToContainer(new SlotRocketBenchResult(inventory.player, craftMatrix, craftResult, 0, 143, 64));
 
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 2, 48, -9 + 18 + change, x, y, z, par1InventoryPlayer.player));
-
-        // Body
-        for (var6 = 0; var6 < 3; ++var6)
-        {
-            this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 3 + var6, 39, -7 + var6 * 18 + 16 + 18 + change, x, y, z, par1InventoryPlayer.player));
-        }
-
-        // Body Right
-        for (var6 = 0; var6 < 3; ++var6)
-        {
-            this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 6 + var6, 57, -7 + var6 * 18 + 16 + 18 + change, x, y, z, par1InventoryPlayer.player));
-        }
-
-        // Left fins
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 9, 21, 63 + change, x, y, z, par1InventoryPlayer.player));
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 10, 21, 81 + change, x, y, z, par1InventoryPlayer.player));
-
-        // Engine
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 11, 48, 81 + change, x, y, z, par1InventoryPlayer.player));
-
-        // Right fins
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 12, 75, 63 + change, x, y, z, par1InventoryPlayer.player));
-        this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 13, 75, 81 + change, x, y, z, par1InventoryPlayer.player));
-
-        // Addons
-        for (int var8 = 0; var8 < 3; var8++)
-        {
-            this.addSlotToContainer(new SlotSchematicCargoRocket(this.craftMatrix, 14 + var8, 93 + var8 * 26, -15 + change, x, y, z, par1InventoryPlayer.player));
-        }
-
-        change = 9;
-
-        // Player inv:
-
-        for (var6 = 0; var6 < 3; ++var6)
-        {
-            for (var7 = 0; var7 < 9; ++var7)
-            {
-                this.addSlotToContainer(new Slot(par1InventoryPlayer, var7 + var6 * 9 + 9, 8 + var7 * 18, 129 + var6 * 18 + change));
+        //GEAR
+        for(int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 1 + i * 3 + j, 116 + j * 18, 19 + i * 18, x, y, z, inventory.player));
             }
         }
 
-        for (var6 = 0; var6 < 9; ++var6)
-        {
-            this.addSlotToContainer(new Slot(par1InventoryPlayer, var6, 8 + var6 * 18, 18 + 169 + change));
+        //ROCKET
+        //nose cone
+        addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 7, 53, 19, x, y, z, inventory.player));
+        //body
+        for(int i = 0; i < 4; i++) {
+            for(int j = 0; j < 2; j++) {
+                addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 8 + i * 2 + j, 44 + j * 18, 37 + i * 18, x, y, z, inventory.player));
+            }
+        }
+        //engine
+        addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 16, 53, 109, x, y, z, inventory.player));
+        //fins
+        for(int i = 0; i < 2; i++) {
+            for(int j = 0; j < 2; j++) {
+                addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 17 + i * 2 + j, 26 + j * 54, 91 + i * 18, x, y, z, inventory.player));
+            }
         }
 
-        this.onCraftMatrixChanged(this.craftMatrix);
+        //PLAYER INV
+        for(int i = 0; i < 9; i++) {
+            addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 196));
+        }
+        for(int i = 0; i < 3; i++) {
+            for(int j = 0; j < 9; j++) {
+                addSlotToContainer(new Slot(inventory, 9 + j + i * 9, 8 + j * 18, 138 + i * 18));
+            }
+        }
+
+        onCraftMatrixChanged(craftMatrix);
     }
 
     @Override
@@ -113,135 +96,53 @@ public class ContainerSchematicCargoRocket extends Container
     }
 
     @Override
-    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par1)
-    {
-        ItemStack var2 = null;
-        final Slot var3 = (Slot) this.inventorySlots.get(par1);
+    public ItemStack transferStackInSlot(EntityPlayer player, int slotIndex) {
+        ItemStack stack = null;
+        final Slot currentSlot = (Slot) this.inventorySlots.get(slotIndex);
 
-        if (var3 != null && var3.getHasStack())
-        {
-            final ItemStack var4 = var3.getStack();
-            var2 = var4.copy();
+        if (currentSlot != null && currentSlot.getHasStack()) {
+            ItemStack currentStack = currentSlot.getStack();
+            stack = currentStack.copy();
 
-            boolean done = false;
-            if (par1 <= 16)
-            {
-                if (!this.mergeItemStack(var4, 17, 53, false))
-                {
-                    return null;
-                }
-
-                if (par1 == 0)
-                {
-                    var3.onSlotChange(var4, var2);
-                }
-            }
-            else
-            {
-                for (int i = 1; i < 14; i++)
-                {
-                    Slot testSlot = (Slot) this.inventorySlots.get(i);
-                    if (!testSlot.getHasStack() && testSlot.isItemValid(var2))
-                    {
-                        if (!this.mergeOneItem(var4, i, i + 1, false))
-                        {
-                            return null;
-                        }
-                        done = true;
-                        break;
-                    }
-                }
-
-                if (!done)
-                {
-                    if (var2.getItem() == Item.getItemFromBlock(Blocks.chest) && !((Slot) this.inventorySlots.get(14)).getHasStack())
-                    {
-                        if (!this.mergeOneItem(var4, 14, 15, false))
-                        {
-                            return null;
-                        }
-                    }
-                    else if (var2.getItem() == Item.getItemFromBlock(Blocks.chest) && !((Slot) this.inventorySlots.get(15)).getHasStack())
-                    {
-                        if (!this.mergeOneItem(var4, 15, 16, false))
-                        {
-                            return null;
-                        }
-                    }
-                    else if (var2.getItem() == Item.getItemFromBlock(Blocks.chest) && !((Slot) this.inventorySlots.get(16)).getHasStack())
-                    {
-                        if (!this.mergeOneItem(var4, 16, 17, false))
-                        {
-                            return null;
-                        }
-                    }
-                    else if (par1 >= 17 && par1 < 44)
-                    {
-                        if (!this.mergeItemStack(var4, 44, 53, false))
-                        {
-                            return null;
-                        }
-                    }
-                    else if (par1 >= 44 && par1 < 53)
-                    {
-                        if (!this.mergeItemStack(var4, 17, 44, false))
-                        {
-                            return null;
-                        }
-                    }
-                    else if (!this.mergeItemStack(var4, 17, 53, false))
-                    {
-                        return null;
-                    }
-                }
-            }
-
-            if (var4.stackSize == 0)
-            {
-                var3.putStack((ItemStack) null);
-            }
-            else
-            {
-                var3.onSlotChanged();
-            }
-
-            if (var4.stackSize == var2.stackSize)
-            {
+            if(!mergeOneItem(currentStack, 1, 20)) {
                 return null;
             }
 
-            var3.onPickupFromSlot(par1EntityPlayer, var4);
+            if (currentStack.stackSize == 0) {
+                if (slotIndex == 0) {
+                    currentSlot.onPickupFromSlot(player, currentStack);
+                }
+                currentSlot.putStack(null);
+                return stack;
+            }
+            if (currentStack.stackSize == stack.stackSize) {
+                return null;
+            }
+            currentSlot.onPickupFromSlot(player, currentStack);
+            if (slotIndex == 0) {
+                currentSlot.onSlotChanged();
+            }
         }
-
-        return var2;
+        return stack;
     }
 
-    protected boolean mergeOneItem(ItemStack par1ItemStack, int par2, int par3, boolean par4)
-    {
-        boolean flag1 = false;
-        if (par1ItemStack.stackSize > 0)
-        {
-            Slot slot;
-            ItemStack slotStack;
-
-            for (int k = par2; k < par3; k++)
-            {
-                slot = (Slot) this.inventorySlots.get(k);
-                slotStack = slot.getStack();
-
-                if (slotStack == null)
-                {
-                    ItemStack stackOneItem = par1ItemStack.copy();
+    protected boolean mergeOneItem(ItemStack itemStack, int startIndex, int endIndex) {
+        boolean nothingLeft = false;
+        if (itemStack.stackSize > 0) {
+            for (int i = startIndex; i <= endIndex; ++i) {
+                Slot slot = (Slot) inventorySlots.get(i);
+                ItemStack slotStack = slot.getStack();
+                if (slotStack == null && slot.isItemValid(itemStack)) {
+                    ItemStack stackOneItem = itemStack.copy();
                     stackOneItem.stackSize = 1;
-                    par1ItemStack.stackSize--;
+                    itemStack.stackSize--;
                     slot.putStack(stackOneItem);
                     slot.onSlotChanged();
-                    flag1 = true;
+                    nothingLeft = true;
                     break;
                 }
             }
         }
-
-        return flag1;
+        return nothingLeft;
     }
 }

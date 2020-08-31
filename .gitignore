@@ -9,6 +9,7 @@
 /forge/*
 /jars/*
 /lib/*
+/libs/*
 /logs/*
 /modsrc/*
 /reobf/*
@@ -97,7 +98,6 @@ local.properties
 *.tlb
 *.tli
 *.tlh
-*.tmp
 *.vspscc
 .builds
 *.dotCover

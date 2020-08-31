@@ -13,14 +13,14 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiSchematicCargoRocket extends GuiContainer implements ISchematicResultPage
 {
-    private static final ResourceLocation cargoRocketTexture = new ResourceLocation(MarsModule.ASSET_PREFIX, "textures/gui/schematic_rocket_cargo.png");
+    private static final ResourceLocation cargoRocketTexture = new ResourceLocation("galaxyspace", "textures/gui/schematic_rocket_GS1_T1.png");
 
     private int pageIndex;
 
     public GuiSchematicCargoRocket(InventoryPlayer par1InventoryPlayer, int x, int y, int z)
     {
         super(new ContainerSchematicCargoRocket(par1InventoryPlayer, x, y, z));
-        this.ySize = 220;
+        this.ySize = 221;
     }
 
     @SuppressWarnings("unchecked")
@@ -53,8 +53,8 @@ public class GuiSchematicCargoRocket extends GuiContainer implements ISchematicR
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRendererObj.drawString(GCCoreUtil.translate("item.spaceshipTier2.cargoRocket.name"), 7, -20 + 27, 4210752);
-        this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 8, 220 - 104 + 2 + 9, 4210752);
+        this.fontRendererObj.drawString(GCCoreUtil.translate("item.spaceshipTier2.cargoRocket.name"), 7, 7, 0x404040);
+        this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 14, 129, 0x404040);
     }
 
     @Override

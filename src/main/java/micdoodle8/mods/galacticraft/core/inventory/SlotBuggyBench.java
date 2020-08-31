@@ -1,5 +1,7 @@
 package micdoodle8.mods.galacticraft.core.inventory;
 
+import galaxyspace.core.register.GSItems;
+import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple;
@@ -53,51 +55,26 @@ public class SlotBuggyBench extends Slot
     }
 
     @Override
-    public boolean isItemValid(ItemStack par1ItemStack)
-    {
-        switch (this.index)
-        {
-        case 1:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 2:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 3:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 4:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 5:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 6:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 1;
-        case 7:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 8:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 9:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 10:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 11:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 12:
-            return par1ItemStack.getItem() == GCItems.heavyPlatingTier1;
-        case 13:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 0;
-        case 14:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 0;
-        case 15:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 0;
-        case 16:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 0;
-        case 17:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 2;
-        case 18:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 2;
-        case 19:
-            return par1ItemStack.getItem() == GCItems.partBuggy && par1ItemStack.getItemDamage() == 2;
+    public boolean isItemValid(ItemStack itemStack) {
+        if(index == 1) {
+            return itemStack.getItem() == GCItems.basicItem && itemStack.getItemDamage() == 19;
+        } else if(index == 2) {
+            return itemStack.getItem() == GCItems.partBuggy && itemStack.getItemDamage() == 1;
+        } else if(index == 3) {
+            return itemStack.getItem() == GSItems.ControlComputer && itemStack.getItemDamage() == 100;
+        } else if(index >= 4 && index <= 7) {
+            return itemStack.getItem() == GCItems.partBuggy && itemStack.getItemDamage() == 0;
+        } else if(index >= 8 && index <= 11) {
+            return itemStack.getItem() == GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1).getItem() && itemStack.getItemDamage() == 23306;
+        } else if(index >= 12 && index <= 16) {
+            return itemStack.getItem() == GCItems.meteoricIronIngot && itemStack.getItemDamage() == 1;
+        } else if(index >= 17 && index <= 24) {
+            return itemStack.getItem() == GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1).getItem() && itemStack.getItemDamage() == 27306;
+        } else if(index >= 25 && index <= 34) {
+            return itemStack.getItem() == GCItems.heavyPlatingTier1;
+        } else {
+            return false;
         }
-
-        return false;
     }
 
     /**

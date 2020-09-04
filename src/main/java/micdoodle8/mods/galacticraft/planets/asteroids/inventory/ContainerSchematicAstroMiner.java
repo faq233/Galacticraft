@@ -28,7 +28,7 @@ public class ContainerSchematicAstroMiner extends Container
         //top & bottom
         for(int i = 0; i < 2; i++) {
             for(int j = 0; j < 4; j++) {
-                addSlotToContainer(new SlotSchematicAstroMiner(craftMatrix, i + i * 4 + j, 44 + j * 18, 19 + i * 72, x, y, z, inventory.player));
+                addSlotToContainer(new SlotSchematicAstroMiner(craftMatrix, 1 + i * 4 + j, 44 + j * 18, 19 + i * 72, x, y, z, inventory.player));
             }
         }
         //poles

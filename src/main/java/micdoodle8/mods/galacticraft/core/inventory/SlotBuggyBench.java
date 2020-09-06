@@ -1,5 +1,6 @@
 package micdoodle8.mods.galacticraft.core.inventory;
 
+import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
@@ -10,6 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class SlotBuggyBench extends Slot
@@ -72,6 +74,8 @@ public class SlotBuggyBench extends Slot
             return itemStack.getItem() == GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1).getItem() && itemStack.getItemDamage() == 27306;
         } else if(index >= 25 && index <= 34) {
             return itemStack.getItem() == GCItems.heavyPlatingTier1;
+        } else if(index == 35) {
+            return itemStack.getItem() == Item.getItemFromBlock(IronChest.ironChestBlock) && (itemStack.getItemDamage() == 0 || itemStack.getItemDamage() == 1 || itemStack.getItemDamage() == 3);
         } else {
             return false;
         }

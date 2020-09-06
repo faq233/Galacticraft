@@ -1,6 +1,5 @@
 package micdoodle8.mods.galacticraft.core.inventory;
 
-import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.util.RecipeUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -8,7 +7,6 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -67,6 +65,9 @@ public class ContainerBuggyBench extends Container
             addSlotToContainer(new SlotBuggyBench(craftMatrix, 32 + i, 44 + i * 18, 91, x, y, z, inventory.player));
         }
 
+        //CHEST
+        addSlotToContainer(new SlotBuggyBench(craftMatrix, 35, 107, 64, x, y, z, inventory.player));
+
         //PLAYER INV
         for(int i = 0; i < 9; i++) {
             this.addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 196));
@@ -124,7 +125,7 @@ public class ContainerBuggyBench extends Container
             ItemStack currentStack = currentSlot.getStack();
             stack = currentStack.copy();
 
-            if(!this.mergeOneItem(currentStack, 1, 34)) {
+            if(!this.mergeOneItem(currentStack)) {
                 return null;
             }
 
@@ -146,10 +147,10 @@ public class ContainerBuggyBench extends Container
         return stack;
     }
 
-    protected boolean mergeOneItem(ItemStack itemStack, int startIndex, int endIndex) {
+    protected boolean mergeOneItem(ItemStack itemStack) {
         boolean nothingLeft = false;
         if (itemStack.stackSize > 0) {
-            for (int i = startIndex; i <= endIndex; i++) {
+            for (int i = 1; i <= 35; i++) {
                 Slot slot = (Slot) this.inventorySlots.get(i);
                 ItemStack slotStack = slot.getStack();
                 if (slotStack == null && slot.isItemValid(itemStack)) {

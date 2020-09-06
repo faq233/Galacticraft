@@ -1,6 +1,7 @@
 package micdoodle8.mods.galacticraft.core.recipe;
 
 import cpw.mods.fml.common.Loader;
+import cpw.mods.ironchest.IronChest;
 import galaxyspace.core.register.GSItems;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
@@ -120,9 +121,9 @@ public class RecipeManagerGC
         input.put(15, null);
         input.put(16, null);
         input.put(17, null);
-        RecipeUtil.addRocketBenchRecipe(new ItemStack(GCItems.rocketTier1, 1, 0), input);
+        RecipeUtil.addRocketBenchRecipe(new ItemStack(GCItems.rocketTier1, 1, 0), input);*/
 
-        HashMap<Integer, ItemStack> input2 = new HashMap<Integer, ItemStack>(input);
+        HashMap<Integer, ItemStack> input2 = new HashMap<Integer, ItemStack>(input);/*
         input2.put(15, new ItemStack(Blocks.chest));
         input2.put(16, null);
         input2.put(17, null);
@@ -186,49 +187,22 @@ public class RecipeManagerGC
         for(int i = 25; i <= 34; i++) {
             input.put(i, new ItemStack(GCItems.heavyPlatingTier1));
         }
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 0), input);
 
-        /*input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(18, null);
-        input2.put(19, null);
+        input2 = new HashMap<Integer, ItemStack>(input);
+        input2.put(35, null);
+        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 0), input2);
+
+        input2 = new HashMap<Integer, ItemStack>(input);
+        input2.put(35, new ItemStack(IronChest.ironChestBlock, 1, 3));
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 1), input2);
 
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, null);
-        input2.put(18, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(19, null);
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 1), input2);
-
-        input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, null);
-        input2.put(18, null);
-        input2.put(19, new ItemStack(GCItems.partBuggy, 1, 2));
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 1), input2);
-
-        input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(18, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(19, null);
+        input2.put(35, new ItemStack(IronChest.ironChestBlock));
         RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 2), input2);
 
         input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(18, null);
-        input2.put(19, new ItemStack(GCItems.partBuggy, 1, 2));
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 2), input2);
-
-        input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, null);
-        input2.put(18, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(19, new ItemStack(GCItems.partBuggy, 1, 2));
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 2), input2);
-
-        input2 = new HashMap<Integer, ItemStack>(input);
-        input2.put(17, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(18, new ItemStack(GCItems.partBuggy, 1, 2));
-        input2.put(19, new ItemStack(GCItems.partBuggy, 1, 2));
-        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 3), input2);*/
+        input2.put(35, new ItemStack(IronChest.ironChestBlock, 1, 1));
+        RecipeUtil.addBuggyBenchRecipe(new ItemStack(GCItems.buggy, 1, 3), input2);
 
         aluminumIngots.addAll(OreDictionary.getOres("ingotAluminum"));
     	ArrayList<ItemStack> addedList = new ArrayList<ItemStack>();

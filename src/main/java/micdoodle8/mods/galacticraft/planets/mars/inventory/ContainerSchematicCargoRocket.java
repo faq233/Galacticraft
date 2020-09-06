@@ -4,12 +4,10 @@ import micdoodle8.mods.galacticraft.core.inventory.SlotRocketBenchResult;
 import micdoodle8.mods.galacticraft.planets.mars.util.RecipeUtilMars;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCraftResult;
 import net.minecraft.inventory.Slot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
@@ -24,14 +22,17 @@ public class ContainerSchematicCargoRocket extends Container
         this.worldObj = inventory.player.worldObj;
 
         //OUT
-        addSlotToContainer(new SlotRocketBenchResult(inventory.player, craftMatrix, craftResult, 0, 143, 64));
+        addSlotToContainer(new SlotRocketBenchResult(inventory.player, craftMatrix, craftResult, 0, 134, 73));
 
         //GEAR
+        addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 1, 134, 10, x, y, z, inventory.player));
+        addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 2, 134, 28, x, y, z, inventory.player));
         for(int i = 0; i < 2; i++) {
-            for (int j = 0; j < 3; j++) {
-                addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 1 + i * 3 + j, 116 + j * 18, 19 + i * 18, x, y, z, inventory.player));
+            for(int j = 0; j < 2; j++) {
+                addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 3 + i * 2 + j, 116 + j * 36, 19 + i * 18, x, y, z, inventory.player));
             }
         }
+        addSlotToContainer(new SlotSchematicCargoRocket(craftMatrix, 21, 134, 46, x, y, z, inventory.player));
 
         //ROCKET
         //nose cone
@@ -104,7 +105,7 @@ public class ContainerSchematicCargoRocket extends Container
             ItemStack currentStack = currentSlot.getStack();
             stack = currentStack.copy();
 
-            if(!mergeOneItem(currentStack, 1, 20)) {
+            if(!mergeOneItem(currentStack)) {
                 return null;
             }
 
@@ -126,10 +127,10 @@ public class ContainerSchematicCargoRocket extends Container
         return stack;
     }
 
-    protected boolean mergeOneItem(ItemStack itemStack, int startIndex, int endIndex) {
+    protected boolean mergeOneItem(ItemStack itemStack) {
         boolean nothingLeft = false;
         if (itemStack.stackSize > 0) {
-            for (int i = startIndex; i <= endIndex; ++i) {
+            for (int i = 1; i <= 21; ++i) {
                 Slot slot = (Slot) inventorySlots.get(i);
                 ItemStack slotStack = slot.getStack();
                 if (slotStack == null && slot.isItemValid(itemStack)) {

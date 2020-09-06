@@ -12,7 +12,7 @@ public class InventoryBuggyBench implements IInventory
 
     public InventoryBuggyBench(Container par1Container)
     {
-        this.stackList = new ItemStack[35];
+        this.stackList = new ItemStack[36];
         this.eventHandler = par1Container;
     }
 

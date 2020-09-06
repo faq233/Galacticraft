@@ -56,7 +56,7 @@ public class GuiSchematicAstroMiner extends GuiContainer implements ISchematicRe
     @Override
     protected void drawGuiContainerForegroundLayer(int par1, int par2)
     {
-        this.fontRendererObj.drawString(AsteroidsItems.astroMiner.getItemStackDisplayName(new ItemStack(AsteroidsItems.astroMiner, 1, 0)), 7, 7 + 25, 0x404040);
+        this.fontRendererObj.drawString(AsteroidsItems.astroMiner.getItemStackDisplayName(new ItemStack(AsteroidsItems.astroMiner, 1, 0)), 7, 7, 0x404040);
         this.fontRendererObj.drawString(GCCoreUtil.translate("container.inventory"), 14, 111, 0x404040);
     }
 

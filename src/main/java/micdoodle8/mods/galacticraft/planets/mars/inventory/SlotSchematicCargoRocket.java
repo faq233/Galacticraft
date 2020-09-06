@@ -63,9 +63,7 @@ public class SlotSchematicCargoRocket extends Slot
             return itemStack.getItem() == GCItems.basicItem && itemStack.getItemDamage() == 14;
         } else if(index == 2) {
             return itemStack.getItem() == GSItems.ControlComputer && itemStack.getItemDamage() == 101;
-        } else if(index == 3) {
-            return itemStack.getItem() == Item.getItemFromBlock(IronChest.ironChestBlock) && (itemStack.getItemDamage() == 0 || itemStack.getItemDamage() == 1 || itemStack.getItemDamage() == 3);
-        } else if(index >= 4 && index <= 6) {
+        } else if(index >= 3 && index <= 5) {
             return itemStack.getItem() == GSItems.ModuleSmallFuelCanister;
         } else if(index == 7) {
             return itemStack.getItem() == GCItems.partNoseCone;
@@ -75,6 +73,8 @@ public class SlotSchematicCargoRocket extends Slot
             return itemStack.getItem() == GCItems.rocketEngine && itemStack.getItemDamage() == 0;
         } else if(index >= 17 && index <= 20) {
             return itemStack.getItem() == GCItems.partFins;
+        } else if(index == 21) {
+            return itemStack.getItem() == Item.getItemFromBlock(IronChest.ironChestBlock) && (itemStack.getItemDamage() == 0 || itemStack.getItemDamage() == 1 || itemStack.getItemDamage() == 3);
         } else {
             return false;
         }

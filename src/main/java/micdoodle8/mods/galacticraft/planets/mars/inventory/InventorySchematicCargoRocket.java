@@ -12,7 +12,7 @@ public class InventorySchematicCargoRocket implements IInventory
 
     public InventorySchematicCargoRocket(Container par1Container)
     {
-        this.stackList = new ItemStack[21];
+        this.stackList = new ItemStack[22];
         this.eventHandler = par1Container;
     }
 

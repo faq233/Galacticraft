@@ -1,12 +1,12 @@
 def mcVersion = "1.7"
 def versionMajor = 3
 def versionMinor = 0
-def versionRev = "16-GTNH"
+def versionRev = "17-GTNH"
 
 def gsversion = "1.2.0-pre1-GTNH"
 def gsjenkinsbuild = 22
-def gtversion = "5.09.33.52"
-def gtjenkinsbuild = 673
+def gtversion = "5.09.33.53"
+def gtjenkinsbuild = 674
 
 buildscript {
     repositories {

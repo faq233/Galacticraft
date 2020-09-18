@@ -3,10 +3,10 @@ def versionMajor = 3
 def versionMinor = 0
 def versionRev = "17-GTNH"
 
-def gsversion = "1.2.0-pre1-GTNH"
-def gsjenkinsbuild = 22
-def gtversion = "5.09.33.53"
-def gtjenkinsbuild = 674
+def gsversion = "1.2.0-pre3-GTNH"
+def gsjenkinsbuild = 29
+def gtversion = "5.09.33.54"
+def gtjenkinsbuild = 678
 
 buildscript {
     repositories {
@@ -116,7 +116,7 @@ task getIronChest(type: Download) {
     onlyIf {
         !file("libs/Ironchest-6.0.62-(742).jar").exists()
     }
-    src "https://data-hole.ddns.net/index.php/s/TrSToYip87CbisN/download"
+    src "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/ironchest-1.7.10-6.0.62.742-universal.jar"
     dest file("libs/Ironchest-6.0.62-(742).jar")
     mustRunAfter "deobfBinJar"
     mustRunAfter "repackMinecraft"

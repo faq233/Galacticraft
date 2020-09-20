@@ -33,6 +33,7 @@ CHANGELOG
 /src/minecraft/micdoodle8/mods/galacticraft/mars/
 
 *.bat
+!gradlew.bat
 *.sh
 *.pydevproject
 .project

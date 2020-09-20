@@ -3,10 +3,12 @@ def versionMajor = 3
 def versionMinor = 0
 def versionRev = "17-GTNH"
 
-def gsversion = "1.2.0-pre3-GTNH"
-def gsjenkinsbuild = 29
+def gsversion = "1.2.0-pre5-GTNH"
+def gsjenkinsbuild = 32
+def micversion = "3.0.15-GTNH"
+def micjenkinsbuild = 2
 def gtversion = "5.09.33.54"
-def gtjenkinsbuild = 678
+def gtjenkinsbuild = 681
 
 buildscript {
     repositories {
@@ -150,10 +152,24 @@ task getGregTech(type: Download, dependsOn: "getGalaxySpace") {
     }
 }
 
-tasks.setupCIWorkspace.dependsOn getGregTech
-tasks.setupDevWorkspace.dependsOn getGregTech
-tasks.setupDecompWorkspace.dependsOn getGregTech
-tasks.compileJava.dependsOn getGregTech
+task getMiccdoodleCore(type: Download, dependsOn: "getGregTech") {
+	onlyIf {
+		!file("libs/MiccdoodleCore-${micversion}-(${micjenkinsbuild}).jar").exists()
+	}
+	src "http://jenkins.usrv.eu:8080/job/MicdoodleCore/${micjenkinsbuild}/artifact/build/libs/MicdoodleCore-1.7.10-${micversion}-dev.jar"
+	dest file("libs/MiccdoodleCore-${micversion}-(${micjenkinsbuild}).jar")
+    mustRunAfter "deobfBinJar"
+    mustRunAfter "repackMinecraft"
+    delete fileTree("$projectDir/libs/") {
+        include "MiccdoodleCore-*.jar"
+        exclude "MiccdoodleCore-${micversion}-(${micjenkinsbuild}).jar"
+    }
+}
+
+tasks.setupCIWorkspace.dependsOn getMiccdoodleCore
+tasks.setupDevWorkspace.dependsOn getMiccdoodleCore
+tasks.setupDecompWorkspace.dependsOn getMiccdoodleCore
+tasks.compileJava.dependsOn getMiccdoodleCore
 
 processResources
 {

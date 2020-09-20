@@ -4,8 +4,8 @@ import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
+import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
-import micdoodle8.mods.galacticraft.planets.mars.MarsModule;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
@@ -17,7 +17,13 @@ import java.util.Set;
 
 public class CargoRocketRecipeHandler extends TemplateRecipeHandler
 {
-    private static final ResourceLocation cargoRocketTexture = new ResourceLocation(MarsModule.ASSET_PREFIX, "textures/gui/schematic_rocket_cargo.png");
+    private static final ResourceLocation cargoRocketTexture = new ResourceLocation(GalaxySpace.ASSET_PREFIX, "textures/gui/schematic_rocket_GS1_Cargo.png");
+    public static final int x = -1;
+    public static final int y = -12;
+    public static final int tX = 3;
+    public static final int tY = 4;
+    public static final int w = 168;
+    public static final int h = 122;
 
     public String getRecipeId()
     {
@@ -40,7 +46,7 @@ public class CargoRocketRecipeHandler extends TemplateRecipeHandler
     {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GuiDraw.changeTexture(CargoRocketRecipeHandler.cargoRocketTexture);
-        GuiDraw.drawTexturedModalRect(0, 0, 3, 4, 168, 125);
+        GuiDraw.drawTexturedModalRect(x, y, tX, tY, w, h);
     }
 
     @Override
@@ -131,7 +137,7 @@ public class CargoRocketRecipeHandler extends TemplateRecipeHandler
     @Override
     public String getGuiTexture()
     {
-        return MarsModule.TEXTURE_PREFIX + "textures/gui/schematic_rocket_cargo.png";
+        return GalaxySpace.ASSET_PREFIX + "textures/gui/schematic_rocket_GS1_Cargo.png";
     }
 
     @Override

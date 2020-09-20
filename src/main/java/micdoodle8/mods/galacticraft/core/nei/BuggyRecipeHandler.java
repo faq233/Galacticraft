@@ -4,7 +4,7 @@ import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import micdoodle8.mods.galacticraft.core.GalacticraftCore;
+import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -18,7 +18,13 @@ import java.util.Set;
 
 public class BuggyRecipeHandler extends TemplateRecipeHandler
 {
-    private static final ResourceLocation buggyGuiTexture = new ResourceLocation(GalacticraftCore.ASSET_PREFIX, "textures/gui/buggybench.png");
+    private static final ResourceLocation buggyGuiTexture = new ResourceLocation(GalaxySpace.ASSET_PREFIX, "textures/gui/schematic_rocket_GS1_Buggy.png");
+    public static final int x = -1;
+    public static final int y = -12;
+    public static final int tX = 3;
+    public static final int tY = 4;
+    public static final int w = 168;
+    public static final int h = 130;
 
     public String getRecipeId()
     {
@@ -55,7 +61,7 @@ public class BuggyRecipeHandler extends TemplateRecipeHandler
     {
         GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
         GuiDraw.changeTexture(BuggyRecipeHandler.buggyGuiTexture);
-        GuiDraw.drawTexturedModalRect(0, 0, 3, 4, 168, 130);
+        GuiDraw.drawTexturedModalRect(x, y, tX, tY, w, h);
     }
 
     @Override
@@ -146,7 +152,7 @@ public class BuggyRecipeHandler extends TemplateRecipeHandler
     @Override
     public String getGuiTexture()
     {
-        return GalacticraftCore.TEXTURE_PREFIX + "textures/gui/buggybench.png";
+        return GalaxySpace.ASSET_PREFIX + "textures/gui/schematic_rocket_GS1_Buggy.png";
     }
 
     @Override

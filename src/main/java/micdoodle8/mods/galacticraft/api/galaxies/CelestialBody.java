@@ -152,6 +152,11 @@ public abstract class CelestialBody implements Comparable<CelestialBody>
         this.relativeOrbitTime = relativeOrbitTime;
         return this;
     }
+    
+    public CelestialBody setDimensionID(int dimID) {
+    	this.dimensionID = dimID;
+    	return this;
+    }
 
     public CelestialBody setDimensionInfo(int dimID, Class<? extends WorldProvider> providerClass)
     {

@@ -1,7 +1,7 @@
 def mcVersion = "1.7"
 def versionMajor = 3
 def versionMinor = 0
-def versionRev = "20-GTNH"
+def versionRev = "21-GTNH"
 
 def gsversion = "1.1.6h-GTNH"
 def gsjenkinsbuild = 50

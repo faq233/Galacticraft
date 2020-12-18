@@ -188,7 +188,7 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
     @Override
     public float calculateCelestialAngle(long par1, float par3)
     {
-        par1 = this.getWorldTime();
+        par1 = this.getWorldTimeInternal();
         int j = (int) (par1 % this.getDayLength());
         float f1 = (j + par3) / this.getDayLength() - 0.25F;
 
@@ -405,9 +405,14 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
         {
             this.saveTCO  = this.timeCurrentOffset;
         }
+        return getWorldTimeInternal();
+    }
+
+    private long getWorldTimeInternal()
+    {
         return worldObj.getWorldInfo().getWorldTime() + this.timeCurrentOffset;
     }
-    
+
     /**
      * Adjust time offset on Galacticraft worlds when the Overworld time jumps and you don't want the time
      * on all the other Galacticraft worlds to jump also - see WorldUtil.setNextMorning() for example

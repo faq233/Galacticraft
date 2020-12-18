@@ -389,12 +389,13 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
     }
 
     @Override
-    public long getWorldTime()
+    public long getWorldTime() 
     {
         return worldObj.getWorldInfo().getWorldTime() + this.timeCurrentOffset;
     }
 
-    public void setWorldTimeCommand(long time) {
+    public void setWorldTimeCommand(long time) 
+    {
         worldObj.getWorldInfo().setWorldTime(time);
         this.timeCurrentOffset = this.saveTCO;
         this.saveTime();
@@ -402,7 +403,8 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
         this.saveTCO = 0L;
     }
 
-    public long getWOrldTimeCommand() {
+    public long getWorldTimeCommand() 
+    {
         this.saveTCO  = this.timeCurrentOffset;
         return worldObj.getWorldInfo().getWorldTime() + this.timeCurrentOffset;
     }

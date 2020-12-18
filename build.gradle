@@ -7,12 +7,12 @@ def gsversion = "1.1.6h-GTNH"
 def gsjenkinsbuild = 50
 def micversion = "3.0.15-GTNH"
 def micjenkinsbuild = 2
-def gtversion = "5.09.33.57"
-def gtjenkinsbuild = 778
+def gtversion = "5.09.34.00"
+def gtjenkinsbuild = 809
 
 buildscript {
     repositories {
-        maven()
+        mavenCentral()
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"

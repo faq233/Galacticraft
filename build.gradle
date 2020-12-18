@@ -12,7 +12,7 @@ def gtjenkinsbuild = 778
 
 buildscript {
     repositories {
-        mavenCentral()
+        maven()
         maven {
             name = "forge"
             url = "http://files.minecraftforge.net/maven"

@@ -188,7 +188,7 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
     @Override
     public float calculateCelestialAngle(long par1, float par3)
     {
-        par1 = this.getWorldTimeInternal();
+        par1 = worldObj.getWorldInfo().getWorldTime() + this.timeCurrentOffset;
         int j = (int) (par1 % this.getDayLength());
         float f1 = (j + par3) / this.getDayLength() - 0.25F;
 
@@ -378,22 +378,12 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
     public void setWorldTime(long time)
     {
         worldObj.getWorldInfo().setWorldTime(time);
-        if (JavaUtil.instance.isCalledBy(CommandTime.class))
-        {
-            this.timeCurrentOffset = this.saveTCO;
+        long diff = -this.timeCurrentOffset;
+        this.timeCurrentOffset = time - worldObj.getWorldInfo().getWorldTime();
+        diff += this.timeCurrentOffset;
+        if (diff != 0L) {
             this.saveTime();
             this.preTickTime = time;
-        }
-        else
-        {
-            long diff = - this.timeCurrentOffset;
-            this.timeCurrentOffset = time - worldObj.getWorldInfo().getWorldTime();
-            diff += this.timeCurrentOffset;
-            if (diff != 0L)
-            {
-                this.saveTime();
-                this.preTickTime = time;
-            }
         }
         this.saveTCO = 0L;
     }
@@ -401,15 +391,19 @@ public abstract class WorldProviderSpace extends WorldProvider implements IGalac
     @Override
     public long getWorldTime()
     {
-        if (JavaUtil.instance.isCalledBy(CommandTime.class))
-        {
-            this.saveTCO  = this.timeCurrentOffset;
-        }
-        return getWorldTimeInternal();
+        return worldObj.getWorldInfo().getWorldTime() + this.timeCurrentOffset;
     }
 
-    private long getWorldTimeInternal()
-    {
+    public void setWorldTimeCommand(long time) {
+        worldObj.getWorldInfo().setWorldTime(time);
+        this.timeCurrentOffset = this.saveTCO;
+        this.saveTime();
+        this.preTickTime = time;
+        this.saveTCO = 0L;
+    }
+
+    public long getWOrldTimeCommand() {
+        this.saveTCO  = this.timeCurrentOffset;
         return worldObj.getWorldInfo().getWorldTime() + this.timeCurrentOffset;
     }
 

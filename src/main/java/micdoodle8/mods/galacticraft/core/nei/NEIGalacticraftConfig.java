@@ -65,10 +65,13 @@ public class NEIGalacticraftConfig implements IConfigureNEI
         API.registerUsageHandler(new RefineryRecipeHandler());
         API.registerRecipeHandler(new CircuitFabricatorRecipeHandler());
         API.registerUsageHandler(new CircuitFabricatorRecipeHandler());
+
+        /* Not used in GTNH
         API.registerRecipeHandler(new IngotCompressorRecipeHandler());
         API.registerUsageHandler(new IngotCompressorRecipeHandler());
         API.registerRecipeHandler(new ElectricIngotCompressorRecipeHandler());
-        API.registerUsageHandler(new ElectricIngotCompressorRecipeHandler());
+        API.registerUsageHandler(new ElectricIngotCompressorRecipeHandler()); */
+        
         API.registerHighlightIdentifier(GCBlocks.basicBlock, new GCNEIHighlightHandler());
         API.registerHighlightIdentifier(GCBlocks.blockMoon, new GCNEIHighlightHandler());
         API.registerHighlightIdentifier(GCBlocks.fakeBlock, new GCNEIHighlightHandler());

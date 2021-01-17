@@ -36,10 +36,13 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
         //API.registerUsageHandler(new RocketT2RecipeHandler());
         API.registerRecipeHandler(new CargoRocketRecipeHandler());
         API.registerUsageHandler(new CargoRocketRecipeHandler());
+        
+        /* Not used in GTNH
         API.registerRecipeHandler(new GasLiquefierRecipeHandler());
         API.registerUsageHandler(new GasLiquefierRecipeHandler());
         API.registerRecipeHandler(new MethaneSynthesizerRecipeHandler());
-        API.registerUsageHandler(new MethaneSynthesizerRecipeHandler());
+        API.registerUsageHandler(new MethaneSynthesizerRecipeHandler()); */
+        
         API.registerHighlightIdentifier(MarsBlocks.marsBlock, planetsHighlightHandler);
     }
 

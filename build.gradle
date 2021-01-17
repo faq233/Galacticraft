@@ -7,8 +7,8 @@ def gsversion = "1.1.7b-GTNH"
 def gsjenkinsbuild = 62
 def micversion = "3.0.15-GTNH"
 def micjenkinsbuild = 2
-def gtversion = "5.09.34.06"
-def gtjenkinsbuild = 895
+def gtversion = "5.09.34.07"
+def gtjenkinsbuild = 905
 
 buildscript {
     repositories {

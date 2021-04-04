@@ -55,7 +55,7 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
     @Override
     public String getVersion()
     {
-        return Constants.LOCALMAJVERSION + "." + Constants.LOCALMINVERSION + "." + Constants.LOCALBUILDVERSION;
+        return Constants.VERSION;
     }
 
     public void registerRocketBenchRecipe(ArrayList<PositionedStack> input, PositionedStack output)

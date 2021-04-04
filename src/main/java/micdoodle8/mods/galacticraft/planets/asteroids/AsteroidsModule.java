@@ -6,7 +6,6 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.ironchest.IronChest;
-import galaxyspace.core.register.GSItems;
 import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
@@ -243,7 +242,7 @@ public class AsteroidsModule implements IPlanetsModule
         for(int i = 14; i <= 17; i++) {
             input.put(i, new ItemStack(AsteroidsItems.orionDrive));
         }
-        input.put(18, new ItemStack(GSItems.ControlComputer, 1, 102));
+        input.put(18, GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 102));
         input.put(19, new ItemStack(GCItems.basicItem, 1, 14));
         input.put(20, new ItemStack(GCItems.basicItem, 1, 14));
         for(int i = 21; i <= 23; i++) {

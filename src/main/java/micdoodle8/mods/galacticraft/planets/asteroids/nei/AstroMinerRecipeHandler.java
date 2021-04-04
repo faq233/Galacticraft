@@ -4,7 +4,6 @@ import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.planets.asteroids.client.gui.GuiSchematicAstroMiner;
@@ -140,7 +139,7 @@ public class AstroMinerRecipeHandler extends TemplateRecipeHandler
     @Override
     public String getGuiTexture()
     {
-        return GalaxySpace.ASSET_PREFIX + "textures/gui/schematic_rocket_GS1_Miner.png";
+        return "galacticraftasteroids:textures/gui/schematic_rocket_GS1_Miner.png";
     }
 
     @Override

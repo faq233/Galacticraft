@@ -4,7 +4,7 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.ironchest.IronChest;
-import galaxyspace.core.register.GSItems;
+import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems;
@@ -161,10 +161,10 @@ public class NEIGalacticraftMarsConfig implements IConfigureNEI
         int x = CargoRocketRecipeHandler.tX - CargoRocketRecipeHandler.x;
         int y = CargoRocketRecipeHandler.tY - CargoRocketRecipeHandler.y;
         input.add(new PositionedStack(new ItemStack(GCItems.basicItem, 1, 14), 134 - x, 10 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ControlComputer, 1, 101), 134 - x, 28 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ModuleSmallFuelCanister), 116 - x, 19 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ModuleSmallFuelCanister), 152 - x, 19 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ModuleSmallFuelCanister), 116 - x, 37 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 101), 134 - x, 28 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem("GalaxySpace", "item.ModuleSmallFuelCanister", 1), 116 - x, 19 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem("GalaxySpace", "item.ModuleSmallFuelCanister", 1), 152 - x, 19 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem("GalaxySpace", "item.ModuleSmallFuelCanister", 1), 116 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.partNoseCone), 53 - x, 19 - y));
         for(int i = 0; i < 4; i++) {
             for(int j = 0; j < 2; j++) {

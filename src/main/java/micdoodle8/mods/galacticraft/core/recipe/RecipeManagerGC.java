@@ -2,9 +2,9 @@ package micdoodle8.mods.galacticraft.core.recipe;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.ironchest.IronChest;
-import galaxyspace.core.register.GSItems;
 import gregtech.api.enums.Materials;
 import gregtech.api.enums.OrePrefixes;
+import gregtech.api.util.GT_ModHandler;
 import gregtech.api.util.GT_OreDictUnificator;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.recipe.CircuitFabricatorRecipes;
@@ -171,7 +171,7 @@ public class RecipeManagerGC
 
         input.put(1, new ItemStack(GCItems.basicItem, 1, 19));
         input.put(2, new ItemStack(GCItems.partBuggy, 1, 1));
-        input.put(3, new ItemStack(GSItems.ControlComputer, 1, 100));
+        input.put(3, GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 100));
         for(int i = 4; i <= 7; i++) {
             input.put(i, new ItemStack(GCItems.partBuggy));
         }

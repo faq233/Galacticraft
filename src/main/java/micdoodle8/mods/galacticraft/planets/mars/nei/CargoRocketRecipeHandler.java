@@ -4,7 +4,6 @@ import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.item.ItemStack;
@@ -18,7 +17,7 @@ import java.util.Set;
 
 public class CargoRocketRecipeHandler extends TemplateRecipeHandler
 {
-    private static final ResourceLocation cargoRocketTexture = new ResourceLocation(GalaxySpace.ASSET_PREFIX, "textures/gui/schematic_rocket_GS1_Cargo.png");
+    private static final ResourceLocation cargoRocketTexture = new ResourceLocation("galacticraftmars", "textures/gui/schematic_rocket_GS1_Cargo.png");
     public static final int x = -1;
     public static final int y = -12;
     public static final int tX = 3;
@@ -138,7 +137,7 @@ public class CargoRocketRecipeHandler extends TemplateRecipeHandler
     @Override
     public String getGuiTexture()
     {
-        return GalaxySpace.ASSET_PREFIX + "textures/gui/schematic_rocket_GS1_Cargo.png";
+        return "galacticraftmars:textures/gui/schematic_rocket_GS1_Cargo.png";
     }
 
     @Override

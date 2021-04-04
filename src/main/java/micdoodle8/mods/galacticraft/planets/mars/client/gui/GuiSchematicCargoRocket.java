@@ -1,6 +1,5 @@
 package micdoodle8.mods.galacticraft.planets.mars.client.gui;
 
-import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.api.recipe.ISchematicResultPage;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
@@ -14,7 +13,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiSchematicCargoRocket extends GuiContainer implements ISchematicResultPage
 {
-    private static final ResourceLocation cargoRocketTexture = new ResourceLocation(GalaxySpace.ASSET_PREFIX, "textures/gui/schematic_rocket_GS1_Cargo.png");
+    private static final ResourceLocation cargoRocketTexture = new ResourceLocation("galacticraftmars", "textures/gui/schematic_rocket_GS1_Cargo.png");
 
     private int pageIndex;
 

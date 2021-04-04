@@ -4,7 +4,6 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.ironchest.IronChest;
-import galaxyspace.core.register.GSItems;
 import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.core.Constants;
@@ -148,7 +147,7 @@ public class NEIGalacticraftAsteroidsConfig implements IConfigureNEI
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.orionDrive), 26 - x, 55 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.orionDrive), 44 - x, 55 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.orionDrive), 62 - x, 55 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ControlComputer, 1, 102), 62 - x, 37 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 102), 62 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.basicItem, 1, 14), 80 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.basicItem, 1, 14), 98 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.heavyPlatingTier1), 116 - x, 37 - y));

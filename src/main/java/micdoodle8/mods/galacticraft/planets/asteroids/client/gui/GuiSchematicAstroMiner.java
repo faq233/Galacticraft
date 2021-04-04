@@ -1,6 +1,5 @@
 package micdoodle8.mods.galacticraft.planets.asteroids.client.gui;
 
-import galaxyspace.GalaxySpace;
 import micdoodle8.mods.galacticraft.api.recipe.ISchematicResultPage;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
@@ -17,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GuiSchematicAstroMiner extends GuiContainer implements ISchematicResultPage
 {
-    public static final ResourceLocation schematicTexture = new ResourceLocation(GalaxySpace.ASSET_PREFIX, "textures/gui/schematic_rocket_GS1_Miner.png");
+    public static final ResourceLocation schematicTexture = new ResourceLocation("galacticraftasteroids", "textures/gui/schematic_rocket_GS1_Miner.png");
 
     private int pageIndex;
 

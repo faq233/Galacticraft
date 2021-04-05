@@ -34,10 +34,10 @@ public class BlockWallGC extends BlockWall
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
 		this.wallBlockIcon = new IIcon[6];
-		this.wallBlockIcon[0] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_4");
-		this.wallBlockIcon[1] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_2");
-		this.wallBlockIcon[2] = par1IconRegister.registerIcon("galacticraftmoon:bottom");
-		this.wallBlockIcon[3] = par1IconRegister.registerIcon("galacticraftmoon:brick");
+		this.wallBlockIcon[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_4");
+		this.wallBlockIcon[1] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_2");
+		this.wallBlockIcon[2] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "bottom");
+		this.wallBlockIcon[3] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "brick");
 
 		if (GalacticraftCore.isPlanetsLoaded)
 		{
@@ -62,7 +62,7 @@ public class BlockWallGC extends BlockWall
 		}
 
 		this.tinSideIcon = new IIcon[1];
-		this.tinSideIcon[0] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_1");
+		this.tinSideIcon[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_1");
 	}
 
 	@SideOnly(Side.CLIENT)

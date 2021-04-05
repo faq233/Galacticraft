@@ -11,6 +11,7 @@ import micdoodle8.mods.galacticraft.core.items.ItemBlockDesc;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.planets.GalacticraftPlanets;
 import micdoodle8.mods.galacticraft.planets.GuiIdsPlanets;
+import micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule;
 import micdoodle8.mods.galacticraft.planets.mars.tile.TileEntityElectrolyzer;
 import micdoodle8.mods.galacticraft.planets.mars.tile.TileEntityGasLiquefier;
 import micdoodle8.mods.galacticraft.planets.mars.tile.TileEntityMethaneSynthesizer;
@@ -55,16 +56,16 @@ public class BlockMachineMarsT2 extends BlockTileGC implements ItemBlockDesc.IBl
     @Override
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
-        this.blockIcon = par1IconRegister.registerIcon("galacticraftasteroids:machine");
-        this.iconInput = par1IconRegister.registerIcon("galacticraftasteroids:machine_input");
+        this.blockIcon = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "machine");
+        this.iconInput = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "machine_input");
 
-        this.iconMachineSide = par1IconRegister.registerIcon("galacticraftasteroids:machine_side_warning");
-        this.iconGasInput = par1IconRegister.registerIcon("galacticraftasteroids:machine_oxygen_input_warning");
-        this.iconGasOutput = par1IconRegister.registerIcon("galacticraftasteroids:machine_oxygen_output_warning");
-        this.iconWaterInput = par1IconRegister.registerIcon("galacticraftasteroids:machine_water_input_warning");
-        this.iconGasLiquefier = par1IconRegister.registerIcon("galacticraftasteroids:gasLiquefier");
-        this.iconMethaneSynthesizer = par1IconRegister.registerIcon("galacticraftasteroids:methaneSynthesizer");
-        this.iconElectrolyzer = par1IconRegister.registerIcon("galacticraftasteroids:electrolyzer");
+        this.iconMachineSide = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "machine_side_warning");
+        this.iconGasInput = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "machine_oxygen_input_warning");
+        this.iconGasOutput = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "machine_oxygen_output_warning");
+        this.iconWaterInput = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "machine_water_input_warning");
+        this.iconGasLiquefier = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "gasLiquefier");
+        this.iconMethaneSynthesizer = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "methaneSynthesizer");
+        this.iconElectrolyzer = par1IconRegister.registerIcon(AsteroidsModule.TEXTURE_PREFIX + "electrolyzer");
     }
 
     @SideOnly(Side.CLIENT)

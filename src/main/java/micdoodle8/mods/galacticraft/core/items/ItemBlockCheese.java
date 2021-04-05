@@ -22,7 +22,7 @@ public class ItemBlockCheese extends ItemBlockDesc
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
     {
-        this.itemIcon = iconRegister.registerIcon("galacticraftmoon:cheese_block");
+        this.itemIcon = iconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "cheese_block");
     }
 
     @Override

@@ -27,7 +27,7 @@ public class ItemCheese extends ItemFood
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister iconRegister)
     {
-        this.itemIcon = iconRegister.registerIcon("galacticraftmoon:cheese_curd");
+        this.itemIcon = iconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "cheese_curd");
     }
 
     @Override

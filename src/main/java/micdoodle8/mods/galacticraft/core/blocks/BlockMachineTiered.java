@@ -80,16 +80,31 @@ public class BlockMachineTiered extends BlockTileGC implements ItemBlockDesc.IBl
 
         if (GalacticraftCore.isPlanetsLoaded)
         {
-            this.iconTier2 = iconRegister.registerIcon("galacticraftasteroids:machine");
-            this.iconInputT2 = iconRegister.registerIcon("galacticraftasteroids:machine_input");
-            this.iconOutputT2 = iconRegister.registerIcon("galacticraftasteroids:machine_output");
-            this.iconMachineSideT2 = iconRegister.registerIcon("galacticraftasteroids:machine_side");
-            this.iconEnergyStorageModuleT2 = new IIcon[17];
-            for (int i = 0; i < this.iconEnergyStorageModule.length; i++)
-            {
-                this.iconEnergyStorageModuleT2[i] = iconRegister.registerIcon("galacticraftasteroids:energyStorageModule_" + i);
-            }
-            this.iconElectricFurnaceT2 = iconRegister.registerIcon("galacticraftasteroids:electricFurnace");
+        	try {
+				String prefix = (String) Class.forName("micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule").getField("TEXTURE_PREFIX").get(null);
+	            this.iconTier2 = iconRegister.registerIcon(prefix + "machine");
+	            this.iconInputT2 = iconRegister.registerIcon(prefix + "machine_input");
+	            this.iconOutputT2 = iconRegister.registerIcon(prefix + "machine_output");
+	            this.iconMachineSideT2 = iconRegister.registerIcon(prefix + "machine_side");
+	            this.iconEnergyStorageModuleT2 = new IIcon[17];
+	            for (int i = 0; i < this.iconEnergyStorageModule.length; i++)
+	            {
+	                this.iconEnergyStorageModuleT2[i] = iconRegister.registerIcon(prefix + "energyStorageModule_" + i);
+	            }
+	            this.iconElectricFurnaceT2 = iconRegister.registerIcon(prefix + "electricFurnace");
+			} catch (Exception e) {
+				e.printStackTrace();
+	            this.iconTier2 = iconRegister.registerIcon("void");
+	            this.iconInputT2 = iconRegister.registerIcon("void");
+	            this.iconOutputT2 = iconRegister.registerIcon("void");
+	            this.iconMachineSideT2 = iconRegister.registerIcon("void");
+	            this.iconEnergyStorageModuleT2 = new IIcon[17];
+	            for (int i = 0; i < this.iconEnergyStorageModule.length; i++)
+	            {
+	                this.iconEnergyStorageModuleT2[i] = iconRegister.registerIcon("void");
+	            }
+	            this.iconElectricFurnaceT2 = iconRegister.registerIcon("void");
+			}
         }
         else
         {

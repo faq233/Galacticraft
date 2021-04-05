@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import micdoodle8.mods.galacticraft.api.recipe.ISchematicResultPage;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
+import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.inventory.ContainerBuggyBench;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
@@ -13,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiSchematicBuggy extends GuiContainerGC implements ISchematicResultPage
 {
-    private static final ResourceLocation buggyBenchTexture = new ResourceLocation("galacticraftcore", "textures/gui/schematic_rocket_GS1_Buggy.png");
+    private static final ResourceLocation buggyBenchTexture = new ResourceLocation(GalacticraftCore.ASSET_PREFIX, "textures/gui/schematic_rocket_GS1_Buggy.png");
 
     private int pageIndex;
 

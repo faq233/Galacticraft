@@ -71,6 +71,6 @@ public class ItemArmorMars extends ItemArmor
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister par1IconRegister)
     {
-        this.itemIcon = par1IconRegister.registerIcon(this.getUnlocalizedName().replace("item.", "galacticraftmars:"));
+        this.itemIcon = par1IconRegister.registerIcon(this.getUnlocalizedName().replace("item.", MarsModule.TEXTURE_PREFIX));
     }
 }

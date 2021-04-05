@@ -42,15 +42,22 @@ public class BlockSlabGC extends BlockSlab
 	public void registerBlockIcons(IIconRegister par1IconRegister)
 	{
 		this.textures = new IIcon[6];
-		this.textures[0] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_4");
-		this.textures[1] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_2");
-		this.textures[2] = par1IconRegister.registerIcon("galacticraftmoon:bottom");
-		this.textures[3] = par1IconRegister.registerIcon("galacticraftmoon:brick");
+		this.textures[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_4");
+		this.textures[1] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_2");
+		this.textures[2] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "bottom");
+		this.textures[3] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "brick");
 
 		if (GalacticraftCore.isPlanetsLoaded)
 		{
-			this.textures[4] = par1IconRegister.registerIcon("galacticraftmars:cobblestone");
-			this.textures[5] = par1IconRegister.registerIcon("galacticraftmars:brick");
+			try {
+				String prefix = (String) Class.forName("micdoodle8.mods.galacticraft.planets.mars.MarsModule").getField("TEXTURE_PREFIX").get(null);
+				this.textures[4] = par1IconRegister.registerIcon(prefix + "cobblestone");
+				this.textures[5] = par1IconRegister.registerIcon(prefix + "brick");
+			} catch (Exception e) {
+				e.printStackTrace();
+				this.textures[4] = this.textures[3];
+				this.textures[5] = this.textures[3];
+			}
 		}
 		else
 		{
@@ -59,7 +66,7 @@ public class BlockSlabGC extends BlockSlab
 		}
 
 		this.tinSideIcon = new IIcon[1];
-		this.tinSideIcon[0] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_1");
+		this.tinSideIcon[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_1");
 	}
 
 	@Override

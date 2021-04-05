@@ -49,8 +49,13 @@ public class RenderPlayerBaseGC extends RenderPlayerBase
 
         if (GalacticraftCore.isPlanetsLoaded)
         {
-            thermalPaddingTexture0 = new ResourceLocation("galacticraftasteroids", "textures/misc/thermalPadding_0.png");
-            thermalPaddingTexture1 = new ResourceLocation("galacticraftasteroids", "textures/misc/thermalPadding_1.png");
+        	try {
+				String prefix = (String) Class.forName("micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule").getField("ASSET_PREFIX").get(null);
+	            thermalPaddingTexture0 = new ResourceLocation(prefix, "textures/misc/thermalPadding_0.png");
+	            thermalPaddingTexture1 = new ResourceLocation(prefix, "textures/misc/thermalPadding_1.png");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
         }
     }
 

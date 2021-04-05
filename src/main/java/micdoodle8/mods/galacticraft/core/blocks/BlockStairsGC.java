@@ -58,36 +58,41 @@ public class BlockStairsGC extends BlockStairs
 	{
 		if (this.category == StairsCategoryGC.TIN1)//Tin Decoration
 		{
-			this.blockIcon = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_4");
+			this.blockIcon = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_4");
 		}
 		else if (this.category == StairsCategoryGC.TIN2)//Tin Decoration
 		{
-			this.blockIcon = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_2");
+			this.blockIcon = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_2");
 		}
 		else if (this.category == StairsCategoryGC.MOON_STONE)//Moon Stone
 		{
-			this.blockIcon = par1IconRegister.registerIcon("galacticraftmoon:bottom");
+			this.blockIcon = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "bottom");
 		}
 		else if (this.category == StairsCategoryGC.MOON_BRICKS)//Moon Dungeon Bricks
 		{
-			this.blockIcon = par1IconRegister.registerIcon("galacticraftmoon:brick");
+			this.blockIcon = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "brick");
 		}
 
 		if (GalacticraftCore.isPlanetsLoaded)
 		{
-			if (this.category == StairsCategoryGC.MARS_COBBLESTONE)//Mars Cobblestone
-			{
-				this.blockIcon = par1IconRegister.registerIcon("galacticraftmars:cobblestone");
-			}
-			else if (this.category == StairsCategoryGC.MARS_BRICKS)//Mars Dungeon Bricks
-			{
-				this.blockIcon = par1IconRegister.registerIcon("galacticraftmars:brick");
+			try {
+				String prefix = (String) Class.forName("micdoodle8.mods.galacticraft.planets.mars.MarsModule").getField("TEXTURE_PREFIX").get(null);
+				if (this.category == StairsCategoryGC.MARS_COBBLESTONE)//Mars Cobblestone
+				{
+					this.blockIcon = par1IconRegister.registerIcon(prefix + "cobblestone");
+				}
+				else if (this.category == StairsCategoryGC.MARS_BRICKS)//Mars Dungeon Bricks
+				{
+					this.blockIcon = par1IconRegister.registerIcon(prefix + "brick");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 
 		this.tinSideIcon = new IIcon[2];
-		this.tinSideIcon[0] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_1");
-		this.tinSideIcon[1] = par1IconRegister.registerIcon("galacticraftcore:deco_aluminium_4");
+		this.tinSideIcon[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_1");
+		this.tinSideIcon[1] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "deco_aluminium_4");
 	}
 
 	public boolean isWoodCategory(String block)

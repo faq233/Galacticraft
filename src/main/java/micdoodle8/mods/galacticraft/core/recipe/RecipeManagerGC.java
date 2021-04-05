@@ -12,6 +12,7 @@ import micdoodle8.mods.galacticraft.api.recipe.CompressorRecipes;
 import micdoodle8.mods.galacticraft.api.recipe.RocketFuelRecipe;
 import micdoodle8.mods.galacticraft.api.recipe.SpaceStationRecipe;
 import micdoodle8.mods.galacticraft.api.world.SpaceStationType;
+import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.blocks.BlockEnclosed.EnumEnclosedBlock;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
@@ -171,7 +172,9 @@ public class RecipeManagerGC
 
         input.put(1, new ItemStack(GCItems.basicItem, 1, 19));
         input.put(2, new ItemStack(GCItems.partBuggy, 1, 1));
-        input.put(3, GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 100));
+        if(GalacticraftCore.isGalaxySpaceLoaded) {
+            input.put(3, GT_ModHandler.getModItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer", 1, 100));
+        }
         for(int i = 4; i <= 7; i++) {
             input.put(i, new ItemStack(GCItems.partBuggy));
         }

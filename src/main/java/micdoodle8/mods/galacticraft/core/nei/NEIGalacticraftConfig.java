@@ -157,7 +157,9 @@ public class NEIGalacticraftConfig implements IConfigureNEI
         HashMap<Integer, PositionedStack> input = new HashMap<Integer, PositionedStack>();
         input.put(1, new PositionedStack(new ItemStack(GCItems.basicItem, 1, 19), 62 - x, 19 - y));
         input.put(2, new PositionedStack(new ItemStack(GCItems.partBuggy, 1, 1), 62 - x, 55 - y));
-        input.put(3, new PositionedStack(GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 100), 62 - x, 73 - y));
+        if (GalacticraftCore.isGalaxySpaceLoaded) {
+            input.put(3, new PositionedStack(GT_ModHandler.getModItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer", 1, 100), 62 - x, 73 - y));
+        }
         input.put(4, new PositionedStack(new ItemStack(GCItems.partBuggy), 8 - x, 19 - y));
         input.put(5, new PositionedStack(new ItemStack(GCItems.partBuggy), 116 - x, 19 - y));
         input.put(6, new PositionedStack(new ItemStack(GCItems.partBuggy), 8 - x, 109 - y));

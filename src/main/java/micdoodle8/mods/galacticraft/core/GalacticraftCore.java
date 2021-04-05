@@ -174,6 +174,7 @@ public class GalacticraftCore
     public static GalacticraftCore instance;
 
     public static boolean isPlanetsLoaded;
+    public static boolean isGalaxySpaceLoaded;
     public static boolean isHeightConflictingModInstalled;
     
     public static GalacticraftChannelHandler packetPipeline;
@@ -219,6 +220,7 @@ public class GalacticraftCore
     public void preInit(FMLPreInitializationEvent event)
     {
     	isPlanetsLoaded = Loader.isModLoaded(Constants.MOD_ID_PLANETS);
+    	isGalaxySpaceLoaded = Loader.isModLoaded(Constants.MOD_ID_GALAXYSPACE);
     	GCCoreUtil.nextID = 0;
     	
         if(Loader.isModLoaded("SmartMoving"))

@@ -2,6 +2,8 @@ package micdoodle8.mods.galacticraft.planets.mars.recipe;
 
 import cpw.mods.ironchest.IronChest;
 import gregtech.api.util.GT_ModHandler;
+import micdoodle8.mods.galacticraft.core.Constants;
+import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.util.ConfigManagerCore;
@@ -177,10 +179,12 @@ public class RecipeManagerMars
         //
 
         input.put(1, new ItemStack(GCItems.basicItem, 1, 14));
-		input.put(2, GT_ModHandler.getModItem("GalaxySpace", "item.RocketControlComputer", 1, 101));
-		for(int i = 3; i <= 5; i++) {
-			input.put(i, GT_ModHandler.getModItem("GalaxySpace", "item.ModuleSmallFuelCanister", 1));
-		}
+        if(GalacticraftCore.isGalaxySpaceLoaded) {
+    		input.put(2, GT_ModHandler.getModItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer", 1, 101));
+    		for(int i = 3; i <= 5; i++) {
+    			input.put(i, GT_ModHandler.getModItem(Constants.MOD_ID_GALAXYSPACE, "item.ModuleSmallFuelCanister", 1));
+    		}
+        }
 		input.put(7, new ItemStack(GCItems.partNoseCone));
 		for(int i = 8; i <= 15; i++) {
 			input.put(i, new ItemStack(MarsItems.marsItemBasic, 1, 3));

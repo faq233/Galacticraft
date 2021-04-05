@@ -5,6 +5,9 @@ public class Constants
     public static final String MOD_ID_CORE = "GalacticraftCore";
     public static final String MOD_ID_PLANETS = "GalacticraftMars";
     public static final String MOD_NAME_SIMPLE = "Galacticraft";
+    
+    public static final String MOD_ID_GALAXYSPACE = "GalaxySpace";
+    public static final String MOD_ID_GREGTECH = "gregtech";
 
     public static final String VERSION = "@VERSION@";
 

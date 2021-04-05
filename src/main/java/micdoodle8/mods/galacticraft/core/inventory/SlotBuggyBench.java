@@ -2,6 +2,7 @@ package micdoodle8.mods.galacticraft.core.inventory;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.ironchest.IronChest;
+import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple;
@@ -61,16 +62,16 @@ public class SlotBuggyBench extends Slot
             return itemStack.getItem() == GCItems.basicItem && itemStack.getItemDamage() == 19;
         } else if(index == 2) {
             return itemStack.getItem() == GCItems.partBuggy && itemStack.getItemDamage() == 1;
-        } else if(index == 3) {
-            return itemStack.getItem() == GameRegistry.findItem("GalaxySpace", "item.RocketControlComputer") && itemStack.getItemDamage() == 100;
+        } else if(index == 3 && GalacticraftCore.isGalaxySpaceLoaded) {
+            return itemStack.getItem() == GameRegistry.findItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer") && itemStack.getItemDamage() == 100;
         } else if(index >= 4 && index <= 7) {
             return itemStack.getItem() == GCItems.partBuggy && itemStack.getItemDamage() == 0;
         } else if(index >= 8 && index <= 11) {
-            return itemStack.getItem() == GameRegistry.findItem("gregtech", "gt.metaitem.01") && itemStack.getItemDamage() == 23306;
+            return itemStack.getItem() == GameRegistry.findItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01") && itemStack.getItemDamage() == 23306;
         } else if(index >= 12 && index <= 16) {
             return itemStack.getItem() == GCItems.meteoricIronIngot && itemStack.getItemDamage() == 1;
         } else if(index >= 17 && index <= 24) {
-            return itemStack.getItem() == GameRegistry.findItem("gregtech", "gt.metaitem.01") && itemStack.getItemDamage() == 27306;
+            return itemStack.getItem() == GameRegistry.findItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01") && itemStack.getItemDamage() == 27306;
         } else if(index >= 25 && index <= 34) {
             return itemStack.getItem() == GCItems.heavyPlatingTier1;
         } else if(index == 35) {

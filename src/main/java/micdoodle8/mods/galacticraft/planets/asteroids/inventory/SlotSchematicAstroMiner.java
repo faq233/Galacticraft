@@ -2,6 +2,7 @@ package micdoodle8.mods.galacticraft.planets.asteroids.inventory;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.ironchest.IronChest;
+import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.core.network.PacketSimple;
@@ -67,8 +68,8 @@ public class SlotSchematicAstroMiner extends Slot
             return itemStack.getItem() == AsteroidsItems.basicItem && itemStack.getItemDamage() == 0;
         } else if(index >= 14 && index <= 17) {
             return itemStack.getItem() == AsteroidsItems.orionDrive;
-        } else if(index == 18) {
-            return itemStack.getItem() == GameRegistry.findItem("GalaxySpace", "item.RocketControlComputer") && itemStack.getItemDamage() == 102;
+        } else if(index == 18 && GalacticraftCore.isGalaxySpaceLoaded) {
+            return itemStack.getItem() == GameRegistry.findItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer") && itemStack.getItemDamage() == 102;
         } else if(index == 19 || index == 20) {
             return itemStack.getItem() == GCItems.basicItem && itemStack.getItemDamage() == 14;
         } else if(index >= 21 && index <= 23) {
@@ -80,7 +81,7 @@ public class SlotSchematicAstroMiner extends Slot
         } else if(index == 27) {
             return itemStack.getItem() == Item.getItemFromBlock(AsteroidBlocks.beamReceiver);
         } else if(index == 28 || index == 29) {
-            return itemStack.getItem() == GameRegistry.findItem("gregtech", "gt.metaitem.01") && itemStack.getItemDamage() == 32603;
+            return itemStack.getItem() == GameRegistry.findItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01") && itemStack.getItemDamage() == 32603;
         } else {
             return false;
         }

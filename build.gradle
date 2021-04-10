@@ -8,7 +8,7 @@ def gsjenkinsbuild = 62
 def micversion = "3.0.15-GTNH"
 def micjenkinsbuild = 2
 def gtversion = "5.09.34.16"
-def gtjenkinsbuild = 1105
+def gtjenkinsbuild = 1117
 def neiversion = "1.7.10-2.0.9-GTNH"
 def neijenkinsbuild = 30
 

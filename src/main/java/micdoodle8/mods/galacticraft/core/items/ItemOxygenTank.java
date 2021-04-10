@@ -19,7 +19,9 @@ public class ItemOxygenTank extends Item
     {
         super();
         this.setMaxStackSize(1);
-        this.setMaxDamage(tier * 1000);
+	double factor = 2.0;
+	// Config modifier goes here if anyone wants it.
+        this.setMaxDamage((int) (Math.round(Math.pow(factor, tier - 1) * 10) * 100));
         this.setUnlocalizedName(assetName);
         this.setTextureName(GalacticraftCore.TEXTURE_PREFIX + assetName);
         this.setNoRepair();

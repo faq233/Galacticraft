@@ -80,7 +80,7 @@ public class RecipeManagerGC
         }
         //eio rocket fuel
         RocketFuelRecipe.addFuel("rocket_fuel",8);
-	RocketFuelRecipe.addFuel("nitrofuel",1);
+	RocketFuelRecipe.addFuel("nitrofuel",2);
 
 
         Object meteoricIronIngot = ConfigManagerCore.recipesRequireGCAdvancedMetals ? GCItems.meteoricIronIngot : "ingotMeteoricIron";

@@ -1,12 +1,18 @@
 package micdoodle8.mods.galacticraft.core.nei;
 
 import codechicken.lib.gui.GuiDraw;
+import codechicken.nei.ItemList;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
+import codechicken.nei.recipe.FurnaceRecipeHandler.FuelPair;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
@@ -16,11 +22,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class IngotCompressorRecipeHandler extends TemplateRecipeHandler
 {
     private static final ResourceLocation ingotCompressorTexture = new ResourceLocation(GalacticraftCore.ASSET_PREFIX, "textures/gui/ingotCompressor.png");
     private static int ticksPassed;
+    public static List<FuelPair> afuels;
+    public static TreeSet<Integer> efuels;
 
     public String getRecipeId() {
         return "galacticraft.ingotcompressor";
@@ -109,6 +118,9 @@ public class IngotCompressorRecipeHandler extends TemplateRecipeHandler
 
     @Override
     public TemplateRecipeHandler newInstance() {
+    	if (afuels == null) {
+    		findFuels();
+    	}
         return super.newInstance();
     }
 
@@ -124,6 +136,31 @@ public class IngotCompressorRecipeHandler extends TemplateRecipeHandler
         }
 
         return null;
+    }
+    
+    private static void removeFuels() {
+    	efuels = new TreeSet<>();
+    	efuels.add(Block.getIdFromBlock(Blocks.brown_mushroom));
+    	efuels.add(Block.getIdFromBlock(Blocks.brown_mushroom_block));
+    	efuels.add(Block.getIdFromBlock(Blocks.wall_sign));
+    	efuels.add(Block.getIdFromBlock(Blocks.standing_sign));
+    	efuels.add(Block.getIdFromBlock(Blocks.wooden_door));
+    	efuels.add(Block.getIdFromBlock(Blocks.trapped_chest));
+    }
+    
+    private static void findFuels() {
+    	afuels = new ArrayList<>();
+    	for (ItemStack item : ItemList.items) {
+    		if (!efuels.contains(Item.getIdFromItem(item.getItem()))) {
+    			int burnTime = TileEntityFurnace.getItemBurnTime(item);
+    			if (burnTime > 0) {
+    				FuelPair fuelPair = new FuelPair(item.copy(), burnTime);
+    				fuelPair.stack.relx = 57;
+    				fuelPair.stack.rely = 83;
+    				afuels.add(fuelPair);
+    			}
+    		}
+    	}
     }
 
     public class CompressorRecipe extends TemplateRecipeHandler.CachedRecipe
@@ -175,6 +212,10 @@ public class IngotCompressorRecipeHandler extends TemplateRecipeHandler
     @Override
     public String getGuiTexture() {
         return GalacticraftCore.TEXTURE_PREFIX + "textures/gui/ingotCompressor.png";
+    }
+    
+    static {
+    	removeFuels();
     }
 
     @Override

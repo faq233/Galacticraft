@@ -3,12 +3,12 @@ def versionMajor = 3
 def versionMinor = 0
 def versionRev = "25-GTNH"
 
-def gsversion = "1.1.7b-GTNH"
-def gsjenkinsbuild = 62
+def gsversion = "1.1.7c-GTNH"
+def gsjenkinsbuild = 64
 def micversion = "3.0.15-GTNH"
 def micjenkinsbuild = 2
 def gtversion = "5.09.34.16"
-def gtjenkinsbuild = 1117
+def gtjenkinsbuild = 1216
 def neiversion = "1.7.10-2.0.9-GTNH"
 def neijenkinsbuild = 30
 

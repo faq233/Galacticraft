@@ -91,22 +91,22 @@ public class BlockBasicMoon extends BlockAdvancedTile implements IDetectableReso
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.moonBlockIcons = new IIcon[17];
-        this.moonBlockIcons[0] = par1IconRegister.registerIcon("galacticraftmoon:top");
-        this.moonBlockIcons[1] = par1IconRegister.registerIcon("galacticraftmoon:brick");
-        this.moonBlockIcons[2] = par1IconRegister.registerIcon("galacticraftmoon:middle");
-        this.moonBlockIcons[3] = par1IconRegister.registerIcon("galacticraftmoon:top_side");
-        this.moonBlockIcons[4] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_1");
-        this.moonBlockIcons[5] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_2");
-        this.moonBlockIcons[6] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_3");
-        this.moonBlockIcons[7] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_4");
-        this.moonBlockIcons[8] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_5");
-        this.moonBlockIcons[9] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_6");
-        this.moonBlockIcons[10] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_7");
-        this.moonBlockIcons[11] = par1IconRegister.registerIcon("galacticraftmoon:grass_step_8");
-        this.moonBlockIcons[12] = par1IconRegister.registerIcon("galacticraftmoon:moonore_copper");
-        this.moonBlockIcons[13] = par1IconRegister.registerIcon("galacticraftmoon:moonore_tin");
-        this.moonBlockIcons[14] = par1IconRegister.registerIcon("galacticraftmoon:moonore_cheese");
-        this.moonBlockIcons[15] = par1IconRegister.registerIcon("galacticraftmoon:bottom");
+        this.moonBlockIcons[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "top");
+        this.moonBlockIcons[1] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "brick");
+        this.moonBlockIcons[2] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "middle");
+        this.moonBlockIcons[3] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "top_side");
+        this.moonBlockIcons[4] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_1");
+        this.moonBlockIcons[5] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_2");
+        this.moonBlockIcons[6] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_3");
+        this.moonBlockIcons[7] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_4");
+        this.moonBlockIcons[8] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_5");
+        this.moonBlockIcons[9] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_6");
+        this.moonBlockIcons[10] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_7");
+        this.moonBlockIcons[11] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "grass_step_8");
+        this.moonBlockIcons[12] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "moonore_copper");
+        this.moonBlockIcons[13] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "moonore_tin");
+        this.moonBlockIcons[14] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "moonore_cheese");
+        this.moonBlockIcons[15] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "bottom");
         this.moonBlockIcons[16] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX + "blank");
     }
 

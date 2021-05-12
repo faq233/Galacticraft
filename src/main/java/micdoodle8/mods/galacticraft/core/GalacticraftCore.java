@@ -162,7 +162,7 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = Constants.MOD_ID_CORE, name = GalacticraftCore.NAME, version = Constants.LOCALMAJVERSION + "." + Constants.LOCALMINVERSION + "." + Constants.LOCALBUILDVERSION, acceptedMinecraftVersions = "[1.7.2],[1.7.10]", useMetadata = true, dependencies = "required-after:Forge@[10.12.2.1147,); required-after:FML@[7.2.217.1147,); required-after:Micdoodlecore; required-before:GalaxySpace; after:IC2; after:TConstruct; after:Mantle; after:BuildCraft|Core; after:BuildCraft|Energy; after:PlayerAPI@[1.3,)", guiFactory = "micdoodle8.mods.galacticraft.core.client.gui.screen.ConfigGuiFactoryCore")
+@Mod(modid = Constants.MOD_ID_CORE, name = GalacticraftCore.NAME, version = Constants.VERSION, acceptedMinecraftVersions = "[1.7.2],[1.7.10]", useMetadata = true, dependencies = "required-after:Forge@[10.12.2.1147,); required-after:FML@[7.2.217.1147,); required-after:Micdoodlecore; before:GalaxySpace; after:IC2; after:TConstruct; after:Mantle; after:BuildCraft|Core; after:BuildCraft|Energy; after:PlayerAPI@[1.3,)", guiFactory = "micdoodle8.mods.galacticraft.core.client.gui.screen.ConfigGuiFactoryCore")
 public class GalacticraftCore
 {
     public static final String NAME = "Galacticraft Core";
@@ -174,6 +174,7 @@ public class GalacticraftCore
     public static GalacticraftCore instance;
 
     public static boolean isPlanetsLoaded;
+    public static boolean isGalaxySpaceLoaded;
     public static boolean isHeightConflictingModInstalled;
     
     public static GalacticraftChannelHandler packetPipeline;
@@ -200,6 +201,8 @@ public class GalacticraftCore
 
     public static String ASSET_PREFIX = "galacticraftcore";
     public static String TEXTURE_PREFIX = GalacticraftCore.ASSET_PREFIX + ":";
+    public static String ASSET_PREFIX_MOON = "galacticraftmoon";
+    public static String TEXTURE_PREFIX_MOON = GalacticraftCore.ASSET_PREFIX_MOON + ":";
     public static String PREFIX = "micdoodle8.";  
 
     public static Fluid fluidOil;
@@ -217,6 +220,7 @@ public class GalacticraftCore
     public void preInit(FMLPreInitializationEvent event)
     {
     	isPlanetsLoaded = Loader.isModLoaded(Constants.MOD_ID_PLANETS);
+    	isGalaxySpaceLoaded = Loader.isModLoaded(Constants.MOD_ID_GALAXYSPACE);
     	GCCoreUtil.nextID = 0;
     	
         if(Loader.isModLoaded("SmartMoving"))

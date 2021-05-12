@@ -2,6 +2,7 @@ package micdoodle8.mods.galacticraft.core.blocks;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.ItemBlockDesc;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import net.minecraft.block.Block;
@@ -35,9 +36,9 @@ public class BlockCheese extends Block implements ItemBlockDesc.IBlockShiftDesc
     public void registerBlockIcons(IIconRegister par1IconRegister)
     {
         this.cheeseIcons = new IIcon[3];
-        this.cheeseIcons[0] = par1IconRegister.registerIcon("galacticraftmoon:cheese_1");
-        this.cheeseIcons[1] = par1IconRegister.registerIcon("galacticraftmoon:cheese_2");
-        this.cheeseIcons[2] = par1IconRegister.registerIcon("galacticraftmoon:cheese_3");
+        this.cheeseIcons[0] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "cheese_1");
+        this.cheeseIcons[1] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "cheese_2");
+        this.cheeseIcons[2] = par1IconRegister.registerIcon(GalacticraftCore.TEXTURE_PREFIX_MOON + "cheese_3");
     }
 
     /**

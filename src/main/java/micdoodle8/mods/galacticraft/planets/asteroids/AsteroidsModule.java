@@ -6,13 +6,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.ironchest.IronChest;
-import galaxyspace.core.register.GSItems;
 import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.CelestialBody;
 import micdoodle8.mods.galacticraft.api.galaxies.GalaxyRegistry;
 import micdoodle8.mods.galacticraft.api.galaxies.Planet;
 import micdoodle8.mods.galacticraft.api.recipe.SchematicRegistry;
+import micdoodle8.mods.galacticraft.core.Constants;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.command.CommandGCAstroMiner;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
@@ -243,7 +243,9 @@ public class AsteroidsModule implements IPlanetsModule
         for(int i = 14; i <= 17; i++) {
             input.put(i, new ItemStack(AsteroidsItems.orionDrive));
         }
-        input.put(18, new ItemStack(GSItems.ControlComputer, 1, 102));
+        if(GalacticraftCore.isGalaxySpaceLoaded) {
+            input.put(18, GT_ModHandler.getModItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer", 1, 102));
+        }
         input.put(19, new ItemStack(GCItems.basicItem, 1, 14));
         input.put(20, new ItemStack(GCItems.basicItem, 1, 14));
         for(int i = 21; i <= 23; i++) {
@@ -253,8 +255,8 @@ public class AsteroidsModule implements IPlanetsModule
         input.put(25, new ItemStack(IronChest.ironChestBlock, 1, 1));
         input.put(26, new ItemStack(AsteroidsItems.basicItem, 1, 8));
         input.put(27, new ItemStack(AsteroidBlocks.beamReceiver));
-        input.put(28, GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1, 32603));
-        input.put(29, GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1, 32603));
+        input.put(28, GT_ModHandler.getModItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01", 1, 32603));
+        input.put(29, GT_ModHandler.getModItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01", 1, 32603));
         GalacticraftRegistry.addAstroMinerRecipe(new NasaWorkbenchRecipe(new ItemStack(AsteroidsItems.astroMiner, 1, 0), input));
     }
 

@@ -3,6 +3,7 @@ package micdoodle8.mods.galacticraft.core.nei;
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.FurnaceRecipeHandler;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
@@ -163,7 +164,7 @@ public class IngotCompressorRecipeHandler extends TemplateRecipeHandler
 
         @Override
         public PositionedStack getOtherStack() {
-            return IngotCompressorRecipeHandler.afuels.get(IngotCompressorRecipeHandler.ticksPassed / 48 % IngotCompressorRecipeHandler.afuels.size()).stack;
+            return FurnaceRecipeHandler.afuels.get(IngotCompressorRecipeHandler.ticksPassed / 48 % FurnaceRecipeHandler.afuels.size()).stack;
         }
     }
 

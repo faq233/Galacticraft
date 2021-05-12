@@ -4,10 +4,10 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import cpw.mods.ironchest.IronChest;
-import galaxyspace.core.register.GSItems;
 import gregtech.api.util.GT_ModHandler;
 import micdoodle8.mods.galacticraft.api.GalacticraftRegistry;
 import micdoodle8.mods.galacticraft.core.Constants;
+import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.planets.asteroids.blocks.AsteroidBlocks;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems;
@@ -49,7 +49,7 @@ public class NEIGalacticraftAsteroidsConfig implements IConfigureNEI
     @Override
     public String getVersion()
     {
-        return Constants.LOCALMAJVERSION + "." + Constants.LOCALMINVERSION + "." + Constants.LOCALBUILDVERSION;
+        return Constants.VERSION;
     }
 
     public void registerRocketBenchRecipe(ArrayList<PositionedStack> input, PositionedStack output)
@@ -148,7 +148,9 @@ public class NEIGalacticraftAsteroidsConfig implements IConfigureNEI
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.orionDrive), 26 - x, 55 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.orionDrive), 44 - x, 55 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.orionDrive), 62 - x, 55 - y));
-        input.add(new PositionedStack(new ItemStack(GSItems.ControlComputer, 1, 102), 62 - x, 37 - y));
+        if(GalacticraftCore.isGalaxySpaceLoaded) {
+            input.add(new PositionedStack(GT_ModHandler.getModItem(Constants.MOD_ID_GALAXYSPACE, "item.RocketControlComputer", 1, 102), 62 - x, 37 - y));
+        }
         input.add(new PositionedStack(new ItemStack(GCItems.basicItem, 1, 14), 80 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.basicItem, 1, 14), 98 - x, 37 - y));
         input.add(new PositionedStack(new ItemStack(GCItems.heavyPlatingTier1), 116 - x, 37 - y));
@@ -158,8 +160,8 @@ public class NEIGalacticraftAsteroidsConfig implements IConfigureNEI
         input.add(new PositionedStack(new ItemStack(IronChest.ironChestBlock, 1, 1), 98 - x, 55 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidsItems.basicItem, 1, 8), 44 - x, 73 - y));
         input.add(new PositionedStack(new ItemStack(AsteroidBlocks.beamReceiver), 62 - x, 73 - y));
-        input.add(new PositionedStack(GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1, 32603), 80 - x, 73 - y));
-        input.add(new PositionedStack(GT_ModHandler.getModItem("gregtech", "gt.metaitem.01", 1, 32603), 98 - x, 73 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01", 1, 32603), 80 - x, 73 - y));
+        input.add(new PositionedStack(GT_ModHandler.getModItem(Constants.MOD_ID_GREGTECH, "gt.metaitem.01", 1, 32603), 98 - x, 73 - y));
         registerAstroMinerRecipe(input, new PositionedStack(new ItemStack(AsteroidsItems.astroMiner), 143 - x, 55 - y));
     }
 }

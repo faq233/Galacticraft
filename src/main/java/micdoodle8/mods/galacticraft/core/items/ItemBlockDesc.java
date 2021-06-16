@@ -57,7 +57,7 @@ public class ItemBlockDesc extends ItemBlockGC
     {
         if (this.field_150939_a instanceof IBlockShiftDesc && ((IBlockShiftDesc) this.field_150939_a).showDescription(stack.getItemDamage()))
         {
-            if (Keyboard.isKeyDown(Keyboard.KEY_LSHIFT))
+            if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown())
             {
                 info.addAll(FMLClientHandler.instance().getClient().fontRenderer.listFormattedStringToWidth(((IBlockShiftDesc) this.field_150939_a).getShiftDescription(stack.getItemDamage()), 150));
             }

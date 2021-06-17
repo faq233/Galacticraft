@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import net.minecraft.client.Minecraft;
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
@@ -57,7 +58,7 @@ public class ItemBlockDesc extends ItemBlockGC
     {
         if (this.field_150939_a instanceof IBlockShiftDesc && ((IBlockShiftDesc) this.field_150939_a).showDescription(stack.getItemDamage()))
         {
-            if (Minecraft.getMinecraft().gameSettings.keyBindSneak.isKeyDown())
+            if (GameSettings.isKeyDown(Minecraft.getMinecraft().gameSettings.keyBindSneak))
             {
                 info.addAll(FMLClientHandler.instance().getClient().fontRenderer.listFormattedStringToWidth(((IBlockShiftDesc) this.field_150939_a).getShiftDescription(stack.getItemDamage()), 150));
             }

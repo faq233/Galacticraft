@@ -263,51 +263,12 @@ public abstract class TileBaseUniversalElectrical extends EnergyStorageTile //im
                     {
                         double result = 0;
                         double energyDischargeIC2 = energyToDischarge / EnergyConfigHandler.IC2_RATIO;
-                        //Do this by reflection:
-                        //result = ic2.api.item.ElectricItem.manager.discharge(itemStack, energyDischargeIC2, 4, false, false, false)
-                        try
-                        {
-                            Class<?> clazz = Class.forName("ic2.api.item.IElectricItemManager");
-                            Method dischargeMethod = clazz.getMethod("discharge", ItemStack.class, double.class, int.class, boolean.class, boolean.class, boolean.class);
-                            result = (Double) dischargeMethod.invoke(ic2.api.item.ElectricItem.manager, itemStack, energyDischargeIC2, 4, false, false, false);
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                        }
-                        float energyDischarged = (float) result * EnergyConfigHandler.IC2_RATIO;
-                        this.storage.receiveEnergyGC(energyDischarged);
-                    }
-                }
-                else if (item instanceof ISpecialElectricItem)
-                {
-                    ISpecialElectricItem electricItem = (ISpecialElectricItem) item;
-                    if (electricItem.canProvideEnergy(itemStack))
-                    {
-                        double result = 0;
-                        double energyDischargeIC2 = energyToDischarge / EnergyConfigHandler.IC2_RATIO;
-                        //Do this by reflection:
-                        //result = electricItem.getManager(itemStack).discharge(itemStack, energyDischargeIC2, 4, false, false, false)
-                        try
-                        {
-                            Class<?> clazz = Class.forName("ic2.api.item.IElectricItemManager");
-                            Method dischargeMethod = clazz.getMethod("discharge", ItemStack.class, double.class, int.class, boolean.class, boolean.class, boolean.class);
-                            result = (Double) dischargeMethod.invoke(electricItem.getManager(itemStack), itemStack, energyDischargeIC2, 4, false, false, false);
-                        }
-                        catch (Exception e)
-                        {
-                            e.printStackTrace();
-                        }
+                        result = ic2.api.item.ElectricItem.manager.discharge(itemStack, energyDischargeIC2, 4, false, false, false);
                         float energyDischarged = (float) result * EnergyConfigHandler.IC2_RATIO;
                         this.storage.receiveEnergyGC(energyDischarged);
                     }
                 }
             }
-            //			else if (GCCoreCompatibilityManager.isTELoaded() && itemStack.getItem() instanceof IEnergyContainerItem)
-            //			{
-            //				float given = ((IEnergyContainerItem) itemStack.getItem()).extractEnergy(itemStack, (int) Math.floor(this.getRequest(ForgeDirection.UNKNOWN) * EnergyConfigHandler.TO_TE_RATIO), false);
-            //				this.receiveElectricity(given * EnergyConfigHandler.TE_RATIO, true);
-            //			}
         }
     }
 

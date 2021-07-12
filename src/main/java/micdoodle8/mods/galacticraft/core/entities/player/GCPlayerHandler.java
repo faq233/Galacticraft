@@ -667,7 +667,7 @@ public class GCPlayerHandler
                 playerStats.airRemaining2 = tankInSlot2.getMaxDamage() - tankInSlot2.getItemDamage();
                 hasInfinityTank |= tankInSlot2.getMaxDamage() == Integer.MAX_VALUE;
             }
-            //
+            // Exit early if at least one Infinite Oxygen Supply is present (-> Oxygen Tank modification and damage application are skipped)
             if(hasInfinityTank) {
             	playerStats.oxygenSetupValid = true;
             	return;

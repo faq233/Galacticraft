@@ -77,6 +77,6 @@ public class ItemCanisterOxygenInfinite extends ItemOxygenTank implements IItemO
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List tooltip, boolean advancedItemTooltips)
     {
-        tooltip.add(GCCoreUtil.translate("gui.tank.oxygenRemaining") + ": " + EnumChatFormatting.LIGHT_PURPLE + "INFINITE");
+        tooltip.add(GCCoreUtil.translate("gui.tank.oxygenRemaining") + ": " + EnumChatFormatting.LIGHT_PURPLE + GCCoreUtil.translate("gui.tank.infinite"));
     }
 }

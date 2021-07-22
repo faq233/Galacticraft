@@ -361,7 +361,7 @@ public class ModelPlayerGC extends ModelBiped
 
                 if (wearingRightTankViolet)
                 {
-                    this.violetOxygenTanks[0].render(var7);
+                    this.violetOxygenTanks[1].render(var7);
                 }
 
                 //

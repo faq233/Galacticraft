@@ -264,6 +264,10 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTVIOLETTANK);
                 }
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTGRAYTANK);
+                }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
                     GCPlayer.airRemaining = GCPlayer.tankInSlot1.getMaxDamage() - GCPlayer.tankInSlot1.getItemDamage();
@@ -292,6 +296,10 @@ public class GCPlayerHandler
                 else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxTankUltraHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTVIOLETTANK);
+                }
+                else if (GCPlayer.tankInSlot1.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDLEFTGRAYTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -335,6 +343,10 @@ public class GCPlayerHandler
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTVIOLETTANK);
                 }
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTGRAYTANK);
+                }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
                     GCPlayer.airRemaining2 = GCPlayer.tankInSlot2.getMaxDamage() - GCPlayer.tankInSlot2.getItemDamage();
@@ -363,6 +375,10 @@ public class GCPlayerHandler
                 else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxTankUltraHeavy)
                 {
                     GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTVIOLETTANK);
+                }
+                else if (GCPlayer.tankInSlot2.getItem() == GCItems.oxygenCanisterInfinite)
+                {
+                    GCPlayerHandler.sendGearUpdatePacket(player, EnumModelPacket.ADDRIGHTGRAYTANK);
                 }
                 if (GCPlayer.maskInSlot != null && GCPlayer.gearInSlot != null)
                 {
@@ -1073,12 +1089,14 @@ public class GCPlayerHandler
         REMOVEMASK,
         ADDGEAR,
         REMOVEGEAR,
+        ADDLEFTGRAYTANK,
         ADDLEFTVIOLETTANK,
         ADDLEFTBLUETANK,
         ADDLEFTREDTANK,
         ADDLEFTORANGETANK,
         ADDLEFTGREENTANK,
         REMOVE_LEFT_TANK,
+        ADDRIGHTGRAYTANK,
         ADDRIGHTVIOLETTANK,
         ADDRIGHTBLUETANK,
         ADDRIGHTREDTANK,

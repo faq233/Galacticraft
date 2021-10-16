@@ -1,4 +1,4 @@
-def modVersion = "3.0.28-GTNH"
+def modVersion = "3.0.29-GTNH"
 
 import java.util.concurrent.TimeUnit
 

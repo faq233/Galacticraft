@@ -128,7 +128,8 @@ public class RecipeManagerAsteroids
 
         CompressorRecipes.addShapelessRecipe(new ItemStack(AsteroidsItems.basicItem, 1, 0), new ItemStack(MarsItems.marsItemBasic, 1, 3), new ItemStack(MarsItems.marsItemBasic, 1, 5));
 
-        //All this is for NEI's benefit
+        /*
+        All this is for NEI's benefit
         List<ItemStack> list1 = new ArrayList();
         List<ItemStack> list2 = new ArrayList();
         List<ItemStack> list3 = new ArrayList();
@@ -149,5 +150,6 @@ public class RecipeManagerAsteroids
         CraftingManager.getInstance().getRecipeList().add(new CanisterRecipes(new ItemStack(GCItems.oxTankLight, 1, 0), list3));
         CraftingManager.getInstance().getRecipeList().add(new CanisterRecipes(new ItemStack(GCItems.oxTankSuperHeavy, 1, 0), list4));
         CraftingManager.getInstance().getRecipeList().add(new CanisterRecipes(new ItemStack(GCItems.oxTankUltraHeavy, 1, 0), list5));
+        */
     }
 }

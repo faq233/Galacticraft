@@ -10,7 +10,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ItemRenderer.class)
 public class ItemRendererMixin {
 
-    @Inject(method = "renderOverlays", at = @At(value = "INVOKE", target = "Lorg/lwjgl/opengl/GL11;glEnable(I)V", shift = At.Shift.BEFORE))
+    @Inject(method = "renderOverlays",
+            at = @At(value = "INVOKE",
+                    target = "Lorg/lwjgl/opengl/GL11;glEnable(I)V",
+                    shift = At.Shift.BEFORE),
+            remap = false)
     private void onRenderOverlays(float partialTicks, CallbackInfo callbackInfo) {
         ClientProxyCore.renderLiquidOverlays(partialTicks);
     }

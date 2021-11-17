@@ -29,7 +29,10 @@ public class ChunkProviderServerMixin {
         skipRegistryCalls = WorldUtil.otherModPreventGenerate(chunkX, chunkZ, worldObj, currentChunkProvider, chunkProvider);
     }
 
-    @Redirect(method = "populate", at = @At(value = "INVOKE", target = "Lcpw/mods/fml/common/registry/GameRegistry;generateWorld(IILnet/minecraft/world/World;Lnet/minecraft/world/chunk/IChunkProvider;Lnet/minecraft/world/chunk/IChunkProvider;)V"))
+    @Redirect(method = "populate",
+            at = @At(value = "INVOKE",
+                    target = "Lcpw/mods/fml/common/registry/GameRegistry;generateWorld(IILnet/minecraft/world/World;Lnet/minecraft/world/chunk/IChunkProvider;Lnet/minecraft/world/chunk/IChunkProvider;)V"),
+            remap = false)
     private void onRegistry(int chunkX, int chunkZ, World world, IChunkProvider currentChunkProvider, IChunkProvider chunkGenerator) {
         if(skipRegistryCalls == false) {
             GameRegistry.generateWorld(chunkX, chunkZ, world, currentChunkProvider, chunkGenerator);

@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.mixins.minecraft;
+package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
 
 import micdoodle8.mods.galacticraft.core.proxy.ClientProxyCore;
 import net.minecraft.client.particle.EffectRenderer;

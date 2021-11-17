@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.mixinplugin;
+package micdoodle8.mods.galacticraft.miccore.mixinplugin;
 
 import net.minecraft.launchwrapper.Launch;
 import org.apache.logging.log4j.LogManager;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static micdoodle8.mods.galacticraft.mixinplugin.TargetedMod.*;
+import static micdoodle8.mods.galacticraft.miccore.mixinplugin.TargetedMod.*;
 
 public class MixinPlugin implements IMixinConfigPlugin {
 

@@ -1,11 +1,11 @@
-package micdoodle8.mods.galacticraft.mixinplugin;
+package micdoodle8.mods.galacticraft.miccore.mixinplugin;
 
 import cpw.mods.fml.relauncher.FMLLaunchHandler;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static micdoodle8.mods.galacticraft.mixinplugin.TargetedMod.*;
+import static micdoodle8.mods.galacticraft.miccore.mixinplugin.TargetedMod.*;
 
 public enum Mixin {
 

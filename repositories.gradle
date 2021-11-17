@@ -15,6 +15,10 @@ repositories {
         name "CurseForge Maven"
         url "https://minecraft.curseforge.com/api/maven/"
     }
+    ivy {
+        name = 'gtnh_download_source'
+        artifactPattern("http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]")
+    }
     maven {
         name "GitHub"
         url "https://jitpack.io"

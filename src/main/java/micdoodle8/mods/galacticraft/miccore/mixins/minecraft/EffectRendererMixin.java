@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(EffectRenderer.class)
 public class EffectRendererMixin {
 
-    @Inject(method = "renderParticles", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @Inject(method = "renderParticles", at = @At("HEAD"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, require = 1)
     private void onRenderParticles(Entity entity, float partialTicks, CallbackInfo callbackInfo) {
         ClientProxyCore.renderFootprints(partialTicks);
     }

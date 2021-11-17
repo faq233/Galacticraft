@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ForgeHooksClient.class)
 public class ForgeHooksClientMixin {
 
-    @Inject(method = "orientBedCamera", at = @At("HEAD"), remap = false)
+    @Inject(method = "orientBedCamera", at = @At("HEAD"), remap = false, require = 1)
     private static void onOrientBedCamera(CallbackInfo callbackInfo) {
         MinecraftForge.EVENT_BUS.post(new EventHandlerGC.OrientCameraEvent());
     }

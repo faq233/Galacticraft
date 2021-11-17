@@ -14,7 +14,8 @@ public class ItemRendererMixin {
             at = @At(value = "INVOKE",
                     target = "Lorg/lwjgl/opengl/GL11;glEnable(I)V",
                     shift = At.Shift.BEFORE),
-            remap = false)
+            remap = false,
+            require = 1)
     private void onRenderOverlays(float partialTicks, CallbackInfo callbackInfo) {
         ClientProxyCore.renderLiquidOverlays(partialTicks);
     }

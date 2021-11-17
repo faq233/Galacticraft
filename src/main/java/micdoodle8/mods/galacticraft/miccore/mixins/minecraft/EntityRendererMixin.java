@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(EntityRenderer.class)
 public class EntityRendererMixin {
 
-    @Inject(method = "orientCamera", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILEXCEPTION)
+    @Inject(method = "orientCamera", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, require = 1)
     private void onOrientCamera(float partialTicks, CallbackInfo callbackInfo) {
         ClientProxyCore.orientCamera(partialTicks);
     }
@@ -22,7 +22,8 @@ public class EntityRendererMixin {
     @Redirect(method = "updateLightmap",
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/client/multiplayer/WorldClient;getSunBrightness(F)F",
-                    ordinal = 0))
+                    ordinal = 0),
+            require = 1)
     private float onUpdateLightmap(WorldClient world, float constOne) {
         return WorldUtil.getWorldBrightness(world);
     }
@@ -30,7 +31,8 @@ public class EntityRendererMixin {
     // TODO: Only inject if Optifine is NOT installed!
     @Redirect(method = "updateFogColor",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/client/multiplayer/WorldClient;getFogColor(F)Lnet/minecraft/util/Vec3;"))
+                    target = "Lnet/minecraft/client/multiplayer/WorldClient;getFogColor(F)Lnet/minecraft/util/Vec3;"),
+            require = 1)
     private Vec3 onUpdateFogColor(WorldClient worldClient, float v) {
         return WorldUtil.getFogColorHook(worldClient);
     }
@@ -38,7 +40,8 @@ public class EntityRendererMixin {
 
     @Redirect(method = "updateFogColor",
             at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/client/multiplayer/WorldClient;getSkyColor(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;"))
+                    target = "Lnet/minecraft/client/multiplayer/WorldClient;getSkyColor(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;"),
+            require = 1)
     private Vec3 onUpdateSkyColor(WorldClient worldClient, Entity entity, float v) {
         return WorldUtil.getSkyColorHook(worldClient);
     }

@@ -9,7 +9,7 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(EntityArrow.class)
 public abstract class EntityArrowMixin {
 
-    @ModifyConstant(method = "onUpdate", constant = @Constant(floatValue = 0.05F))
+    @ModifyConstant(method = "onUpdate", constant = @Constant(floatValue = 0.05F), require = 1)
     private float onOnUpdate(float value) {
         return WorldUtil.getArrowGravity((EntityArrow) (Object) this);
     }

@@ -13,6 +13,4 @@ public abstract class EntityArrowMixin {
     private float onOnUpdate(float value) {
         return WorldUtil.getArrowGravity((EntityArrow) (Object) this);
     }
-
-    // CHECK
 }

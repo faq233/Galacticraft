@@ -45,6 +45,4 @@ public class EntityRendererMixin {
     private Vec3 onUpdateSkyColor(WorldClient worldClient, Entity entity, float v) {
         return WorldUtil.getSkyColorHook(worldClient);
     }
-
-    // CHECK
 }

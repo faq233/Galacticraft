@@ -29,6 +29,4 @@ public class ServerConfigurationManagerMixin {
     private EntityPlayerMP onNewEntityPlayerMPInCreatePlayerForUser(MinecraftServer server, WorldServer world, GameProfile profile, ItemInWorldManager itemInWorldManager) {
         return new GCEntityPlayerMP(server, world, profile, itemInWorldManager);
     }
-
-    // CHECK
 }

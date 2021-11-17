@@ -18,6 +18,4 @@ public abstract class EntityLivingBaseMixin extends Entity {
     private double onMoveEntityWithHeading(double value) {
         return WorldUtil.getGravityForEntity(this);
     }
-
-    // CHECK
 }

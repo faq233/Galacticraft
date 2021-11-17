@@ -11,6 +11,4 @@ public class EntityGolemMixin implements IEntityBreathable {
     public boolean canBreath() {
         return true;
     }
-
-    // CHECK
 }

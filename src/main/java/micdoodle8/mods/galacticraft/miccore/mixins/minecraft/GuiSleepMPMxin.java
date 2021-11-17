@@ -15,6 +15,4 @@ public class GuiSleepMPMxin {
     private void onFunc_146418_g(CallbackInfo callbackInfo) {
             MinecraftForge.EVENT_BUS.post(new EventHandlerGC.SleepCancelledEvent());
     }
-
-    // CHECK
 }

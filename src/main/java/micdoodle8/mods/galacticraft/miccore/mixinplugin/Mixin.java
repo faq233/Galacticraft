@@ -25,24 +25,27 @@ public enum Mixin {
     EntityLivingBaseMixin("minecraft.EntityLivingBaseMixin", VANILLA),
     EntityMixin("minecraft.EntityMixin", VANILLA),
     EntityRendererMixin("minecraft.EntityRendererMixin", VANILLA),
+    EntityRendererWithoutOptifineMixin("minecraft.EntityRendererWithoutOptifineMixin", true, false, VANILLA),
     GuiSleepMPMxin("minecraft.GuiSleepMPMxin", VANILLA),
     ItemRendererMixin("minecraft.ItemRendererMixin", VANILLA),
     NetHandlerPlayClientMixin("minecraft.NetHandlerPlayClientMixin", VANILLA),
-    PlayerControllerMPMixin("minecraft.PlayerControllerMPMixin", false, VANILLA),
+    PlayerControllerMPMixin("minecraft.PlayerControllerMPMixin", false, true, VANILLA),
     RendererLivingEntityMixin("minecraft.RendererLivingEntityMixin", VANILLA),
-    ServerConfigurationManagerMixin("minecraft.ServerConfigurationManagerMixin", false, VANILLA),
+    ServerConfigurationManagerMixin("minecraft.ServerConfigurationManagerMixin", false, true, VANILLA),
     WorldMixin("minecraft.WorldMixin", VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
     private final Side side;
     private final boolean injectAlongPlayerAPI;
+    private final boolean isInjectAlongOptifine;
 
-    Mixin(String mixinClass, Side side, boolean injectAlongPlayerAPI, TargetedMod... targetedMods) {
+    Mixin(String mixinClass, Side side, boolean injectAlongPlayerAPI, boolean isInjectAlongOptifine, TargetedMod... targetedMods) {
         this.mixinClass = mixinClass;
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = side;
         this.injectAlongPlayerAPI = injectAlongPlayerAPI;
+        this.isInjectAlongOptifine = isInjectAlongOptifine;
     }
 
     Mixin(String mixinClass, Side side, TargetedMod... targetedMods) {
@@ -50,13 +53,15 @@ public enum Mixin {
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = side;
         this.injectAlongPlayerAPI = true;
+        this.isInjectAlongOptifine = true;
     }
 
-    Mixin(String mixinClass, boolean injectAlongPlayerAPI, TargetedMod... targetedMods) {
+    Mixin(String mixinClass, boolean injectAlongPlayerAPI, boolean isInjectAlongOptifine, TargetedMod... targetedMods) {
         this.mixinClass = mixinClass;
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = Side.BOTH;
         this.injectAlongPlayerAPI = injectAlongPlayerAPI;
+        this.isInjectAlongOptifine = isInjectAlongOptifine;
     }
 
     Mixin(String mixinClass, TargetedMod... targetedMods) {
@@ -64,6 +69,7 @@ public enum Mixin {
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = Side.BOTH;
         this.injectAlongPlayerAPI = true;
+        this.isInjectAlongOptifine = true;
     }
 
     public boolean shouldLoad(List<TargetedMod> loadedMods) {
@@ -71,7 +77,8 @@ public enum Mixin {
                 || side == Side.SERVER && FMLLaunchHandler.side().isServer()
                 || side == Side.CLIENT && FMLLaunchHandler.side().isClient())
                 && loadedMods.containsAll(targetedMods)
-                && (loadedMods.contains(PLAYER_API) == false || injectAlongPlayerAPI);
+                && (loadedMods.contains(PLAYER_API) == false || injectAlongPlayerAPI)
+                && (loadedMods.contains(OPTIFINE) == false || isInjectAlongOptifine);
     }
 }
 

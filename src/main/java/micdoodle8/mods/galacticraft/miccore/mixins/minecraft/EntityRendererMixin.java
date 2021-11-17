@@ -28,21 +28,13 @@ public class EntityRendererMixin {
         return WorldUtil.getWorldBrightness(world);
     }
 
-    // TODO: Only inject if Optifine is NOT installed!
-    @Redirect(method = "updateFogColor",
-            at = @At(value = "INVOKE",
-                    target = "Lnet/minecraft/client/multiplayer/WorldClient;getFogColor(F)Lnet/minecraft/util/Vec3;"),
-            require = 1)
-    private Vec3 onUpdateFogColor(WorldClient worldClient, float v) {
-        return WorldUtil.getFogColorHook(worldClient);
-    }
-
+    // TODO: update colors in updateLightmap
 
     @Redirect(method = "updateFogColor",
             at = @At(value = "INVOKE",
                     target = "Lnet/minecraft/client/multiplayer/WorldClient;getSkyColor(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;"),
             require = 1)
-    private Vec3 onUpdateSkyColor(WorldClient worldClient, Entity entity, float v) {
-        return WorldUtil.getSkyColorHook(worldClient);
+    private Vec3 onUpdateSkyColor(WorldClient world, Entity entity, float v) {
+        return WorldUtil.getSkyColorHook(world);
     }
 }

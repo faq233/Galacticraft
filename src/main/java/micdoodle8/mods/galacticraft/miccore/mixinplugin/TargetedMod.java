@@ -11,6 +11,7 @@ public enum TargetedMod {
     // Replace with your injected mods here, but always keep VANILLA:
     VANILLA("Minecraft", "unused", true),
     PLAYER_API("Player-API", "Player-API", true),
+    OPTIFINE("Optifine", "OptiFine_1.7.10", false),
     SYNCMOD("Sync Mod", "sync", false);
 
     public final String modName;

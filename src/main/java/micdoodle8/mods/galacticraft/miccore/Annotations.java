@@ -1,4 +1,4 @@
-package micdoodle8.mods.miccore;
+package micdoodle8.mods.galacticraft.miccore;
 
 import cpw.mods.fml.relauncher.Side;
 

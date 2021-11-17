@@ -7,4 +7,5 @@ dependencies {
     compile("com.github.GTNewHorizons:TinkersConstruct:master-SNAPSHOT:deobf") { setChanging(true) }
 
     compileOnly("appeng:appliedenergistics2:rv3-beta-22:dev")
+    compileOnly name: "CoFHLib", version: "[1.7.10]1.0.3-175-dev", ext: "jar"
 }

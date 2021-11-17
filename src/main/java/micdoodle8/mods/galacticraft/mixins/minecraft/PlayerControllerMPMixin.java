@@ -25,7 +25,6 @@ public abstract class PlayerControllerMPMixin extends PlayerControllerMP {
     public PlayerControllerMPMixin() {
         super(null, null);
     }
-    // TODO: if Player-API is not installed
 
     @Override
     public EntityClientPlayerMP func_147493_a(World world, StatFileWriter stats) {

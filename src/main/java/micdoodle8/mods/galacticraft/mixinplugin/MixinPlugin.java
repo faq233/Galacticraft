@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static micdoodle8.mods.galacticraft.mixinplugin.TargetedMod.VANILLA;
+import static micdoodle8.mods.galacticraft.mixinplugin.TargetedMod.*;
 
 public class MixinPlugin implements IMixinConfigPlugin {
 
@@ -52,6 +52,12 @@ public class MixinPlugin implements IMixinConfigPlugin {
                         || (mod.loadInDevelopment && isDevelopmentEnvironment)
                         || loadJar(mod.jarNameBeginsWith))
                 .collect(Collectors.toList());
+
+        if(loadedMods.contains(SYNCMOD)) {
+            throw new IllegalStateException("Sync Mod is not supported in this custom version of Galacticraft!");
+        }
+        LOG.info("Hint: Bukkit is not supported in this custom version of Galacticraft!");
+
         for (TargetedMod mod : TargetedMod.values()) {
             if(loadedMods.contains(mod)) {
                 LOG.info("Found " + mod.modName + "! Integrating now...");

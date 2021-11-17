@@ -28,32 +28,50 @@ public enum Mixin {
     GuiSleepMPMxin("minecraft.GuiSleepMPMxin", VANILLA),
     ItemRendererMixin("minecraft.ItemRendererMixin", VANILLA),
     NetHandlerPlayClientMixin("minecraft.NetHandlerPlayClientMixin", VANILLA),
-    PlayerControllerMPMixin("minecraft.PlayerControllerMPMixin", VANILLA),
+    PlayerControllerMPMixin("minecraft.PlayerControllerMPMixin", false, VANILLA),
     RendererLivingEntityMixin("minecraft.RendererLivingEntityMixin", VANILLA),
-    ServerConfigurationManagerMixin("minecraft.ServerConfigurationManagerMixin", VANILLA),
+    ServerConfigurationManagerMixin("minecraft.ServerConfigurationManagerMixin", false, VANILLA),
     WorldMixin("minecraft.WorldMixin", VANILLA);
 
     public final String mixinClass;
     public final List<TargetedMod> targetedMods;
     private final Side side;
+    private final boolean injectAlongPlayerAPI;
+
+    Mixin(String mixinClass, Side side, boolean injectAlongPlayerAPI, TargetedMod... targetedMods) {
+        this.mixinClass = mixinClass;
+        this.targetedMods = Arrays.asList(targetedMods);
+        this.side = side;
+        this.injectAlongPlayerAPI = injectAlongPlayerAPI;
+    }
 
     Mixin(String mixinClass, Side side, TargetedMod... targetedMods) {
         this.mixinClass = mixinClass;
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = side;
+        this.injectAlongPlayerAPI = true;
+    }
+
+    Mixin(String mixinClass, boolean injectAlongPlayerAPI, TargetedMod... targetedMods) {
+        this.mixinClass = mixinClass;
+        this.targetedMods = Arrays.asList(targetedMods);
+        this.side = Side.BOTH;
+        this.injectAlongPlayerAPI = injectAlongPlayerAPI;
     }
 
     Mixin(String mixinClass, TargetedMod... targetedMods) {
         this.mixinClass = mixinClass;
         this.targetedMods = Arrays.asList(targetedMods);
         this.side = Side.BOTH;
+        this.injectAlongPlayerAPI = true;
     }
 
     public boolean shouldLoad(List<TargetedMod> loadedMods) {
         return (side == Side.BOTH
                 || side == Side.SERVER && FMLLaunchHandler.side().isServer()
                 || side == Side.CLIENT && FMLLaunchHandler.side().isClient())
-                && loadedMods.containsAll(targetedMods);
+                && loadedMods.containsAll(targetedMods)
+                && (loadedMods.contains(PLAYER_API) == false || injectAlongPlayerAPI);
     }
 }
 

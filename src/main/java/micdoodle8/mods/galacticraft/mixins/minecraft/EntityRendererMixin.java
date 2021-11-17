@@ -19,8 +19,13 @@ public class EntityRendererMixin {
         ClientProxyCore.orientCamera(partialTicks);
     }
 
-    // TODO targeted: updateLightmapMethod
-    // check runtime code
+    @Redirect(method = "updateLightmap",
+            at = @At(value = "INVOKE",
+                    target = "Lnet/minecraft/client/multiplayer/WorldClient;getSunBrightness(F)F",
+                    ordinal = 0))
+    private float onUpdateLightmap(WorldClient world, float constOne) {
+        return WorldUtil.getWorldBrightness(world);
+    }
 
     // TODO: Only inject if Optifine is NOT installed!
     @Redirect(method = "updateFogColor",
@@ -37,4 +42,6 @@ public class EntityRendererMixin {
     private Vec3 onUpdateSkyColor(WorldClient worldClient, Entity entity, float v) {
         return WorldUtil.getSkyColorHook(worldClient);
     }
+
+    // CHECK
 }

@@ -10,7 +10,8 @@ public enum TargetedMod {
 
     // Replace with your injected mods here, but always keep VANILLA:
     VANILLA("Minecraft", "unused", true),
-    PLAYER_API("Player-API", "Player-API", true);
+    PLAYER_API("Player-API", "Player-API", true),
+    SYNCMOD("Sync Mod", "sync", false);
 
     public final String modName;
     public final String jarNameBeginsWith;

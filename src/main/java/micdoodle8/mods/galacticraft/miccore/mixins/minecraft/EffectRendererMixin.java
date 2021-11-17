@@ -16,6 +16,4 @@ public class EffectRendererMixin {
     private void onRenderParticles(Entity entity, float partialTicks, CallbackInfo callbackInfo) {
         ClientProxyCore.renderFootprints(partialTicks);
     }
-
-    // CHECK
 }

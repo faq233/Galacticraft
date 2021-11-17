@@ -19,6 +19,4 @@ public class NetHandlerPlayClientMixin {
     private EntityOtherPlayerMP onNewEntityOtherPlayerMP(World world, GameProfile gameProfile) {
         return new GCEntityOtherPlayerMP(world, gameProfile);
     }
-
-    // TODO: Verify that second redirect on constructor call is NOT required!
 }

@@ -39,6 +39,4 @@ public class ChunkProviderServerMixin {
             GameRegistry.generateWorld(chunkX, chunkZ, world, currentChunkProvider, chunkGenerator);
         }
     }
-
-    // CHECK
 }

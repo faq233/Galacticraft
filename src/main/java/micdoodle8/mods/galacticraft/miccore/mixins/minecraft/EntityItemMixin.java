@@ -13,6 +13,4 @@ public abstract class EntityItemMixin {
     private double onOnUpdate(double value) {
         return WorldUtil.getItemGravity((EntityItem) (Object) this);
     }
-
-    // CHECK
 }

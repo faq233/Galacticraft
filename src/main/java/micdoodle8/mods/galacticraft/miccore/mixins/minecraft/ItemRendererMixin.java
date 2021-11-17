@@ -19,6 +19,4 @@ public class ItemRendererMixin {
     private void onRenderOverlays(float partialTicks, CallbackInfo callbackInfo) {
         ClientProxyCore.renderLiquidOverlays(partialTicks);
     }
-
-    // CHECK
 }

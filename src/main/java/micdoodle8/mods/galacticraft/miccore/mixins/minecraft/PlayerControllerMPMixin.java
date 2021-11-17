@@ -9,7 +9,6 @@ import net.minecraft.stats.StatFileWriter;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(PlayerControllerMP.class)
@@ -27,6 +26,4 @@ public abstract class PlayerControllerMPMixin {
         System.out.println("func_147493_a");
         return new GCEntityClientPlayerMP(mc, world, mc.getSession(), netClientHandler, stats);
     }
-
-    // TODO: Verify that second redirect on constructor call is NOT required!
 }

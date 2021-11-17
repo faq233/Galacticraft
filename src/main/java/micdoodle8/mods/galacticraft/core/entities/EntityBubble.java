@@ -7,7 +7,7 @@
 //import micdoodle8.mods.galacticraft.core.tile.TileEntityOxygenDistributor;
 //import micdoodle8.mods.galacticraft.core.util.ConfigManagerCore;
 //import micdoodle8.mods.galacticraft.core.util.GCLog;
-//import micdoodle8.mods.miccore.Annotations.NetworkedField;
+//import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;;
 //import net.minecraft.entity.player.EntityPlayer;
 //import net.minecraft.nbt.NBTTagCompound;
 //import net.minecraft.tileentity.TileEntity;

@@ -11,7 +11,7 @@ import micdoodle8.mods.galacticraft.api.vector.BlockVec3;
 import micdoodle8.mods.galacticraft.core.oxygen.OxygenNetwork;
 import micdoodle8.mods.galacticraft.core.tick.TickHandlerServer;
 import micdoodle8.mods.galacticraft.core.util.OxygenUtil;
-import micdoodle8.mods.miccore.Annotations.RuntimeInterface;
+import micdoodle8.mods.galacticraft.miccore.Annotations.RuntimeInterface;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraftforge.common.util.ForgeDirection;

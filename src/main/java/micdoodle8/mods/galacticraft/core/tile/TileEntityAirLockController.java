@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import micdoodle8.mods.galacticraft.api.vector.Vector3;
 import micdoodle8.mods.galacticraft.core.GalacticraftCore;
 import micdoodle8.mods.galacticraft.core.blocks.GCBlocks;
-import micdoodle8.mods.miccore.Annotations.NetworkedField;
+import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;

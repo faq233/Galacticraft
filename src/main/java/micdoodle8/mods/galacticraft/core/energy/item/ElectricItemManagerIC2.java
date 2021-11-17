@@ -2,7 +2,7 @@ package micdoodle8.mods.galacticraft.core.energy.item;
 
 import micdoodle8.mods.galacticraft.api.item.IItemElectricBase;
 import micdoodle8.mods.galacticraft.core.energy.EnergyConfigHandler;
-import micdoodle8.mods.miccore.Annotations;
+import micdoodle8.mods.galacticraft.miccore.Annotations.RuntimeInterface;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 
@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
  */
 public class ElectricItemManagerIC2
 {
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public int charge(ItemStack itemStack, int amount, int tier, boolean ignoreTransferLimit, boolean simulate)
     {
         if (itemStack.getItem() instanceof IItemElectricBase)
@@ -39,7 +39,7 @@ public class ElectricItemManagerIC2
         return 0;
     }
 
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public int discharge(ItemStack itemStack, int amount, int tier, boolean ignoreTransferLimit, boolean simulate)
     {
         if (itemStack.getItem() instanceof IItemElectricBase)
@@ -62,7 +62,7 @@ public class ElectricItemManagerIC2
         return 0;
     }
 
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public int getCharge(ItemStack itemStack)
     {
         if (itemStack.getItem() instanceof IItemElectricBase)
@@ -73,7 +73,7 @@ public class ElectricItemManagerIC2
         return 0;
     }
 
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public boolean canUse(ItemStack itemStack, int amount)
     {
         if (itemStack.getItem() instanceof IItemElectricBase)
@@ -83,7 +83,7 @@ public class ElectricItemManagerIC2
         return false;
     }
 
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public boolean use(ItemStack itemStack, int amount, EntityLivingBase entity)
     {
         if (itemStack.getItem() instanceof IItemElectricBase)
@@ -93,12 +93,12 @@ public class ElectricItemManagerIC2
         return false;
     }
 
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public void chargeFromArmor(ItemStack itemStack, EntityLivingBase entity)
     {
     }
 
-    @Annotations.RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
+    @RuntimeInterface(clazz = "ic2.api.item.IElectricItemManager", modID = "IC2")
     public String getToolTip(ItemStack itemStack)
     {
         return null;

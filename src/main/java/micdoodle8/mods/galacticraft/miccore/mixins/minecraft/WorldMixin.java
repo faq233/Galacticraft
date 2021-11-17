@@ -2,19 +2,15 @@ package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
 
 import micdoodle8.mods.galacticraft.core.util.WorldUtil;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProvider;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(World.class)
-public abstract class WorldMixin extends World {
+public abstract class WorldMixin {
 
-    public WorldMixin() {
-        super(null, null, (WorldProvider) null, null, null);
-    }
-
-    @Override
+    // TODO
     public float getRainStrength(float partialTicks) {
-        return WorldUtil.getRainStrength(this, partialTicks);
+        System.out.println("getRainStrength");
+        return WorldUtil.getRainStrength((World) (Object) this, partialTicks);
     }
 
     // CHECK

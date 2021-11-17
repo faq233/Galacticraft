@@ -9,10 +9,11 @@ import net.minecraft.stats.StatFileWriter;
 import net.minecraft.world.World;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
 @Mixin(PlayerControllerMP.class)
-public abstract class PlayerControllerMPMixin extends PlayerControllerMP {
+public abstract class PlayerControllerMPMixin {
 
     @Shadow
     @Final
@@ -22,12 +23,8 @@ public abstract class PlayerControllerMPMixin extends PlayerControllerMP {
     @Final
     private NetHandlerPlayClient netClientHandler;
 
-    public PlayerControllerMPMixin() {
-        super(null, null);
-    }
-
-    @Override
     public EntityClientPlayerMP func_147493_a(World world, StatFileWriter stats) {
+        System.out.println("func_147493_a");
         return new GCEntityClientPlayerMP(mc, world, mc.getSession(), netClientHandler, stats);
     }
 

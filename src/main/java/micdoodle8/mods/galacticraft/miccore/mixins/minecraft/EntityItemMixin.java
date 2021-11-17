@@ -7,15 +7,11 @@ import org.spongepowered.asm.mixin.injection.Constant;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
 
 @Mixin(EntityItem.class)
-public class EntityItemMixin extends EntityItem{
-
-    public EntityItemMixin() {
-        super(null);
-    }
+public abstract class EntityItemMixin {
 
     @ModifyConstant(method = "onUpdate", constant = @Constant(doubleValue = 0.9800000190734863D))
-    private double onOnUpdate() {
-        return WorldUtil.getItemGravity(this);
+    private double onOnUpdate(double value) {
+        return WorldUtil.getItemGravity((EntityItem) (Object) this);
     }
 
     // CHECK

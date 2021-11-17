@@ -5,15 +5,12 @@ import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 
 @Mixin(Entity.class)
-public abstract class EntityMixin extends Entity {
+public abstract class EntityMixin {
 
-    public EntityMixin() {
-        super(null);
-    }
-
-    @Override
+    // TODO
     public boolean canRenderOnFire() {
-        return WorldUtil.shouldRenderFire(this);
+        System.out.println("canRenderOnFire");
+        return WorldUtil.shouldRenderFire((Entity) (Object) this);
     }
 
     // CHECK

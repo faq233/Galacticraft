@@ -76,8 +76,6 @@ public class TickHandlerClient
     private static boolean lastInvKeyPressed;
     private static long tickCount;
     public static boolean spaceRaceGuiScheduled = false;
-
-    private static ThreadRequirementMissing missingRequirementThread;
     
     public static HashSet<TileEntityScreen> screenConnectionsUpdateList = new HashSet<TileEntityScreen>();
 
@@ -365,12 +363,6 @@ public class TickHandlerClient
             if (minecraft.currentScreen instanceof GuiMainMenu)
             {
                 ClientProxyCore.reset();
-
-                if (TickHandlerClient.missingRequirementThread == null)
-                {
-                    TickHandlerClient.missingRequirementThread = new ThreadRequirementMissing(Side.CLIENT);
-                    TickHandlerClient.missingRequirementThread.start();
-                }
             }
 
             if (world != null && TickHandlerClient.spaceRaceGuiScheduled && minecraft.currentScreen == null && ConfigManagerCore.enableSpaceRaceManagerPopup)

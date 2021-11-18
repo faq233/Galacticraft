@@ -17,10 +17,6 @@ repositories {
         url "https://jitpack.io"
     }
     ivy {
-        name "BuildCraft"
-        artifactPattern "https://www.mod-buildcraft.com/releases/BuildCraft/[revision]/[module]-[revision](-[classifier]).[ext]"
-    }
-    ivy {
         name = 'gtnh_download_source'
         artifactPattern("http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]")
     }

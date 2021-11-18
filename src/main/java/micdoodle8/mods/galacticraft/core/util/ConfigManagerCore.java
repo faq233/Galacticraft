@@ -526,7 +526,7 @@ public class ConfigManagerCore
             propOrder.add(prop.getName());          
             
             prop = config.get(Constants.CONFIG_CATEGORY_GENERAL, "Always show Oxygen HUD", false);
-            prop.comment = "Should normally be true. If you set this to false, in a modpack with other mods with the same metals, players may be able to craft advanced GC items without travelling to Moon, Mars, Asteroids etc.";
+            prop.comment = "Toggle this to always display the Oxygen HUD, if off it will only be shown on GC planets which require Oxygen.";
             prop.setLanguageKey("gc.configgui.alwaysDisplayOxygenHUD").setRequiresMcRestart(false);
             alwaysDisplayOxygenHUD = prop.getBoolean(false);
             propOrder.add(prop.getName());            

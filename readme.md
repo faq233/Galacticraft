@@ -1,6 +1,9 @@
 Galacticraft - GTNH
 ===================
 
+# DEV NOTE: Micdoodlelib is integrated
+Do not include Micdoodlelib in your projects! It will break your projects!
+
 An advanced space exploration mod for Minecraft.  Forked and maintained by the GTNH team (with permission).
 
 NOTE

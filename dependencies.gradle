@@ -10,6 +10,6 @@ dependencies {
     compileOnly("player-api:PlayerAPI:1.7.10:1.4")
     compileOnly("render-player-api:RenderPlayerAPI:1.7.10:1.4")
     compileOnly("smart-render:SmartRender:1.7.10:2.1")
-    compileOnly("appeng:appliedenergistics2:rv3-beta-22:dev"))
+    compileOnly("appeng:appliedenergistics2:rv3-beta-22:dev")
     compileOnly(name: "CoFHLib", version: "[1.7.10]1.0.3-175-dev", ext: "jar")
 }

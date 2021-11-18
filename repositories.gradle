@@ -13,7 +13,7 @@ repositories {
         url "https://minecraft.curseforge.com/api/maven/"
     }
     maven {
-        name "GitHub"
+        name "Jitpack"
         url "https://jitpack.io"
     }
     ivy {

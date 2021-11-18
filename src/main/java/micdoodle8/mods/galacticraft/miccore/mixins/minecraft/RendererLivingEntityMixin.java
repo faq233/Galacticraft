@@ -1,7 +1,5 @@
 package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import micdoodle8.mods.galacticraft.core.client.render.entities.RenderPlayerGC;
 import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(RendererLivingEntity.class)
-@SideOnly(Side.CLIENT)
 public abstract class RendererLivingEntityMixin {
 
     @Inject(method = "renderModel", at = @At("RETURN"), locals = LocalCapture.CAPTURE_FAILEXCEPTION, require = 1)

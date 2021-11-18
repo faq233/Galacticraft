@@ -23,7 +23,6 @@ public abstract class PlayerControllerMPMixin {
     private NetHandlerPlayClient netClientHandler;
 
     public EntityClientPlayerMP func_147493_a(World world, StatFileWriter stats) {
-        System.out.println("func_147493_a");
         return new GCEntityClientPlayerMP(mc, world, mc.getSession(), netClientHandler, stats);
     }
 }

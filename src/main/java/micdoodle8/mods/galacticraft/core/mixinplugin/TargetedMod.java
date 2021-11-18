@@ -20,13 +20,13 @@ public enum TargetedMod {
     SYNCMOD("Sync Mod", "sync", false);
 
     public final String modName;
-    public final String jarNameBeginsWith;
+    public final String jarNamePrefixLowercase;
     // Optional dependencies can be omitted in development. Especially skipping GT5U will drastically speed up your game start!
     public final boolean loadInDevelopment;
 
-    TargetedMod(String modName, String jarNameBeginsWith, boolean loadInDevelopment) {
+    TargetedMod(String modName, String jarNamePrefix, boolean loadInDevelopment) {
         this.modName = modName;
-        this.jarNameBeginsWith = jarNameBeginsWith;
+        this.jarNamePrefixLowercase = jarNamePrefix.toLowerCase();
         this.loadInDevelopment = loadInDevelopment;
     }
 

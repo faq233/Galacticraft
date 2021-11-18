@@ -48,7 +48,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
         final boolean isDevelopmentEnvironment = (boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
 
         List<TargetedMod> loadedMods = Arrays.stream(TargetedMod.values())
-                .filter(mod -> mod == VANILLA
+                .filter(mod -> mod == VANILLA || mod == FORGE
                         || (mod.loadInDevelopment && isDevelopmentEnvironment)
                         || loadJar(mod.jarNameBeginsWith))
                 .collect(Collectors.toList());

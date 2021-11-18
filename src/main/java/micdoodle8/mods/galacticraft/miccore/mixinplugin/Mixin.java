@@ -15,7 +15,7 @@ public enum Mixin {
     // Exception: Tags.java, as long as it is used for Strings only!
     //
 
-    ForgeHooksClientMixin("forge.ForgeHooksClientMixin", VANILLA),
+    ForgeHooksClientMixin("forge.ForgeHooksClientMixin", FORGE),
 
     ChunkProviderServerMixin("minecraft.ChunkProviderServerMixin", VANILLA),
     EffectRendererMixin("minecraft.EffectRendererMixin", VANILLA),

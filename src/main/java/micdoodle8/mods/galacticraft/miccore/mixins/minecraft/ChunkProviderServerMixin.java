@@ -31,8 +31,8 @@ public class ChunkProviderServerMixin {
 
     @Redirect(method = "populate",
             at = @At(value = "INVOKE",
-                    target = "Lcpw/mods/fml/common/registry/GameRegistry;generateWorld(IILnet/minecraft/world/World;Lnet/minecraft/world/chunk/IChunkProvider;Lnet/minecraft/world/chunk/IChunkProvider;)V"),
-            remap = false,
+                    target = "Lcpw/mods/fml/common/registry/GameRegistry;generateWorld(IILnet/minecraft/world/World;Lnet/minecraft/world/chunk/IChunkProvider;Lnet/minecraft/world/chunk/IChunkProvider;)V",
+                    remap = false),
             require = 1)
     private void onRegistry(int chunkX, int chunkZ, World world, IChunkProvider currentChunkProvider, IChunkProvider chunkGenerator) {
         if(skipRegistryCalls == false) {

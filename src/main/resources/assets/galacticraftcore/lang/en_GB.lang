@@ -741,5 +741,6 @@ gc.configgui.keyOverrideToggleAdvGoggles=Set key: Advanced Goggles
 gc.configgui.meteorSpawnMod=Meteor Spawn Modifier
 gc.configgui.meteorBlockDamage=Meteor Block Damage Enabled
 gc.configgui.title=Galacticraft Core Config
+gc.configgui.alwaysDisplayOxygenHUD=Always show Oxygen HUD
 
 # </file>

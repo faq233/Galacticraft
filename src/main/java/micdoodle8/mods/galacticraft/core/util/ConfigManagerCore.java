@@ -55,6 +55,7 @@ public class ConfigManagerCore
     public static boolean enableSealerEdgeChecks;
     public static boolean disableLander;
     public static boolean recipesRequireGCAdvancedMetals = true;
+    public static boolean alwaysDisplayOxygenHUD = false;
 //    public static int mapfactor;
 //    public static int mapsize;
     
@@ -523,6 +524,12 @@ public class ConfigManagerCore
             prop.setLanguageKey("gc.configgui.disableOreDictSpaceMetals").setRequiresMcRestart(true);
             recipesRequireGCAdvancedMetals = prop.getBoolean(true);
             propOrder.add(prop.getName());          
+            
+            prop = config.get(Constants.CONFIG_CATEGORY_GENERAL, "Always show Oxygen HUD", false);
+            prop.comment = "Toggle this to always display the Oxygen HUD, if off it will only be shown on GC planets which require Oxygen.";
+            prop.setLanguageKey("gc.configgui.alwaysDisplayOxygenHUD").setRequiresMcRestart(false);
+            alwaysDisplayOxygenHUD = prop.getBoolean(false);
+            propOrder.add(prop.getName());            
             
             prop = config.get(Constants.CONFIG_CATEGORY_GENERAL, "Open Galaxy Map", "KEY_M");
             prop.comment = "Leave 'KEY_' value, adding the intended keyboard character to replace the letter. Values 0-9 and A-Z are accepted";

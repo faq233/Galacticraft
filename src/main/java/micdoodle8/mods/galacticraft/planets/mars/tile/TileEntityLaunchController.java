@@ -20,7 +20,7 @@ import micdoodle8.mods.galacticraft.core.world.IChunkLoader;
 import micdoodle8.mods.galacticraft.planets.mars.ConfigManagerMars;
 import micdoodle8.mods.galacticraft.planets.mars.network.PacketSimpleMars;
 import micdoodle8.mods.galacticraft.planets.mars.network.PacketSimpleMars.EnumSimplePacketMars;
-import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;;
+import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;

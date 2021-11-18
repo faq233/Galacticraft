@@ -7,7 +7,7 @@ import micdoodle8.mods.galacticraft.api.transmission.tile.IConnector;
 import micdoodle8.mods.galacticraft.core.util.EnumColor;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.core.util.RedstoneUtil;
-import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;;
+import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;
 import micdoodle8.mods.galacticraft.miccore.Annotations.RuntimeInterface;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

@@ -15,7 +15,7 @@ import micdoodle8.mods.galacticraft.core.util.OxygenUtil;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.AsteroidsItems;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.ItemAtmosphericValve;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
-import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;;
+import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;
 import micdoodle8.mods.galacticraft.miccore.Annotations.RuntimeInterface;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

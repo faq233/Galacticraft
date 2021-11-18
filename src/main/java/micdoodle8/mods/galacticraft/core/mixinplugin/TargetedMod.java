@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixinplugin;
+package micdoodle8.mods.galacticraft.core.mixinplugin;
 
 public enum TargetedMod {
 

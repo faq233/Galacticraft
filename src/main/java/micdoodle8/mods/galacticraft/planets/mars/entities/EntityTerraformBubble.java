@@ -6,7 +6,7 @@
 //import micdoodle8.mods.galacticraft.core.entities.EntityAdvanced;
 //import micdoodle8.mods.galacticraft.core.entities.IBubble;
 //import micdoodle8.mods.galacticraft.planets.mars.tile.TileEntityTerraformer;
-//import micdoodle8.mods.galacticraft.miccore.Annotations.NetworkedField;
+//import micdoodle8.mods.galacticraft.core.util.Annotations.NetworkedField;
 //import net.minecraft.entity.player.EntityPlayer;
 //import net.minecraft.nbt.NBTTagCompound;
 //import net.minecraft.tileentity.TileEntity;

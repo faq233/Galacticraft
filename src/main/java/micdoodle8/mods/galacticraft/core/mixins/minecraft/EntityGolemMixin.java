@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
+package micdoodle8.mods.galacticraft.core.mixins.minecraft;
 
 import micdoodle8.mods.galacticraft.api.entity.IEntityBreathable;
 import net.minecraft.entity.monster.EntityGolem;

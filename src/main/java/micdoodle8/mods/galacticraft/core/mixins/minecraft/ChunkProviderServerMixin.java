@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
+package micdoodle8.mods.galacticraft.core.mixins.minecraft;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import micdoodle8.mods.galacticraft.core.util.WorldUtil;

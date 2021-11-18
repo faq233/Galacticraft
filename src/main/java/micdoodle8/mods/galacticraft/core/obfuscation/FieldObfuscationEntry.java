@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.obfuscation;
+package micdoodle8.mods.galacticraft.core.obfuscation;
 
 public class FieldObfuscationEntry extends ObfuscationEntry {
 

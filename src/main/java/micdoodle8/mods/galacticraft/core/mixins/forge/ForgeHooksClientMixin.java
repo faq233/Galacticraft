@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixins.forge;
+package micdoodle8.mods.galacticraft.core.mixins.forge;
 
 import micdoodle8.mods.galacticraft.core.event.EventHandlerGC;
 import net.minecraftforge.client.ForgeHooksClient;

@@ -9,15 +9,14 @@ import micdoodle8.mods.galacticraft.api.transmission.tile.IConductor;
 import micdoodle8.mods.galacticraft.api.transmission.tile.IElectrical;
 import micdoodle8.mods.galacticraft.core.energy.EnergyConfigHandler;
 import micdoodle8.mods.galacticraft.core.tile.ReceiverMode;
-import micdoodle8.mods.galacticraft.miccore.Annotations.AltForVersion;
-import micdoodle8.mods.galacticraft.miccore.Annotations.RuntimeInterface;
-import micdoodle8.mods.galacticraft.miccore.Annotations.VersionSpecific;
+import micdoodle8.mods.galacticraft.core.util.Annotations.AltForVersion;
+import micdoodle8.mods.galacticraft.core.util.Annotations.RuntimeInterface;
+import micdoodle8.mods.galacticraft.core.util.Annotations.VersionSpecific;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
 

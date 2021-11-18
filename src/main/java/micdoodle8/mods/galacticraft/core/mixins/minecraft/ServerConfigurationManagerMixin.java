@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
+package micdoodle8.mods.galacticraft.core.mixins.minecraft;
 
 import com.mojang.authlib.GameProfile;
 import micdoodle8.mods.galacticraft.core.entities.player.GCEntityPlayerMP;

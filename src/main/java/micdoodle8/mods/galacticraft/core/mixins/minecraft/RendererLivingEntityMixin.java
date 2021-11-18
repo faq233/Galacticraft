@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
+package micdoodle8.mods.galacticraft.core.mixins.minecraft;
 
 import micdoodle8.mods.galacticraft.core.client.render.entities.RenderPlayerGC;
 import net.minecraft.client.renderer.entity.RendererLivingEntity;

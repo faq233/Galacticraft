@@ -1,4 +1,4 @@
-package micdoodle8.mods.galacticraft.miccore.mixins.minecraft;
+package micdoodle8.mods.galacticraft.core.mixins.minecraft;
 
 import micdoodle8.mods.galacticraft.core.event.EventHandlerGC;
 import net.minecraft.client.gui.GuiSleepMP;

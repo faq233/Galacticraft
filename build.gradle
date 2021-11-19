@@ -1,4 +1,4 @@
-//version: 4b2ebe38a6e125f4d08a6effeb1f13abdcb65fd5
+//version: 1c18f850adb30b1b14861baf9f5c831841443bb0
 /*
 DO NOT CHANGE THIS FILE!
 
@@ -27,7 +27,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.github.TheElan:ForgeGradle:f59d5c1f8d'
+        classpath 'com.github.TheElan:ForgeGradle:1.2.2'
     }
 }
 

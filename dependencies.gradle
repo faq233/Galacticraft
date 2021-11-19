@@ -1,15 +1,12 @@
 dependencies {
-    compile("com.github.GTNewHorizons:GT5-Unofficial:unify-build-script-SNAPSHOT:dev") {
+    compile("com.github.GTNewHorizons:GT5-Unofficial:experimental-SNAPSHOT:dev") {
         setChanging(true)
     }
     compile("cpw.mods:ironchest:1.7.10-6.0.62.742:deobf")
-    compile("com.github.GTNewHorizons:TinkersConstruct:master-SNAPSHOT:deobf") {
-        setChanging(true)
-    }
+    compile("codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev")
+    compile("tconstruct:TConstruct:1.7.10-1.8.8.build1003:deobf")
 
     compileOnly("player-api:PlayerAPI:1.7.10:1.4")
     compileOnly("render-player-api:RenderPlayerAPI:1.7.10:1.4")
     compileOnly("smart-render:SmartRender:1.7.10:2.1")
-    compileOnly("appeng:appliedenergistics2:rv3-beta-22:dev")
-    compileOnly("ivy:CoFHLib:[1.7.10]1.0.3-175-dev:jar")
 }

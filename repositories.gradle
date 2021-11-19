@@ -7,17 +7,24 @@ repositories {
         name "IC2 Maven"
         url "https://maven.ic2.player.to/"
     }
-
     maven {
         name "CurseForge Maven"
         url "https://minecraft.curseforge.com/api/maven/"
     }
     maven {
-        name "Jitpack"
-        url "https://jitpack.io"
+        name "ryanliptak Maven"
+        url "https://www.ryanliptak.com/maven/"
+    }
+    maven {
+        name "tterrag Maven"
+        url "https://maven.tterrag.com/"
+    }
+    maven {
+        name "progwml16 Maven"
+        url "https://dvs1.progwml6.com/files/maven"
     }
     ivy {
-        name = 'gtnh_download_source'
-        artifactPattern("http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]")
+        name = "gtnh_download_source"
+        artifactPattern "http://downloads.gtnewhorizons.com/Mods_for_Jenkins/[module]-[revision].[ext]"
     }
 }

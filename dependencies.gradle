@@ -2,11 +2,16 @@ dependencies {
     compile("com.github.GTNewHorizons:GT5-Unofficial:experimental-SNAPSHOT:dev") {
         setChanging(true)
     }
-    compile("cpw.mods:ironchest:1.7.10-6.0.62.742:deobf")
-    compile("codechicken:NotEnoughItems:1.7.10-1.0.5.120:dev")
-    compile("tconstruct:TConstruct:1.7.10-1.8.8.build1003:deobf")
+    compile("com.github.GTNewHorizons:TinkersConstruct:master-SNAPSHOT:dev")
+    compile("com.github.GTNewHorizons:ironchest:master-SNAPSHOT:dev")
 
-    compileOnly("player-api:PlayerAPI:1.7.10:1.4")
-    compileOnly("render-player-api:RenderPlayerAPI:1.7.10:1.4")
-    compileOnly("smart-render:SmartRender:1.7.10:2.1")
+    compileOnly("player-api:PlayerAPI:1.7.10:1.4") {
+        transitive = false
+    }
+    compileOnly("render-player-api:RenderPlayerAPI:1.7.10:1.4") {
+        transitive = false
+    }
+    compileOnly("smart-render:SmartRender:1.7.10:2.1") {
+        transitive = false
+    }
 }

@@ -17,7 +17,7 @@ import micdoodle8.mods.galacticraft.core.util.FluidUtil;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.planets.asteroids.AsteroidsModule;
 import micdoodle8.mods.galacticraft.planets.asteroids.items.*;
-import micdoodle8.mods.miccore.Annotations.NetworkedField;
+import micdoodle8.mods.galacticraft.core.util.Annotations.NetworkedField;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.inventory.ISidedInventory;

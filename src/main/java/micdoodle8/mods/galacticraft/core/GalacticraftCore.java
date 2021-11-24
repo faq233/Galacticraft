@@ -120,7 +120,6 @@ import micdoodle8.mods.galacticraft.core.util.ConfigManagerCore;
 import micdoodle8.mods.galacticraft.core.util.CreativeTabGC;
 import micdoodle8.mods.galacticraft.core.util.GCCoreUtil;
 import micdoodle8.mods.galacticraft.core.util.GCLog;
-import micdoodle8.mods.galacticraft.core.util.ThreadRequirementMissing;
 import micdoodle8.mods.galacticraft.core.util.WorldUtil;
 import micdoodle8.mods.galacticraft.core.world.ChunkLoadingCallback;
 import micdoodle8.mods.galacticraft.core.world.gen.BiomeGenBaseMoon;
@@ -162,7 +161,7 @@ import cpw.mods.fml.common.event.FMLServerStoppedEvent;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = Constants.MOD_ID_CORE, name = GalacticraftCore.NAME, version = Constants.VERSION, acceptedMinecraftVersions = "[1.7.2],[1.7.10]", useMetadata = true, dependencies = "required-after:Forge@[10.12.2.1147,); required-after:FML@[7.2.217.1147,); required-after:Micdoodlecore; before:GalaxySpace; after:IC2; after:TConstruct; after:Mantle; after:BuildCraft|Core; after:BuildCraft|Energy; after:PlayerAPI@[1.3,)", guiFactory = "micdoodle8.mods.galacticraft.core.client.gui.screen.ConfigGuiFactoryCore")
+@Mod(modid = Constants.MOD_ID_CORE, name = GalacticraftCore.NAME, version = Constants.VERSION, acceptedMinecraftVersions = "[1.7.2],[1.7.10]", useMetadata = true, dependencies = "required-after:Forge@[10.12.2.1147,); required-after:FML@[7.2.217.1147,); before:GalaxySpace; after:IC2; after:TConstruct; after:Mantle; after:BuildCraft|Core; after:BuildCraft|Energy; after:PlayerAPI@[1.3,)", guiFactory = "micdoodle8.mods.galacticraft.core.client.gui.screen.ConfigGuiFactoryCore")
 public class GalacticraftCore
 {
     public static final String NAME = "Galacticraft Core";
@@ -544,11 +543,6 @@ public class GalacticraftCore
     @EventHandler
     public void serverInit(FMLServerStartedEvent event)
     {
-        if (ThreadRequirementMissing.INSTANCE == null)
-        {
-            ThreadRequirementMissing.beginCheck(FMLCommonHandler.instance().getEffectiveSide());
-        }
-
         TickHandlerServer.restart();
         BlockVec3.chunkCacheDim = Integer.MAX_VALUE;       
     }

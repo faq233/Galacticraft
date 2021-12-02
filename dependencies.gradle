@@ -1,17 +1,12 @@
 dependencies {
-    compile("com.github.GTNewHorizons:GT5-Unofficial:experimental-SNAPSHOT:dev") {
-        setChanging(true)
-        transitive = false
-    }
-    compile("com.github.GTNewHorizons:StructureLib:master-SNAPSHOT:dev") // GT5U Dependency
-    compile("net.industrial-craft:industrialcraft-2:2.2.790-experimental:dev") // GT5U Dependency
-
+    compile("com.github.GTNewHorizons:GT5-Unofficial:master-SNAPSHOT:dev")
     compile("com.github.GTNewHorizons:TinkersConstruct:master-SNAPSHOT:dev")
     compile("com.github.GTNewHorizons:ironchest:master-SNAPSHOT:dev")
 
-    compileOnly("appeng:appliedenergistics2:rv3-beta-22:dev") {
+    compileOnly("com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:master-SNAPSHOT:api") {
         transitive = false
     }
+
     compileOnly("player-api:PlayerAPI:1.7.10:1.4") {
         transitive = false
     }

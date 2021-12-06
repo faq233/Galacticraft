@@ -1,6 +1,7 @@
 package micdoodle8.mods.galacticraft.core.asm;
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 
 import java.io.File;
 import java.util.Map;
@@ -11,6 +12,7 @@ import java.util.Map;
 @IFMLLoadingPlugin.TransformerExclusions("micdoodle8.mods.galacticraft.core.asm")
 @IFMLLoadingPlugin.MCVersion("1.7.10")
 @IFMLLoadingPlugin.Name("GalacticraftCoreMod2")
+@SortingIndex(1500)
 public class GCLoadingPlugin implements IFMLLoadingPlugin {
     static boolean dev;
     static File debugOutputDir;

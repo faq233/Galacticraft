@@ -31,13 +31,14 @@ public class GCTransformer implements IClassTransformer {
 
     static void catching(Exception e) {
         log.fatal("Something went very wrong with class transforming! Aborting!!!", e);
+        RuntimeException exception;
         try {
-            ReportedException reportedException = new ReportedException(CrashReport.makeCrashReport(e, "Transforming class"));
-            throw reportedException;
+            exception = new ReportedException(CrashReport.makeCrashReport(e, "Transforming class"));
         } catch (Throwable e2) {
             // presumably because this happened too early
-            throw new RuntimeException("Transforming class", e);
+            exception = new RuntimeException("Transforming class", e);
         }
+        throw exception;
     }
 
     @Override

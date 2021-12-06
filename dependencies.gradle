@@ -7,13 +7,20 @@ dependencies {
         transitive = false
     }
 
-    compileOnly("player-api:PlayerAPI:1.7.10:1.4") {
+    compileOnly("com.mod-buildcraft:buildcraft:7.1.23:dev") {
         transitive = false
     }
-    compileOnly("render-player-api:RenderPlayerAPI:1.7.10:1.4") {
+
+    compileOnly("curse.maven:PlayerAPI-228969:2248928") {
         transitive = false
     }
-    compileOnly("smart-render:SmartRender:1.7.10:2.1") {
+    compileOnly("curse.maven:RenderPlayerAPI-228981:2248933") {
+        transitive = false
+    }
+    compileOnly("curse.maven:SmartRender-229857:2248949") {
+        transitive = false
+    }
+    compileOnly("curse.maven:mekanism-268560:2475797") {
         transitive = false
     }
 }

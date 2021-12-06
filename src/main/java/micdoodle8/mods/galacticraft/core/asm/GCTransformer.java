@@ -1,6 +1,5 @@
 package micdoodle8.mods.galacticraft.core.asm;
 
-import cofh.asm.LoadingPlugin;
 import com.google.common.collect.ImmutableMap;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.crash.CrashReport;
@@ -23,7 +22,7 @@ import static micdoodle8.mods.galacticraft.core.asm.GCLoadingPlugin.dev;
 import static org.objectweb.asm.Opcodes.ASM5;
 
 public class GCTransformer implements IClassTransformer {
-    static final Logger log = LogManager.getLogger("TC4TweakTransformer");
+    static final Logger log = LogManager.getLogger("GCTransformer");
     private static final boolean DEBUG = Boolean.getBoolean("glease.debugasm");
     private static final ConcurrentMap<String, Integer> transformCounts = new ConcurrentHashMap<>();
     private final Map<String, TransformerFactory> transformers = ImmutableMap.<String, TransformerFactory>builder()

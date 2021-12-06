@@ -31,7 +31,6 @@ public enum Mixin {
     NetHandlerPlayClientMixin("minecraft.NetHandlerPlayClientMixin", Side.CLIENT, VANILLA),
     PlayerControllerMPMixin("minecraft.PlayerControllerMPMixin", Side.CLIENT, false, true, VANILLA),
     RendererLivingEntityMixin("minecraft.RendererLivingEntityMixin", Side.CLIENT, VANILLA),
-    ServerConfigurationManagerMixin("minecraft.ServerConfigurationManagerMixin", false, true, VANILLA),
     WorldMixin("minecraft.WorldMixin", VANILLA);
 
     public final String mixinClass;

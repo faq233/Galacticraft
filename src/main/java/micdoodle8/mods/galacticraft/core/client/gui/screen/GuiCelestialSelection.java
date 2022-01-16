@@ -451,15 +451,17 @@ public class GuiCelestialSelection extends GuiScreen
 
     protected boolean canCreateSpaceStation(CelestialBody atBody)
     {
-        if (this.mapMode || ConfigManagerCore.disableSpaceStationCreation)
+        if (this.mapMode || !atBody.getAllowSatellite() || ConfigManagerCore.disableSpaceStationCreation)
         {
+        	// If we are in map mode or the parent body doesn't allow satellites in general or if space stations aren't allowed at all,
+        	// the creation of space stations is forbidden at this body
             return false;
         }
 
-        if (!ConfigManagerCore.allowSSatUnreachable && (!atBody.getReachable() || (this.possibleBodies != null && !this.possibleBodies.contains(atBody))))
+        if (!((atBody.getReachable() && (possibleBodies == null || possibleBodies.contains(atBody))) || ConfigManagerCore.allowSSatUnreachable))
         {
-            // If parent body is unreachable, the satellite is also unreachable (will be ignored if allowSSatUnreachable is true)
-            return false;
+        	// If parent body is unreachable, the satellite is also unreachable (will be ignored if allowSSatUnreachable is true)
+        	return false;
         }
 
         boolean foundRecipe = false;

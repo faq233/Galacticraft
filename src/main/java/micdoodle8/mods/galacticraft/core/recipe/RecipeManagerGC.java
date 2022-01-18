@@ -246,7 +246,7 @@ public class RecipeManagerGC
         }
 
         final HashMap<Object, Integer> inputMap = new HashMap<Object, Integer>();
-        inputMap.put(new ItemStack(GCBlocks.basicBlock, 1, 4), 230);
+        inputMap.put(new ItemStack(GCBlocks.basicBlock, 1, 4), 231);
         inputMap.put(new ItemStack(Blocks.glass_pane), 6);
         inputMap.put("circuitAdvanced", 4);
         inputMap.put(new ItemStack(GregTech_API.sBlockMachines, 1, 13), 1); //HV Machine Hull

@@ -28,6 +28,8 @@ public class GuiFuelLoader extends GuiContainerGC
     private GuiButton buttonLoadFuel;
     private GuiElementInfoRegion electricInfoRegion = new GuiElementInfoRegion((this.width - this.xSize) / 2 + 112, (this.height - this.ySize) / 2 + 65, 56, 9, new ArrayList<String>(), this.width, this.height, this);
 
+    private List<String> fuelTankDesc = new ArrayList<String>();
+
     public GuiFuelLoader(InventoryPlayer par1InventoryPlayer, TileEntityFuelLoader par2TileEntityAirDistributor)
     {
         super(new ContainerFuelLoader(par1InventoryPlayer, par2TileEntityAirDistributor));
@@ -51,9 +53,10 @@ public class GuiFuelLoader extends GuiContainerGC
     public void initGui()
     {
         super.initGui();
-        List<String> fuelTankDesc = new ArrayList<String>();
+        fuelTankDesc.clear();
         fuelTankDesc.add(GCCoreUtil.translate("gui.fuelTank.desc.2"));
         fuelTankDesc.add(GCCoreUtil.translate("gui.fuelTank.desc.3"));
+        fuelTankDesc.add("0.0/0.0 B");
         this.infoRegions.add(new GuiElementInfoRegion((this.width - this.xSize) / 2 + 7, (this.height - this.ySize) / 2 + 33, 16, 38, fuelTankDesc, this.width, this.height, this));
         List<String> batterySlotDesc = new ArrayList<String>();
         batterySlotDesc.add(GCCoreUtil.translate("gui.batterySlot.desc.0"));
@@ -113,6 +116,11 @@ public class GuiFuelLoader extends GuiContainerGC
         EnergyDisplayHelper.getEnergyDisplayTooltip(this.fuelLoader.getEnergyStoredGC(), this.fuelLoader.getMaxEnergyStoredGC(), electricityDesc);
 //		electricityDesc.add(EnumColor.YELLOW + GCCoreUtil.translate("gui.energyStorage.desc.1") + ((int) Math.floor(this.fuelLoader.getEnergyStoredGC()) + " / " + (int) Math.floor(this.fuelLoader.getMaxEnergyStoredGC())));
         this.electricInfoRegion.tooltipStrings = electricityDesc;
+
+        String fuelStr = String.format("%.1f/%.1f B",
+                this.fuelLoader.fuelTank.getFluidAmount() / 1000.0f,
+                this.fuelLoader.fuelTank.getCapacity() / 1000.0f);
+        fuelTankDesc.set(2, fuelStr);
 
         if (this.fuelLoader.getEnergyStoredGC() > 0)
         {

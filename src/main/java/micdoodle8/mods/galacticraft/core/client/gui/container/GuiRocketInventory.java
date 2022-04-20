@@ -61,11 +61,20 @@ public class GuiRocketInventory extends GuiContainerGC
 
         if (this.mc.thePlayer != null && this.mc.thePlayer.ridingEntity != null && this.mc.thePlayer.ridingEntity instanceof EntitySpaceshipBase)
         {
-            this.fontRendererObj.drawString(GCCoreUtil.translate("gui.message.fuel.name") + ":", 125, 15 + 3, 4210752);
-            final double percentage = ((EntitySpaceshipBase) this.mc.thePlayer.ridingEntity).getScaledFuelLevel(100);
+            this.fontRendererObj.drawString(GCCoreUtil.translate("gui.message.fuel.name") + ":", 125, 15, 4210752);
+            final EntitySpaceshipBase spaceship = ((EntitySpaceshipBase) this.mc.thePlayer.ridingEntity);
+            final double percentage = spaceship.getScaledFuelLevel(100);
             final String color = percentage > 80.0D ? EnumColor.BRIGHT_GREEN.getCode() : percentage > 40.0D ? EnumColor.ORANGE.getCode() : EnumColor.RED.getCode();
-            final String str = percentage + "% " + GCCoreUtil.translate("gui.message.full.name");
-            this.fontRendererObj.drawString(color + str, 117 - str.length() / 2, 20 + 8, 4210752);
+            //final String str = percentage + "% " + GCCoreUtil.translate("gui.message.full.name");
+            final String str1 = String.format("%.1f%% %s",
+                    percentage, GCCoreUtil.translate("gui.message.full.name")
+                    );
+            final String str2 = String.format("%.1f/%.1f B",
+                    spaceship.fuelTank.getFluidAmount() / 1000.0f,
+                    spaceship.fuelTank.getCapacity() / 1000.0f
+            );
+            this.fontRendererObj.drawString(color + str1, 117 - str1.length() / 2, 16 + 8, 4210752);
+            this.fontRendererObj.drawString(color + str2, 117 - str2.length() / 2, 16 + 16, 4210752);
         }
     }
 

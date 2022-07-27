@@ -1,0 +1,84 @@
+{
+  "mappings": {
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/ItemRendererMixin": {
+      "renderOverlays": "Lnet/minecraft/client/renderer/ItemRenderer;func_78447_b(F)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/GuiSleepMPMxin": {
+      "func_146418_g": "Lnet/minecraft/client/gui/GuiSleepMP;func_146418_g()V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityRendererWithoutOptifineMixin": {
+      "Lnet/minecraft/client/multiplayer/WorldClient;getFogColor(F)Lnet/minecraft/util/Vec3;": "Lnet/minecraft/client/multiplayer/WorldClient;func_72948_g(F)Lnet/minecraft/util/Vec3;",
+      "updateFogColor": "Lnet/minecraft/client/renderer/EntityRenderer;func_78466_h(F)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityLivingBaseMixin": {
+      "moveEntityWithHeading": "Lnet/minecraft/entity/EntityLivingBase;func_70612_e(FF)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityItemMixin": {
+      "onUpdate": "Lnet/minecraft/entity/item/EntityItem;func_70071_h_()V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityArrowMixin": {
+      "onUpdate": "Lnet/minecraft/entity/projectile/EntityArrow;func_70071_h_()V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityRendererMixin": {
+      "updateLightmap": "Lnet/minecraft/client/renderer/EntityRenderer;func_78472_g(F)V",
+      "Lnet/minecraft/client/multiplayer/WorldClient;getSunBrightness(F)F": "Lnet/minecraft/client/multiplayer/WorldClient;func_72971_b(F)F",
+      "Lnet/minecraft/client/multiplayer/WorldClient;getSkyColor(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;": "Lnet/minecraft/client/multiplayer/WorldClient;func_72833_a(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;",
+      "orientCamera": "Lnet/minecraft/client/renderer/EntityRenderer;func_78467_g(F)V",
+      "updateFogColor": "Lnet/minecraft/client/renderer/EntityRenderer;func_78466_h(F)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/EffectRendererMixin": {
+      "renderParticles": "Lnet/minecraft/client/particle/EffectRenderer;func_78874_a(Lnet/minecraft/entity/Entity;F)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/RendererLivingEntityMixin": {
+      "renderModel": "Lnet/minecraft/client/renderer/entity/RendererLivingEntity;func_77036_a(Lnet/minecraft/entity/EntityLivingBase;FFFFFF)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/NetHandlerPlayClientMixin": {
+      "handleSpawnPlayer": "Lnet/minecraft/client/network/NetHandlerPlayClient;func_147237_a(Lnet/minecraft/network/play/server/S0CPacketSpawnPlayer;)V"
+    },
+    "micdoodle8/mods/galacticraft/core/mixins/minecraft/ChunkProviderServerMixin": {
+      "populate(Lnet/minecraft/world/chunk/IChunkProvider;II)V": "Lnet/minecraft/world/gen/ChunkProviderServer;func_73153_a(Lnet/minecraft/world/chunk/IChunkProvider;II)V"
+    }
+  },
+  "data": {
+    "searge": {
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/ItemRendererMixin": {
+        "renderOverlays": "Lnet/minecraft/client/renderer/ItemRenderer;func_78447_b(F)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/GuiSleepMPMxin": {
+        "func_146418_g": "Lnet/minecraft/client/gui/GuiSleepMP;func_146418_g()V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityRendererWithoutOptifineMixin": {
+        "Lnet/minecraft/client/multiplayer/WorldClient;getFogColor(F)Lnet/minecraft/util/Vec3;": "Lnet/minecraft/client/multiplayer/WorldClient;func_72948_g(F)Lnet/minecraft/util/Vec3;",
+        "updateFogColor": "Lnet/minecraft/client/renderer/EntityRenderer;func_78466_h(F)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityLivingBaseMixin": {
+        "moveEntityWithHeading": "Lnet/minecraft/entity/EntityLivingBase;func_70612_e(FF)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityItemMixin": {
+        "onUpdate": "Lnet/minecraft/entity/item/EntityItem;func_70071_h_()V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityArrowMixin": {
+        "onUpdate": "Lnet/minecraft/entity/projectile/EntityArrow;func_70071_h_()V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/EntityRendererMixin": {
+        "updateLightmap": "Lnet/minecraft/client/renderer/EntityRenderer;func_78472_g(F)V",
+        "Lnet/minecraft/client/multiplayer/WorldClient;getSunBrightness(F)F": "Lnet/minecraft/client/multiplayer/WorldClient;func_72971_b(F)F",
+        "Lnet/minecraft/client/multiplayer/WorldClient;getSkyColor(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;": "Lnet/minecraft/client/multiplayer/WorldClient;func_72833_a(Lnet/minecraft/entity/Entity;F)Lnet/minecraft/util/Vec3;",
+        "orientCamera": "Lnet/minecraft/client/renderer/EntityRenderer;func_78467_g(F)V",
+        "updateFogColor": "Lnet/minecraft/client/renderer/EntityRenderer;func_78466_h(F)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/EffectRendererMixin": {
+        "renderParticles": "Lnet/minecraft/client/particle/EffectRenderer;func_78874_a(Lnet/minecraft/entity/Entity;F)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/RendererLivingEntityMixin": {
+        "renderModel": "Lnet/minecraft/client/renderer/entity/RendererLivingEntity;func_77036_a(Lnet/minecraft/entity/EntityLivingBase;FFFFFF)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/NetHandlerPlayClientMixin": {
+        "handleSpawnPlayer": "Lnet/minecraft/client/network/NetHandlerPlayClient;func_147237_a(Lnet/minecraft/network/play/server/S0CPacketSpawnPlayer;)V"
+      },
+      "micdoodle8/mods/galacticraft/core/mixins/minecraft/ChunkProviderServerMixin": {
+        "populate(Lnet/minecraft/world/chunk/IChunkProvider;II)V": "Lnet/minecraft/world/gen/ChunkProviderServer;func_73153_a(Lnet/minecraft/world/chunk/IChunkProvider;II)V"
+      }
+    }
+  }
+}
